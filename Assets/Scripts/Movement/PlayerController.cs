@@ -8,6 +8,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
 
+    [Header("Gravity Multipliers")]
+    [SerializeField] float fallMultiplier = 2.5f;      
+    [SerializeField] float lowJumpMultiplier = 2f; 
+    [SerializeField] float defaultGravityScale = 1f;
+
     private Vector2 moveInput;
 
     void Start()
@@ -43,4 +48,22 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
         }
     }
+
+    void FixedUpdate()
+    {
+        if (rb.linearVelocity.y < 0)
+        {
+            // Falling — apply extra gravity
+            rb.gravityScale = fallMultiplier;
+        }
+        else if (rb.linearVelocity.y > 0 )
+        {
+            // Rising but jump released — cut arc short
+            rb.gravityScale = lowJumpMultiplier;
+
+        }
+        
+    }
+
+
 }
