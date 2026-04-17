@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
+    public static HealthManager Instance;
     public Image player1HealthBar;
     public Image player2HealthBar;
 
@@ -10,6 +11,18 @@ public class HealthManager : MonoBehaviour
     public float player2MaxHealth = 100;
     public float player1CurrentHealth;
     public float player2CurrentHealth;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
 
     public void TakeDamage(int playerNumber, int damageAmount)
@@ -30,5 +43,12 @@ public class HealthManager : MonoBehaviour
     {
         player1HealthBar.fillAmount = player1CurrentHealth / player1MaxHealth;
         player2HealthBar.fillAmount = player2CurrentHealth / player2MaxHealth;
+    }
+
+    public void ResetHealth()
+    {
+        player1CurrentHealth = player1MaxHealth;
+        player2CurrentHealth = player2MaxHealth;
+        UpdateHealthBar();
     }
 }
