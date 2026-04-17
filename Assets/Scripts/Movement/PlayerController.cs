@@ -8,15 +8,22 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
 
+    private Vector2 moveInput;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void Move()
+    void Update()
     {
-        float moveInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        Vector2 movement = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = movement;
+    }
+
+    public void Move(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
     }
 
     public void Jump(InputAction.CallbackContext context)
