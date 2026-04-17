@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 154a72194fca1a2478aebd66c8474ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  moveSpeed: 5
+  moveSpeed: 20
   jumpForce: 25
   fallMultiplier: 10
   lowJumpMultiplier: 6
@@ -94,6 +94,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 44585d38-9489-4a62-b720-c43594e4c79a
     m_ActionName: 'Player1/Jump[/Keyboard/w]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2570392242387121990}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Move
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4d0531c2-b858-476f-a383-e26a01c877c5
+    m_ActionName: 'Player1/Movement[/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player1
@@ -125,7 +141,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &2295006012666104337
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
