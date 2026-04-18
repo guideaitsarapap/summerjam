@@ -1,8 +1,17 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum PlayerSide
+{
+    Red,
+    Blue
+}
+
 public class PlayerController : MonoBehaviour
 {
+    public PlayerSide side;
+    public bool facingRight = true;
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
     private Rigidbody2D rb;
@@ -14,6 +23,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float defaultGravityScale = 1f;
 
     private Vector2 moveInput;
+
+    public event Action<PlayerController> OnPlayerHit;
 
     void Start()
     {
@@ -29,6 +40,14 @@ public class PlayerController : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+        if (moveInput.x > 0 && !facingRight)
+        {
+            flip();
+        }
+        else if (moveInput.x < 0 && facingRight)
+        {
+            flip();
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -49,6 +68,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void HitBallAction(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            OnPlayerHit?.Invoke(this);
+            Debug.Log($"{side} team Hit action!!");
+        }
+    }
+
+    public void flip()
+    {
+        facingRight = !facingRight;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+    }
+
     void FixedUpdate()
     {
         if (rb.linearVelocity.y < 0)
@@ -62,8 +98,5 @@ public class PlayerController : MonoBehaviour
             rb.gravityScale = lowJumpMultiplier;
 
         }
-        
     }
-
-
 }
