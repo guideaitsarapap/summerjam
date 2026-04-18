@@ -117,7 +117,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2570392242387121990}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: HitBallAction
+        m_MethodName: HitAction
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
