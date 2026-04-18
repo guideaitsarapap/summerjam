@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 5f;
     private Rigidbody2D rb;
     private bool isGrounded;
+    private bool isDoubleJumpUsed;
 
     [Header("Gravity Multipliers")]
     [SerializeField] float fallMultiplier = 2.5f;      
@@ -58,19 +59,30 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-            if (isGrounded && context.started)
+        if (context.started)
+        {
+            if (isGrounded)
             {
                 Debug.Log("Jumping");
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 isGrounded = false;
             }
+            else if (!isDoubleJumpUsed)
+            {
+                Debug.Log("Double Jump!");
+                rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+                isDoubleJumpUsed = true;
+            }
+        }
     }
+    
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            isDoubleJumpUsed = false; // Reset double jump when landing
         }
     }
 
