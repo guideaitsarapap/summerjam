@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public enum PlayerSide
 {
+    Natural,
     Red,
     Blue
 }
