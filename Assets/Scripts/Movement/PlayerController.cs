@@ -90,6 +90,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void SetAction(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            HitType type = HitType.Set;
+            OnPlayerHit?.Invoke(this, type);
+        }
+    }
+
 
     public void flip()
     {
