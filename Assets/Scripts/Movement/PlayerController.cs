@@ -70,6 +70,7 @@ public class PlayerController : MonoBehaviour
             else if (!isDoubleJumpUsed)
             {
                 Debug.Log("Double Jump!");
+                rb.linearVelocityY = 0f; 
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 isDoubleJumpUsed = true;
             }
@@ -120,9 +121,14 @@ public class PlayerController : MonoBehaviour
         transform.localScale = scale;
     }
 
+    public void Dead()
+    {
+        Debug.Log("Player " + side + " is Dead!");
+    }
+
     void FixedUpdate()
     {
-        if (rb.linearVelocity.y < 0)
+        if (rb.linearVelocity.y <= 0)
         {
             // Falling — apply extra gravity
             rb.gravityScale = fallMultiplier;

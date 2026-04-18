@@ -41,7 +41,7 @@ public class Ball : MonoBehaviour
     public void SetBall(Vector2 force)
     {
         rb.gravityScale = 1f;
-        currentSpeed = baseSpeed;
+        //currentSpeed = baseSpeed;
         rb.linearVelocity = force;
     }
 
