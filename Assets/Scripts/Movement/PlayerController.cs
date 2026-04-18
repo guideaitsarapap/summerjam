@@ -7,6 +7,12 @@ public enum PlayerSide
     Red,
     Blue
 }
+public enum HitType
+{
+    Straight,
+    Down,
+    Set
+}
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 moveInput;
 
-    public event Action<PlayerController> OnPlayerHit;
+    public event Action<PlayerController,HitType> OnPlayerHit;
 
     void Start()
     {
@@ -68,14 +74,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void HitBallAction(InputAction.CallbackContext context)
+    public void HitAction(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            OnPlayerHit?.Invoke(this);
-            Debug.Log($"{side} team Hit action!!");
+            HitType type = HitType.Straight;
+
+            if (!isGrounded && Mathf.Abs(moveInput.x) > 0.1f)
+            {
+                type = HitType.Down;
+                Debug.Log("Aerial Spike! (Down Hit)");
+            }
+
+            OnPlayerHit?.Invoke(this, type);
         }
     }
+
 
     public void flip()
     {

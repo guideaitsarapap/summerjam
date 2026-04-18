@@ -20,19 +20,32 @@ public class HitBox : MonoBehaviour
         if (myPlayer != null) myPlayer.OnPlayerHit -= HandleHit;
     }
 
-    private void HandleHit(PlayerController player)
+    private void HandleHit(PlayerController player, HitType type)
     {
-        if (ballInRange != null)
+        if (ballInRange == null) 
         {
-            float dirX = player.facingRight ? 1f : -1f;
-            
-            Vector2 hitDir = new Vector2(dirX, 0.5f).normalized;
-
-            ballInRange.Hit(hitDir, player.side); 
+            Debug.Log("No ball in range to hit!");
+            return;
         }
-        if (ballInRange == null)
+
+        float dirX = player.facingRight ? 1f : -1f;
+        Vector2 finalDir = Vector2.zero;
+
+        switch (type)
         {
-            Debug.Log("No ball in range to hit.");
+            case HitType.Straight:
+                finalDir = new Vector2(dirX, 0f).normalized;
+                ballInRange.Hit(finalDir, player.side);
+                break;
+
+            case HitType.Down:
+                finalDir = new Vector2(dirX, -1f).normalized;
+                ballInRange.Hit(finalDir, player.side);
+                break;
+
+            case HitType.Set:
+                ballInRange.SetBall(new Vector2(0, 8f)); 
+                break;
         }
     }
 
