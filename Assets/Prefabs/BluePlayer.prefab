@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f20b2769546537e44bc7abea29258ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  forceSetUp: {x: 0, y: 8}
 --- !u!1 &5579653756880970205
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   side: 1
-  facingRight: 1
+  facingRight: 0
   moveSpeed: 10
   jumpForce: 22
   fallMultiplier: 8
