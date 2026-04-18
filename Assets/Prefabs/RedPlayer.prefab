@@ -51,9 +51,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   side: 0
   facingRight: 1
-  moveSpeed: 20
-  jumpForce: 25
-  fallMultiplier: 10
+  moveSpeed: 10
+  jumpForce: 22
+  fallMultiplier: 8
   lowJumpMultiplier: 6
   defaultGravityScale: 1
 --- !u!114 &5083833496778651394
