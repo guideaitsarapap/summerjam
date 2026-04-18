@@ -5,6 +5,9 @@ public class HitBox : MonoBehaviour
     private Ball ballInRange;
     private PlayerController myPlayer;
 
+    [Header("Force Set Up Power ")]
+    [SerializeField] Vector2 forceSetUp = new Vector2(0, 8f);
+
     private void Awake()
     {
         myPlayer = GetComponentInParent<PlayerController>();
@@ -44,7 +47,7 @@ public class HitBox : MonoBehaviour
                 break;
 
             case HitType.Set:
-                ballInRange.SetBall(new Vector2(0, 8f)); 
+                ballInRange.SetBall(forceSetUp,myPlayer.side); 
                 break;
         }
     }
