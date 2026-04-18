@@ -23,31 +23,19 @@ public class Ball : MonoBehaviour
         lastVelocity = rb.linearVelocity;
     }
 
-    void Update()   
-    {
-        
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            Hit(new Vector2(1f, 0)); 
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Hit(new Vector2(1f, -1f)); 
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            SetBall(new Vector2(0.2f, 10f));
-        }
-    }
-
-    public void Hit(Vector2 direction)
+    public void Hit(Vector2 direction, PlayerSide hitterSide)
     {
         rb.gravityScale = 0f;
-
         currentSpeed *= speedIncrease;
         currentSpeed = Mathf.Clamp(currentSpeed, baseSpeed, maxSpeed);
 
-        rb.linearVelocity = direction.normalized * currentSpeed;
+        rb.linearVelocity = direction * currentSpeed;
+
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (hitterSide == PlayerSide.Red)
+            sr.color = Color.red;
+        else
+            sr.color = Color.blue;
     }
 
     public void SetBall(Vector2 force)
