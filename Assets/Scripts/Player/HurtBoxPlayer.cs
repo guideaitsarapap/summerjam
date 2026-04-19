@@ -9,20 +9,10 @@ public class HurtBoxPlayer : MonoBehaviour
         private set { playerController.side = value; }
     }
 
-
-    public void Dead()
-    {
-        playerController.Dead();
-    }
-
     public void DamageHit(float damageAmount)
     {
-        HealthManager.Instance.TakeDamage(playerSide, (int)damageAmount);
-    
-        
+        GameFlowManager.Instance.ApplyDamage(playerSide, (int)damageAmount);
     }
-
-
 }
 
     

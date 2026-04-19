@@ -3,11 +3,16 @@ using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using System.Collections;
 
 public class GameFlowManager : MonoBehaviour
 {
     public static GameFlowManager Instance;
     public List<PlayerIdentity> connectedPlayers = new List<PlayerIdentity>();
+
+    [Header("Match Rules")]
+    public int winsRequiredToMatch = 2; // ชนะ 2 ใน 3
+    private bool isRoundActive = false;
 
     void Awake()
     {
@@ -48,25 +53,73 @@ public class GameFlowManager : MonoBehaviour
             // SceneManager.LoadScene("GameScene");
         }
     }
-}
 
-
-[Serializable]
-public class PlayerIdentity
-{
-    public int playerIndex;           // ลำดับผู้เล่น (0 หรือ 1)
-    public PlayerSide playerSide;      // ฝั่งของผู้เล่น (Red หรือ Blue)
-    public bool isReadyInLobby;       // สถานะความพร้อม
-    public int currentHealth;
-
-    [NonSerialized]
-    public PlayerController controllerReference;
-
-    public PlayerIdentity(int index, PlayerSide side, PlayerController controller)
+    public void ApplyDamage(PlayerSide side, float damageAmount)
     {
-        this.playerIndex = index;
-        this.playerSide = side;
-        this.controllerReference = controller;
-        this.isReadyInLobby = false;
+        var player = connectedPlayers.Find(p => p.side == side);
+
+        if (player != null)
+        {
+            player.currentHealth -= damageAmount;
+            player.currentHealth = Mathf.Clamp(player.currentHealth, 0, player.maxHealth);
+
+            HealthManager.Instance.UpdateHealthUI(player.side, player.currentHealth, player.maxHealth);
+
+            if (player.currentHealth <= 0)
+            {
+                OnPlayerDefeated(side);
+            }
+        }
+    }
+
+    public void OnPlayerDefeated(PlayerSide loserSide)
+    {
+        if (!isRoundActive) return;
+        isRoundActive = false;
+
+        PlayerIdentity winner = connectedPlayers.Find(p => p.side != loserSide);
+        PlayerIdentity loser = connectedPlayers.Find(p => p.side == loserSide);
+
+        if (winner != null)
+        {
+            winner.roundWins++;
+            Debug.Log($"Round Ended! Winner: {winner.side} (Wins: {winner.roundWins})");
+
+
+            if (winner.roundWins >= winsRequiredToMatch)
+            {
+                FinishMatch(winner.side);
+            }
+            else
+            {
+                StartCoroutine(PrepareNextRound());
+            }
+        }
+    }
+    private IEnumerator PrepareNextRound()
+    {
+        yield return new WaitForSeconds(3f);
+
+        foreach (var player in connectedPlayers)
+        {
+            player.currentHealth = player.maxHealth;
+        }
+
+        // 2. สั่ง HealthManager ให้รีเซ็ตหลอดเลือดบนจอ
+        HealthManager.Instance.ResetAllHealthBars();
+
+        // 3. ย้ายตำแหน่งผู้เล่นกลับไปจุด Spawn (ถ้ามี Reference ของ Controller)
+        // MovePlayersToSpawnPoints();
+
+        // 4. กลับไปเริ่มสถานะนับถอยหลังใหม่
+        // StartCountdown();
+        
+        isRoundActive = true;
+        Debug.Log("Next Round Starts!");
+    }
+    
+    private void FinishMatch(PlayerSide matchWinner)
+    {
+        Debug.Log($"MATCH OVER! {matchWinner} IS THE CHAMPION!");
     }
 }

@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     public void Initialize(PlayerIdentity identity)
     {
         Identity = identity;
-        this.side = Identity.playerSide; 
+        this.side = Identity.side; 
     }
 
     void Start()
@@ -128,12 +128,6 @@ public class PlayerController : MonoBehaviour
         scale.x *= -1;
         transform.localScale = scale;
     }
-
-    public void Dead()
-    {
-        Debug.Log("Player " + side + " is Dead!");
-    }
-
     void FixedUpdate()
     {
         if (rb.linearVelocity.y <= 0)
