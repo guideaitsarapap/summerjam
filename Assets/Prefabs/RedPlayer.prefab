@@ -188,8 +188,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 44585d38-9489-4a62-b720-c43594e4c79a
-    m_ActionName: 'Player1/Jump[/Keyboard/w]'
+    m_ActionId: 611cff32-2bbe-4203-ac0c-062d80816a74
+    m_ActionName: 'Player/Jump[/Keyboard/w,/Keyboard/p,/XInputControllerWindows1/buttonSouth,/XInputControllerWindows2/buttonSouth]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2570392242387121990}
@@ -204,8 +204,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 4d0531c2-b858-476f-a383-e26a01c877c5
-    m_ActionName: 'Player1/Movement[/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+    m_ActionId: 77647718-f52d-48b9-823b-ab27584ee10a
+    m_ActionName: 'Player/Move[/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2570392242387121990}
@@ -220,8 +220,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: d97ac932-8d8d-4b37-9e70-fa0af1cdd9f3
-    m_ActionName: 'Player1/Swing[/Keyboard/j]'
+    m_ActionId: f05e5d6b-b6f5-45be-9ccd-2a9ba862e182
+    m_ActionName: 'Player/HitAction[/Keyboard/leftAlt]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2570392242387121990}
@@ -236,27 +236,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 3ce493d0-ec4c-4f57-b9cc-43f52cabb71c
-    m_ActionName: 'Player1/Set[/Keyboard/k]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 62b07aa8-8525-4c92-9de9-7cfcece3dc4b
-    m_ActionName: 'Player2/Jump[/Keyboard/upArrow]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 07734377-606a-440f-a88a-ac4a5a8aa3fc
-    m_ActionName: 'Player2/Movement[/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: eb391fe8-cd3e-4798-ad53-6336230333af
-    m_ActionName: 'Player2/Swing[/Keyboard/rightAlt]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: a099ff24-2203-4e7e-ac07-a6676b943285
-    m_ActionName: 'Player2/Set[/Keyboard/rightShift]'
-  m_NeverAutoSwitchControlSchemes: 0
+    m_ActionId: 5cfb8cf0-fee6-4b0f-9148-2f46263b09cd
+    m_ActionName: 'Player/SetAction[/Keyboard/leftShift]'
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player1
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!50 &3827702254782428745
