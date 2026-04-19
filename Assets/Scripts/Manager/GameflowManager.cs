@@ -5,29 +5,52 @@ using System.Linq;
 using System;
 using System.Collections;
 
+public enum GameState
+{
+    Lobby,          
+    Countdown,   
+    Playing,        
+    RoundEnd,       
+    MatchOver       
+}
+
 public class GameFlowManager : MonoBehaviour
 {
     public static GameFlowManager Instance;
     public List<PlayerIdentity> connectedPlayers = new List<PlayerIdentity>();
 
-    [Header("Match Rules")]
-    public int winsRequiredToMatch = 2; // ชนะ 2 ใน 3
-    private bool isRoundActive = false;
+    [Header("Match Settings")]
+    public GameState currentGameState = GameState.Lobby;
+    public int winsRequiredToMatch = 2;
+    
+    // เอาไว้เช็คว่าตอนนี้ลดเลือดได้ไหม
+    public bool IsBattleActive => currentGameState == GameState.Playing;
 
     void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    // ฟังก์ชันสำหรับลงทะเบียน (ที่เรียกจาก MultiplayerManager)
+    // --- Lobby ---
+
     public void RegisterNewPlayer(PlayerInput playerInput)
     {
+        if (currentGameState != GameState.Lobby) return;
+
         PlayerController controller = playerInput.GetComponent<PlayerController>();
         if (controller != null && !connectedPlayers.Any(p => p.playerIndex == playerInput.playerIndex))
         {
             PlayerIdentity newIdentity = new PlayerIdentity(playerInput.playerIndex, controller.side, controller);
             connectedPlayers.Add(newIdentity);
-            Debug.Log($"Registered P{playerInput.playerIndex + 1}");
+            Debug.Log($"[Flow] Registered P{playerInput.playerIndex + 1}");
         }
     }
 
@@ -38,9 +61,9 @@ public class GameFlowManager : MonoBehaviour
         if (playerFound != null && !playerFound.isReadyInLobby)
         {
             playerFound.isReadyInLobby = true;
-            characterController.GetComponentInChildren<SpriteRenderer>().color = Color.green;
+            // เปลี่ยนสีตัวละครเพื่อบอกว่า Ready แล้ว
+            //characterController.GetComponentInChildren<SpriteRenderer>().color = Color.green;
             
-            Debug.Log($"[Flow] Player {playerFound.playerIndex + 1} Ready!");
             CheckAndStartGameTransition();
         }
     }
@@ -49,13 +72,57 @@ public class GameFlowManager : MonoBehaviour
     {
         if (connectedPlayers.Count >= 2 && connectedPlayers.All(p => p.isReadyInLobby))
         {
-            Debug.Log("GO TO GAMEPLAY!");
-            // SceneManager.LoadScene("GameScene");
+            Debug.Log("[Flow] ALL READY! Loading Gameplay...");
+            // ตรงนี้เปลี่ยน State เป็น Countdown (หรือจะเปลี่ยนหลังจากโหลด Scene เสร็จก็ได้)
+            StartCoroutine(TransitionToGameplayRoutine());
         }
+    }
+
+    private IEnumerator TransitionToGameplayRoutine()
+    {
+        // 1. โหลด Scene (สมมติว่าชื่อ GameScene)
+        // SceneManager.LoadScene("GameScene");
+        // yield return new WaitForSeconds(0.5f); // รอโหลดแป๊บนึง
+
+        // 2. เมื่อเข้าฉากใหม่ ให้เริ่มนับถอยหลัง
+        StartNewRound();
+        yield return null;
+    }
+
+    // --- Gameplay ---
+
+    public void StartNewRound()
+    {
+        currentGameState = GameState.Countdown;
+        
+        // รีเซ็ตเลือดในข้อมูล
+        foreach (var player in connectedPlayers)
+        {
+            player.currentHealth = player.maxHealth;
+        }
+        
+        HealthManager.Instance.ResetAllHealthBars();
+        
+        StartCoroutine(RoundCountdownRoutine());
+    }
+
+    private IEnumerator RoundCountdownRoutine()
+    {
+        Debug.Log("3...");
+        yield return new WaitForSeconds(1f);
+        Debug.Log("2...");
+        yield return new WaitForSeconds(1f);
+        Debug.Log("1...");
+        yield return new WaitForSeconds(1f);
+        Debug.Log("FIGHT!");
+
+        currentGameState = GameState.Playing;
     }
 
     public void ApplyDamage(PlayerSide side, float damageAmount)
     {
+        if (currentGameState != GameState.Playing) return;
+
         var player = connectedPlayers.Find(p => p.side == side);
 
         if (player != null)
@@ -74,17 +141,16 @@ public class GameFlowManager : MonoBehaviour
 
     public void OnPlayerDefeated(PlayerSide loserSide)
     {
-        if (!isRoundActive) return;
-        isRoundActive = false;
+        if (currentGameState != GameState.Playing) return;
+        
+        currentGameState = GameState.RoundEnd;
 
         PlayerIdentity winner = connectedPlayers.Find(p => p.side != loserSide);
-        PlayerIdentity loser = connectedPlayers.Find(p => p.side == loserSide);
-
+        
         if (winner != null)
         {
             winner.roundWins++;
-            Debug.Log($"Round Ended! Winner: {winner.side} (Wins: {winner.roundWins})");
-
+            Debug.Log($"Round Ended! Winner: {winner.side} (Total Wins: {winner.roundWins})");
 
             if (winner.roundWins >= winsRequiredToMatch)
             {
@@ -92,34 +158,22 @@ public class GameFlowManager : MonoBehaviour
             }
             else
             {
-                StartCoroutine(PrepareNextRound());
+                StartCoroutine(PrepareNextRoundRoutine());
             }
         }
     }
-    private IEnumerator PrepareNextRound()
+
+    private IEnumerator PrepareNextRoundRoutine()
     {
+        //Show round end screen or something here
         yield return new WaitForSeconds(3f);
-
-        foreach (var player in connectedPlayers)
-        {
-            player.currentHealth = player.maxHealth;
-        }
-
-        // 2. สั่ง HealthManager ให้รีเซ็ตหลอดเลือดบนจอ
-        HealthManager.Instance.ResetAllHealthBars();
-
-        // 3. ย้ายตำแหน่งผู้เล่นกลับไปจุด Spawn (ถ้ามี Reference ของ Controller)
-        // MovePlayersToSpawnPoints();
-
-        // 4. กลับไปเริ่มสถานะนับถอยหลังใหม่
-        // StartCountdown();
-        
-        isRoundActive = true;
-        Debug.Log("Next Round Starts!");
+        StartNewRound(); 
     }
     
     private void FinishMatch(PlayerSide matchWinner)
     {
+        currentGameState = GameState.MatchOver;
         Debug.Log($"MATCH OVER! {matchWinner} IS THE CHAMPION!");
+        //Show who won the match and return to lobby or something here
     }
 }
