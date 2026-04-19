@@ -5,15 +5,22 @@ public class Ball : MonoBehaviour
 {
     private Rigidbody2D rb;
 
+    [Header("Speed Settings")]
     public float baseSpeed = 8f;
     public float speedIncrease = 1.2f;
     public float maxSpeed = 25f;
+    private float currentSpeed;
+
+    [Header("Physics & Collision")]
     private Vector2 lastVelocity;
     [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private LayerMask boundLayer;
+
+    [Header("Ball Status")]
     private BallSide currentSide = BallSide.Neutral;
 
-    private float currentSpeed;
-    [SerializeField] LayerMask boundLayer;
+    [Header("Force Set Up Power")]
+    [SerializeField] Vector2 forceSetUp = new Vector2(0, 8f);
 
     void Start()
     {
@@ -24,6 +31,31 @@ public class Ball : MonoBehaviour
     void FixedUpdate()
     {
         lastVelocity = rb.linearVelocity;
+    }
+
+    public void OnGetHit(PlayerController hitter, HitType hitType)
+    {
+        float dirX = hitter.facingRight ? 1f : -1f;
+        Vector2 finalDir = Vector2.zero;
+
+        switch (hitType)
+        {
+            case HitType.Straight:
+                finalDir = new Vector2(dirX, 0f).normalized;
+                Hit(finalDir, hitter.side);
+                break;
+
+            case HitType.Down:
+                // ตบลงพื้น (Spike/Down Hit)
+                finalDir = new Vector2(dirX, -1f).normalized;
+                Hit(finalDir, hitter.side);
+                break;
+
+            case HitType.Set:
+                // เดาะบอลขึ้น (Set)
+                SetBall(forceSetUp, hitter.side);
+                break;
+        }
     }
 
     public void Hit(Vector2 direction, PlayerSide hitterSide, float speedIncreaseMultiplier = 1.2f)

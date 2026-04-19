@@ -17,6 +17,7 @@ public enum HitType
 
 public class PlayerController : MonoBehaviour
 {
+    public PlayerIdentity Identity;
     public PlayerSide side;
     public bool facingRight = true;
     public float moveSpeed = 5f;
@@ -33,6 +34,12 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput;
 
     public event Action<PlayerController,HitType> OnPlayerHit;
+
+    public void Initialize(PlayerIdentity identity)
+    {
+        Identity = identity;
+        this.side = Identity.playerSide; 
+    }
 
     void Start()
     {

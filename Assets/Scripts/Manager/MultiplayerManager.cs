@@ -3,23 +3,34 @@ using UnityEngine.InputSystem;
 
 public class MultiplayerManager : MonoBehaviour
 {
+    public static MultiplayerManager Instance;
     [Header("Player Prefabs")]
-    public GameObject redPrefab;
-    public GameObject bluePrefab;
+    [SerializeField]private GameObject redPrefab;
+    [SerializeField]private GameObject bluePrefab;
 
     [Header("Spawn Points")]
     public Transform redSpawnPoint;
     public Transform blueSpawnPoint;
 
     [Header("Join Settings")]
-    public InputActionReference joinAction;
+    [SerializeField] private InputActionReference joinAction;
 
     private PlayerInputManager manager;
 
     void Awake()
     {
-        manager = GetComponent<PlayerInputManager>();
-        manager.playerPrefab = redPrefab;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); 
+            
+            manager = GetComponent<PlayerInputManager>();
+            manager.playerPrefab = redPrefab;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnEnable() 
@@ -51,16 +62,21 @@ public class MultiplayerManager : MonoBehaviour
 
     public void OnPlayerJoined(PlayerInput playerInput)
     {
+        if (GameFlowManager.Instance != null)
+        {
+            GameFlowManager.Instance.RegisterNewPlayer(playerInput);
+        }
+
         if (playerInput.playerIndex == 0)
         {
             playerInput.transform.position = redSpawnPoint.position;
             manager.playerPrefab = bluePrefab;
-            Debug.Log($"P1 Joined with: {playerInput.currentControlScheme}");
+            Debug.Log($"P1 Joined and Registered!");
         }
         else if (playerInput.playerIndex == 1)
         {
             playerInput.transform.position = blueSpawnPoint.position;
-            Debug.Log($"P2 Joined with: {playerInput.currentControlScheme}");
+            Debug.Log($"P2 Joined and Registered!");
         }
     }
 }
