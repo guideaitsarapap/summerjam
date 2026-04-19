@@ -142,6 +142,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 154a72194fca1a2478aebd66c8474ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  Identity:
+    playerIndex: 1
+    playerSide: 0
+    isReadyInLobby: 0
+    currentHealth: 100
   side: 1
   facingRight: 1
   moveSpeed: 10
@@ -238,6 +243,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5cfb8cf0-fee6-4b0f-9148-2f46263b09cd
     m_ActionName: 'Player/SetAction[/Keyboard/leftShift]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4c8d698f-e43b-4cb3-b8b6-5c90ff78c1d7
+    m_ActionName: 'Player/Join[/Keyboard/enter,/XInputControllerWindows1/start]'
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

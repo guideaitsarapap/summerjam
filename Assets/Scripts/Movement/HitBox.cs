@@ -1,11 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class HitBox : MonoBehaviour
 {
-    private Ball ballInRange;
     private PlayerController myPlayer;
+    private List<IHittable> HittableObjects = new List<IHittable>();
 
-    [Header("Force Set Up Power ")]
+    [Header("Force Set Up Power")]
     [SerializeField] Vector2 forceSetUp = new Vector2(0, 8f);
 
     private void Awake()
@@ -25,46 +26,42 @@ public class HitBox : MonoBehaviour
 
     private void HandleHit(PlayerController player, HitType type)
     {
-        if (ballInRange == null) 
+
+        for (int i = HittableObjects.Count - 1; i >= 0; i--)
         {
-            Debug.Log("No ball in range to hit!");
-            return;
-        }
-
-        float dirX = player.facingRight ? 1f : -1f;
-        Vector2 finalDir = Vector2.zero;
-
-        switch (type)
-        {
-            case HitType.Straight:
-                finalDir = new Vector2(dirX, 0f).normalized;
-                ballInRange.Hit(finalDir, player.side);
-                break;
-
-            case HitType.Down:
-                finalDir = new Vector2(dirX, -1f).normalized;
-                ballInRange.Hit(finalDir, player.side);
-                break;
-
-            case HitType.Set:
-                ballInRange.SetBall(forceSetUp,myPlayer.side); 
-                break;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Ball"))
-        {
-            ballInRange = null;
+            if (HittableObjects[i] != null)
+            {
+                HittableObjects[i].OnGetHit(player, type);
+            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Ball"))
+        // ลองเช็คดูว่าวัตถุที่เข้ามา "ตีได้" หรือไม่ (มี Interface IHittable ไหม)
+        var hittableObject = other.GetComponent<IHittable>();
+
+        if (hittableObject != null)
         {
-            ballInRange = other.GetComponent<Ball>();
+            // ถ้าตีได้ และยังไม่มีชื่อในสมุด ก็Addเพิ่มเข้าไป
+            if (!HittableObjects.Contains(hittableObject))
+            {
+                HittableObjects.Add(hittableObject);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        var hittableObject = other.GetComponent<IHittable>();
+
+        if (hittableObject != null)
+        {
+            
+            if (HittableObjects.Contains(hittableObject))
+            {
+                HittableObjects.Remove(hittableObject);
+            }
         }
     }
 }
