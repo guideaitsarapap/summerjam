@@ -3,6 +3,10 @@ using System.Collections;
 using TMPro;
 using System;
 
+namespace Scripts.UI
+{
+}
+
 public class TimeManager : MonoBehaviour
 {
     public static TimeManager Instance;
