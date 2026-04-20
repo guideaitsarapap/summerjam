@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 46598ea71f2051347a529c2bd0c48677
+guid: a7386027e9db35c449173ab9db4ca778
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3641310052835509249
-    second: HP Bar tranparency_0
+      213: 6255413763022110828
+    second: HP Bar_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HP Bar tranparency_0
+      name: HP Bar_0
       rect:
         serializedVersion: 2
-        x: 1602
-        y: 1931
-        width: 1455
-        height: 156
+        x: 28
+        y: 29
+        width: 455
+        height: 455
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 104c1585338888230800000000000000
-      internalID: 3641310052835509249
+      spriteID: c60c504cca1bfc650800000000000000
+      internalID: 6255413763022110828
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HP Bar tranparency_0: 3641310052835509249
+      HP Bar_0: 6255413763022110828
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
