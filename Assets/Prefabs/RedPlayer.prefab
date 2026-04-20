@@ -93,7 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HurtBoxPlayer
   playerController: {fileID: 2570392242387121990}
   iFrameDuration: 1
-  playerSprite: {fileID: 1442476937610693262}
+  playerSprite: {fileID: 5638238742694720336}
   stunDuration: 1
 --- !u!1 &3916306871377495677
 GameObject:
@@ -430,6 +430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2144373405709729835}
   - component: {fileID: 1442476937610693262}
+  - component: {fileID: 5638238742694720336}
   - component: {fileID: 343516217300448273}
   m_Layer: 0
   m_Name: Sprite
@@ -498,8 +499,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1405305753
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -3233194193602760144, guid: 43dec1144fe90934c816d922249be9f7, type: 3}
@@ -512,6 +513,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &5638238742694720336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6832069296482509246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6246688b19593b54f96ecdee2b3071dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeMaterials
+  isHasDefaultMaterials: 0
+  defaultMaterial: {fileID: 2100000, guid: 3451312268de5a441a4fdb7ed3cbe8fb, type: 2}
+  getHitMaterial: {fileID: 2100000, guid: 29e5520be9b933d4b9eedca3c18a1e54, type: 2}
 --- !u!95 &343516217300448273
 Animator:
   serializedVersion: 7

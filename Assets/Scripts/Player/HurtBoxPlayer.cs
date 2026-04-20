@@ -10,7 +10,7 @@ public class HurtBoxPlayer : MonoBehaviour
     private bool isInvincible = false;
 
     [Header("Visual Feedback")]
-    [SerializeField] private SpriteRenderer playerSprite;
+    [SerializeField] private ChangeMaterials playerSprite;
 
     [Header("Stun Settings")]
     [SerializeField] private float stunDuration = 0.2f;
@@ -48,13 +48,21 @@ public class HurtBoxPlayer : MonoBehaviour
         // --- Visual Feedback (ตัวละครกะพริบ) ---
         float timer = 0f;
         float blinkInterval = 0.1f; // ความเร็วในการกะพริบ
+        bool isDefautlMaterial = true;
 
         while (timer < iFrameDuration)
         {
             if (playerSprite != null)
             {
                 // สลับการแสดงผล Sprite (เปิด/ปิด) เพื่อให้ดูเหมือนกะพริบ
-                playerSprite.enabled = !playerSprite.enabled;
+                if (isDefautlMaterial)
+                {
+                    playerSprite.ChangeToGetHitMaterial();
+                }
+                else
+                {
+                    playerSprite.ChangeToDefaultMaterial();
+                }
             }
             
             yield return new WaitForSeconds(blinkInterval);
@@ -62,7 +70,7 @@ public class HurtBoxPlayer : MonoBehaviour
         }
 
         // คืนค่าสถานะปกติ
-        if (playerSprite != null) playerSprite.enabled = true;
+        if (playerSprite != null) playerSprite.ChangeToDefaultMaterial();
         isInvincible = false;
         Debug.Log($"[HurtBox] {playerSide} Invincibility ended.");
     }
