@@ -1,160 +1,238 @@
 using UnityEngine;
 using VInspector;
-
-public class Ball : MonoBehaviour
-{
-    private Rigidbody2D rb;
-
-    [Header("Speed Settings")]
-    public float baseSpeed = 8f;
-    public float speedIncrease = 1.2f;
-    public float maxSpeed = 25f;
-    private float currentSpeed;
-
-    [Header("Physics & Collision")]
-    private Vector2 lastVelocity;
-    [SerializeField] private LayerMask playerLayer;
-    [SerializeField] private LayerMask boundLayer;
-
-    [Header("Ball Status")]
-    private BallSide currentSide = BallSide.Neutral;
-
-    [Header("Force Set Up Power")]
-    [SerializeField] Vector2 forceSetUp = new Vector2(0, 8f);
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        currentSpeed = baseSpeed;
-    }
-
-    void FixedUpdate()
-    {
-        lastVelocity = rb.linearVelocity;
-    }
-
-    public void OnGetHit(PlayerController hitter, HitType hitType)
-    {
-        float dirX = hitter.facingRight ? 1f : -1f;
-        Vector2 finalDir = Vector2.zero;
-
-        switch (hitType)
-        {
-            case HitType.Straight:
-                finalDir = new Vector2(dirX, 0f).normalized;
-                Hit(finalDir, hitter.side);
-                break;
-
-            case HitType.Down:
-                // ตบลงพื้น (Spike/Down Hit)
-                finalDir = new Vector2(dirX, -1f).normalized;
-                Hit(finalDir, hitter.side);
-                break;
-
-            case HitType.Set:
-                // เดาะบอลขึ้น (Set)
-                SetBall(forceSetUp, hitter.side);
-                break;
-        }
-    }
-
-    public void Hit(Vector2 direction, PlayerSide hitterSide, float speedIncreaseMultiplier = 1.2f)
-    {
-        rb.gravityScale = 0f;
-        currentSpeed *= speedIncrease;
-        currentSpeed = Mathf.Clamp(currentSpeed, baseSpeed, maxSpeed);
-
-        rb.linearVelocity = direction * currentSpeed;
-        SwitchSideBall(hitterSide);
-        
-    }
-
-    private void SwitchSideBall(PlayerSide hitterSide)
-    {
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        if (hitterSide == PlayerSide.Red)
-        {
-            if (currentSide == BallSide.Red) return;
-            currentSide = BallSide.Red;
-            sr.color = Color.red;
-            Debug.Log("Ball switch to Red!");
-        }
-        else
-        {
-            if (currentSide == BallSide.Blue) return;
-            currentSide = BallSide.Blue;
-            sr.color = Color.blue;
-            Debug.Log("Ball switch to Blue!");
-        }
-
-    }
-
-    public void SetBall(Vector2 force, PlayerSide setterSide)
-    {
-        rb.gravityScale = 1f;
-        //currentSpeed = baseSpeed;
-        rb.linearVelocity = force;
-        SwitchSideBall(setterSide);
-    }
-
-    public float GetDamage()
-    {
-        return currentSpeed;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (((1 << collision.gameObject.layer) & boundLayer) != 0)
-        {
-            ReflectBall(collision);
-        }
-        
-    }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (((1 << collision.gameObject.layer) & playerLayer) != 0)
-        {
-            HurtBoxPlayer hurtBoxPlayer = collision.gameObject.GetComponent<HurtBoxPlayer>();
-            if(hurtBoxPlayer != null)
-            {
-                if (hurtBoxPlayer.playerSide != (PlayerSide)currentSide && currentSide != BallSide.Neutral)
-                {
-                    hurtBoxPlayer.DamageHit(GetDamage());
-                }
-            }
-        }
-    }
-
-    private void ReflectBall(Collision2D collision)
-    {
-        rb.gravityScale = 0f;
-        Vector2 normal = collision.contacts[0].normal;
-
-        Vector2 reflectDir = Vector2.Reflect(lastVelocity.normalized, normal);
-        rb.linearVelocity = reflectDir * currentSpeed;
-
-        transform.position += (Vector3)(normal * 0.05f);
-    }
-
-    [Button]
-    void TestSwitchSideBall()
-    {
-        if(currentSide != BallSide.Red)
-        {
-            SwitchSideBall(PlayerSide.Red);
-        }
-        else
-        {
-            SwitchSideBall(PlayerSide.Blue);
-        }
-    }
-
-}
+using System.Collections;
 
 public enum BallSide
 {
     Neutral,
     Red,
     Blue
+}
+
+public class Ball : MonoBehaviour, IHittable
+{
+    private Rigidbody2D ballRigidbody;
+    private SpriteRenderer ballSpriteRenderer;
+
+    [Header("Movement Settings")]
+    public float baseSpeed = 8f;
+    public float speedIncreaseMultiplier = 1.2f;
+    public float maximumSpeed = 25f;
+    private float currentSpeed;
+
+    [Header("Physics & Collision")]
+    private Vector2 velocityBeforePhysicsUpdate;
+    [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private LayerMask boundLayer;
+
+    [Header("Ball Status")]
+    public BallSide currentSide = BallSide.Neutral;
+    private bool isFollowingPlayer = false;
+    private Transform targetToFollow;
+    private PlayerSide loserSide;
+
+    [Header("Force Settings")]
+    [SerializeField] private Vector2 forceSetUp = new Vector2(0, 8f);
+
+    private void Awake()
+    {
+        ballRigidbody = GetComponent<Rigidbody2D>();
+        ballSpriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        ResetBallToCenter();
+    }
+
+    private void Update()
+    {
+        // อยู่ในโหมดลอยตามตัว (หลังมีคนตาย)
+        if (isFollowingPlayer && targetToFollow != null)
+        {
+            transform.position = targetToFollow.position + new Vector3(0, 1.5f, 0);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        // บันทึกความเร็วก่อนชนกำแพง
+        if (!isFollowingPlayer)
+        {
+            velocityBeforePhysicsUpdate = ballRigidbody.linearVelocity;
+        }
+    }
+
+    // --- IHitable functions ถ้าโดนตี ---
+    public void OnGetHit(PlayerController hitter, HitType hitType)
+    {
+        // เงื่อนไข: ถ้าบอลลอยตามผู้แพ้ จะต้องเป็นผู้แพ้เท่านั้นที่ตีได้
+        if (isFollowingPlayer && hitter.side != loserSide) return;
+
+        // ถ้าตีแล้ว ให้เลิกติดตามตัวละคร
+        StopFollowingPlayer();
+
+        float directionX = hitter.facingRight ? 1f : -1f;
+        Vector2 finalDirection = Vector2.zero;
+
+        switch (hitType)
+        {
+            case HitType.Straight:
+                finalDirection = new Vector2(directionX, 0f).normalized;
+                ApplyHit(finalDirection, hitter.side);
+                break;
+
+            case HitType.Down:
+                finalDirection = new Vector2(directionX, -1f).normalized;
+                ApplyHit(finalDirection, hitter.side);
+                break;
+
+            case HitType.Set:
+                ApplySet(forceSetUp, hitter.side);
+                break;
+        }
+    }
+
+    private void ApplyHit(Vector2 direction, PlayerSide hitterSide)
+    {
+        ballRigidbody.simulated = true;
+        ballRigidbody.gravityScale = 0f;
+
+        // เพิ่มความเร็ว
+        currentSpeed *= speedIncreaseMultiplier;
+        currentSpeed = Mathf.Clamp(currentSpeed, baseSpeed, maximumSpeed);
+
+        ballRigidbody.linearVelocity = direction * currentSpeed;
+        SwitchBallSide(hitterSide);
+    }
+
+    private void ApplySet(Vector2 force, PlayerSide setterSide)
+    {
+        ballRigidbody.simulated = true;
+        ballRigidbody.gravityScale = 1f;
+        ballRigidbody.linearVelocity = force;
+        currentSide = BallSide.Neutral;
+        ballSpriteRenderer.color = Color.white;
+    }
+
+    private void SwitchBallSide(PlayerSide hitterSide)
+    {
+        if (hitterSide == PlayerSide.Red)
+        {
+            currentSide = BallSide.Red;
+            ballSpriteRenderer.color = Color.red;
+        }
+        else
+        {
+            currentSide = BallSide.Blue;
+            ballSpriteRenderer.color = Color.blue;
+        }
+    }
+
+    // --- การจัดการการชน ---
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // ชนกำแพง (Reflect)
+        if (((1 << collision.gameObject.layer) & boundLayer) != 0)
+        {
+            ReflectFromWall(collision);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!GameFlowManager.Instance.IsBattleActive) {
+            Debug.Log("Damage failed: GameState is not Playing");
+            return;
+        }
+
+        if (((1 << other.gameObject.layer) & playerLayer) != 0)
+        {
+            HurtBoxPlayer hurtBox = other.gameObject.GetComponent<HurtBoxPlayer>();
+            if (hurtBox != null)
+            {
+                Debug.Log($"Ball Status: Side={currentSide}, Speed={currentSpeed}");
+                Debug.Log($"Player Status: Side={hurtBox.playerSide}");
+                
+                bool isOpponent = IsOpponent(hurtBox.playerSide, currentSide);
+                bool isNotNeutral = currentSide != BallSide.Neutral;
+
+                Debug.Log($"Logic Check: isOpponent={isOpponent}, isNotNeutral={isNotNeutral}");
+
+                if (IsOpponent(hurtBox.playerSide, currentSide) && currentSide != BallSide.Neutral)
+                {
+                    hurtBox.DamageHit(currentSpeed);
+                }
+            }
+        }
+    }
+
+    private void ReflectFromWall(Collision2D collision)
+    {
+        ballRigidbody.gravityScale = 0f;
+        Vector2 normal = collision.contacts[0].normal;
+        Vector2 reflectDirection = Vector2.Reflect(velocityBeforePhysicsUpdate.normalized, normal);
+        
+        ballRigidbody.linearVelocity = reflectDirection * currentSpeed;
+        transform.position += (Vector3)(normal * 0.05f);
+    }
+
+    // --- ระบบ Reset และติดตามผู้แพ้ ---
+
+    public void ResetBallToCenter()
+    {
+        StopAllCoroutines();
+        isFollowingPlayer = false;
+        ballRigidbody.simulated = true;
+        ballRigidbody.bodyType = RigidbodyType2D.Dynamic;
+        ballRigidbody.linearVelocity = Vector2.zero;
+        ballRigidbody.gravityScale = 0f;
+
+        transform.position = GameFlowManager.Instance.GameplayballSpawnPoint.position;
+        currentSpeed = baseSpeed;
+        currentSide = BallSide.Neutral;
+        ballSpriteRenderer.color = Color.white;
+    }
+
+    public void SetupFollowLoser(PlayerController loser)
+    {
+        ResetBallToCenter(); // ล้างค่า Speed เดิม
+        
+        targetToFollow = loser.transform;
+        loserSide = loser.side;
+        isFollowingPlayer = true;
+
+        // เริ่มนับถอยหลัง ถ้าไม่ตีภายใน 7 วินาที ให้ดรอปลงพื้น
+        StartCoroutine(MercyTimerRoutine());
+    }
+
+    private void StopFollowingPlayer()
+    {
+        if (!isFollowingPlayer) return;
+        
+        StopAllCoroutines();
+        isFollowingPlayer = false;
+        targetToFollow = null;
+        ballRigidbody.simulated = true;
+    }
+
+    private IEnumerator MercyTimerRoutine()
+    {
+        yield return new WaitForSeconds(7f); // ระยะเวลา 5-10 วินาที
+        if (isFollowingPlayer)
+        {
+            StopFollowingPlayer();
+            ballRigidbody.gravityScale = 1f; // ดรอปลงพื้น
+            currentSide = BallSide.Neutral; // ใครมาเก็บไปตีต่อก็ได้
+            ballSpriteRenderer.color = Color.white;
+        }
+    }
+
+    private bool IsOpponent(PlayerSide playerSide, BallSide ballSide)
+    {
+        if (ballSide == BallSide.Red && playerSide == PlayerSide.Blue) return true;
+        if (ballSide == BallSide.Blue && playerSide == PlayerSide.Red) return true;
+        return false;
+    }
 }

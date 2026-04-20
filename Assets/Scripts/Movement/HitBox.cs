@@ -4,7 +4,7 @@ using UnityEngine;
 public class HitBox : MonoBehaviour
 {
     private PlayerController myPlayer;
-    private List<IHittable> HittableObjects = new List<IHittable>();
+    [SerializeField]private List<IHittable> HittableObjects = new List<IHittable>();
 
     [Header("Force Set Up Power")]
     [SerializeField] Vector2 forceSetUp = new Vector2(0, 8f);
@@ -26,11 +26,13 @@ public class HitBox : MonoBehaviour
 
     private void HandleHit(PlayerController player, HitType type)
     {
-
+        Debug.Log($"[HitBox] Attempting to hit. Objects in range: {HittableObjects.Count}");
+        
         for (int i = HittableObjects.Count - 1; i >= 0; i--)
         {
             if (HittableObjects[i] != null)
             {
+                Debug.Log("[HitBox] Found ball! Calling OnGetHit");
                 HittableObjects[i].OnGetHit(player, type);
             }
         }
@@ -62,6 +64,20 @@ public class HitBox : MonoBehaviour
             {
                 HittableObjects.Remove(hittableObject);
             }
+        }
+    }
+
+    private void OnDrawGizmos() // for debugging, แสดง HitBox ใน Scene view และ Game view
+    {
+        // ตั้งค่าสีของ Gizmos (สีแดงโปร่งแสง)
+        Gizmos.color = new Color(1, 0, 0, 0.4f);
+
+
+        BoxCollider2D box = GetComponent<BoxCollider2D>();
+        if (box != null)
+        {
+            Gizmos.matrix = transform.localToWorldMatrix;
+            Gizmos.DrawCube(box.offset, box.size);
         }
     }
 }
