@@ -28,7 +28,7 @@ public class HurtBoxPlayer : MonoBehaviour
         StartCoroutine(StunRoutine());
 
         // 2.Pause Game ให้มี Impact
-        TimeManager.Instance.DoHitStop();
+        TimeManager.Instance.DoHitStop(true);
 
         // 3. ส่งดาเมจไปที่ GameFlowManager
         if (GameFlowManager.Instance != null)
