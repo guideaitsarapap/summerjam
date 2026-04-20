@@ -12,6 +12,9 @@ public class HurtBoxPlayer : MonoBehaviour
     [Header("Visual Feedback")]
     [SerializeField] private SpriteRenderer playerSprite;
 
+    [Header("Stun Settings")]
+    [SerializeField] private float stunDuration = 0.2f;
+
     public PlayerSide playerSide
     {
         get { return playerController.side; }
@@ -21,6 +24,8 @@ public class HurtBoxPlayer : MonoBehaviour
     {
         // 1. ถ้ายังอยู่ในช่วงอมตะ จะไม่โดนดาเมจ
         if (isInvincible) return;
+        
+        StartCoroutine(StunRoutine());
 
         // 2.Pause Game ให้มี Impact
         TimeManager.Instance.DoHitStop();
@@ -60,5 +65,15 @@ public class HurtBoxPlayer : MonoBehaviour
         if (playerSprite != null) playerSprite.enabled = true;
         isInvincible = false;
         Debug.Log($"[HurtBox] {playerSide} Invincibility ended.");
+    }
+
+    private IEnumerator StunRoutine()
+    {
+        playerController.SetMoveable(false);
+        
+        // ใช้ Realtime เพื่อให้ไม่โดน HitStop รบกวนเวลา
+        yield return new WaitForSecondsRealtime(stunDuration);
+        
+        playerController.SetMoveable(true);
     }
 }
