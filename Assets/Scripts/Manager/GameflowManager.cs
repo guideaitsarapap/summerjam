@@ -41,6 +41,11 @@ public class GameFlowManager : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        CheckAndStartGameTransition();
+    }
+
     // --- Lobby ---
 
     public void RegisterNewPlayer(PlayerInput playerInput)
@@ -81,6 +86,15 @@ public class GameFlowManager : MonoBehaviour
         }
     }
 
+    public void ResetReadyStatus()
+    {
+        foreach (var player in connectedPlayers)
+        {
+            player.isReadyInLobby = false;
+            Debug.Log($"[Flow] Reset Ready status for P{player.playerIndex + 1}");
+        }
+    }
+
     private void CheckAndStartGameTransition()
     {
         if (connectedPlayers.Count >= 2 && connectedPlayers.All(p => p.isReadyInLobby))
@@ -93,6 +107,8 @@ public class GameFlowManager : MonoBehaviour
 
     private IEnumerator TransitionToGameplayRoutine()
     {
+        ResetReadyStatus();
+
         // 1. โหลด Scene (สมมติว่าชื่อ GameScene)
         // SceneManager.LoadScene("GameScene");
         // yield return new WaitForSeconds(0.5f); // รอโหลดแป๊บนึง
@@ -115,20 +131,7 @@ public class GameFlowManager : MonoBehaviour
         }
         
         HealthManager.Instance.ResetAllHealthBars();
-        
-        StartCoroutine(RoundCountdownRoutine());
-    }
-
-    private IEnumerator RoundCountdownRoutine()
-    {
-        Debug.Log("3...");
-        yield return new WaitForSeconds(1f);
-        Debug.Log("2...");
-        yield return new WaitForSeconds(1f);
-        Debug.Log("1...");
-        yield return new WaitForSeconds(1f);
-        Debug.Log("FIGHT!");
-
+        TimeManager.Instance.StartPreRoundCountdown(3 , () => {currentGameState = GameState.Playing;});
     }
 
     public void ApplyDamage(PlayerSide side, float damageAmount)
@@ -150,31 +153,6 @@ public class GameFlowManager : MonoBehaviour
             }
         }
     }
-
-    public void OnPlayerDefeated(PlayerSide loserSide)
-    {
-        if (currentGameState != GameState.Playing) return;
-        
-        currentGameState = GameState.RoundEnd;
-
-        PlayerIdentity winner = connectedPlayers.Find(p => p.side != loserSide);
-        
-        if (winner != null)
-        {
-            winner.roundWins++;
-            Debug.Log($"Round Ended! Winner: {winner.side} (Total Wins: {winner.roundWins})");
-
-            if (winner.roundWins >= winsRequiredToMatch)
-            {
-                FinishMatch(winner.side);
-            }
-            else
-            {
-                StartCoroutine(PrepareNextRoundRoutine());
-            }
-        }
-    }
-
     private IEnumerator PrepareNextRoundRoutine()
     {
         //Show round end screen or something here
@@ -187,5 +165,69 @@ public class GameFlowManager : MonoBehaviour
         currentGameState = GameState.MatchOver;
         Debug.Log($"MATCH OVER! {matchWinner} IS THE CHAMPION!");
         //Show who won the match and return to lobby or something here
+    }
+
+    public void HandleTimeOut()
+    {
+        if (currentGameState != GameState.Playing) return;
+
+        currentGameState = GameState.RoundEnd;
+        Debug.Log("[Flow] Time Up!");
+
+        // หาผู้ชนะตอนหมดเวลา (คนที่มีเลือดมากกว่า)
+        PlayerIdentity p1 = connectedPlayers.Find(p => p.side == PlayerSide.Red);
+        PlayerIdentity p2 = connectedPlayers.Find(p => p.side == PlayerSide.Blue);
+
+        if (p1 != null && p2 != null)
+        {
+            if (p1.currentHealth > p2.currentHealth)
+            {
+                OnRoundWin(p1);
+            }
+            else if (p2.currentHealth > p1.currentHealth)
+            {
+                OnRoundWin(p2);
+            }
+            else
+            {
+                // กรณีเลือดเท่ากัน (Draw)
+                Debug.Log("Round Draw!");
+                StartCoroutine(PrepareNextRoundRoutine());
+            }
+        }
+    }
+
+    private void OnRoundWin(PlayerIdentity winner)
+    {
+        winner.roundWins++;
+        Debug.Log($"Round Ended! Winner: {winner.side} (Total Wins: {winner.roundWins})");
+
+        if (winner.roundWins >= winsRequiredToMatch)
+        {
+            FinishMatch(winner.side);
+        }
+        else
+        {
+            StartCoroutine(PrepareNextRoundRoutine());
+        }
+    }
+
+    public void OnPlayerDefeated(PlayerSide loserSide)
+    {
+        if (currentGameState != GameState.Playing) return;
+        
+        currentGameState = GameState.RoundEnd;
+
+        // --- ส่วนที่เพิ่ม: เมื่อมีคนตาย ต้องสั่งหยุดเวลา 60 วิ ทันที ---
+        if (TimeManager.Instance != null)
+        {
+            TimeManager.Instance.StopTimer();
+        }
+
+        PlayerIdentity winner = connectedPlayers.Find(p => p.side != loserSide);
+        if (winner != null)
+        {
+            OnRoundWin(winner);
+        }
     }
 }
