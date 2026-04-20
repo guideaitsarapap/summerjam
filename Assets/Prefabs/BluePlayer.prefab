@@ -94,6 +94,7 @@ MonoBehaviour:
   playerController: {fileID: 1022920844365210500}
   iFrameDuration: 1
   playerSprite: {fileID: 3490377154439417131}
+  stunDuration: 1
 --- !u!1 &861570527173833296
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +278,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   forceSetUp: {x: 0, y: 8}
+--- !u!1 &2174982206167826590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5603340868135985362}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5603340868135985362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2174982206167826590}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.99, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6858543712912986325}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5579653756880970205
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +345,7 @@ Transform:
   - {fileID: 1193110682311507846}
   - {fileID: 818353291049362158}
   - {fileID: 3236438417541521008}
+  - {fileID: 5603340868135985362}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1022920844365210500
@@ -342,6 +375,11 @@ MonoBehaviour:
   fallMultiplier: 8
   lowJumpMultiplier: 6
   defaultGravityScale: 1
+  groundCheck: {fileID: 5603340868135985362}
+  checkRadius: 0.2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &3868801748806069418
 MonoBehaviour:
   m_ObjectHideFlags: 0

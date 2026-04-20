@@ -25,11 +25,17 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
     private bool isDoubleJumpUsed;
+    private bool isMoveable = true;
 
     [Header("Gravity Multipliers")]
     [SerializeField] float fallMultiplier = 2.5f;      
     [SerializeField] float lowJumpMultiplier = 2f; 
     [SerializeField] float defaultGravityScale = 1f;
+
+    [Header("Ground Check Settings")]
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float checkRadius = 0.2f;
+    [SerializeField] private LayerMask groundLayer;
 
     private Vector2 moveInput;
 
@@ -41,13 +47,19 @@ public class PlayerController : MonoBehaviour
         this.side = Identity.side; 
     }
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
+        if (!isMoveable)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return; 
+        }
+
         Vector2 movement = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
         rb.linearVelocity = movement;
     }
@@ -82,16 +94,6 @@ public class PlayerController : MonoBehaviour
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 isDoubleJumpUsed = true;
             }
-        }
-    }
-    
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-            isDoubleJumpUsed = false; // Reset double jump when landing
         }
     }
 
@@ -129,18 +131,47 @@ public class PlayerController : MonoBehaviour
         scale.x *= -1;
         transform.localScale = scale;
     }
+
+    public void SetMoveable(bool state)
+    {
+        isMoveable = state;
+        
+        if (!isMoveable)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.gravityScale = 0; 
+        }
+        else
+        {
+            rb.gravityScale = 1; 
+        }
+    }
     void FixedUpdate()
     {
-        if (rb.linearVelocity.y <= 0)
+
+        bool wasGrounded = isGrounded;
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
+
+
+        if (isGrounded && !wasGrounded)
         {
-            // Falling — apply extra gravity
+            isDoubleJumpUsed = false;
+        }
+
+
+        if (!isMoveable) return; 
+
+        if (rb.linearVelocity.y < 0)
+        {
             rb.gravityScale = fallMultiplier;
         }
-        else if (rb.linearVelocity.y > 0 )
+        else if (rb.linearVelocity.y > 0)
         {
-            // Rising but jump released — cut arc short
             rb.gravityScale = lowJumpMultiplier;
-
+        }
+        else
+        {
+            rb.gravityScale = defaultGravityScale;
         }
     }
 }
