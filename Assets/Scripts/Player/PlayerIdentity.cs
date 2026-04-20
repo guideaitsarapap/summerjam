@@ -1,6 +1,6 @@
-using UnityEngine;
+[System.Serializable]
 
-public class PlayerIdentity : MonoBehaviour
+public class PlayerIdentity
 {
     public int playerIndex;
     public PlayerSide side;

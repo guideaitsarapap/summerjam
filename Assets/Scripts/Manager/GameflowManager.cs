@@ -17,6 +17,8 @@ public enum GameState
 public class GameFlowManager : MonoBehaviour
 {
     public static GameFlowManager Instance;
+    public Transform GameplayballSpawnPoint;
+    public Transform[] LobbyBallSpawnPoints;
     public List<PlayerIdentity> connectedPlayers = new List<PlayerIdentity>();
 
     [Header("Match Settings")]
@@ -46,11 +48,22 @@ public class GameFlowManager : MonoBehaviour
         if (currentGameState != GameState.Lobby) return;
 
         PlayerController controller = playerInput.GetComponent<PlayerController>();
-        if (controller != null && !connectedPlayers.Any(p => p.playerIndex == playerInput.playerIndex))
+        
+        if (controller != null)
         {
-            PlayerIdentity newIdentity = new PlayerIdentity(playerInput.playerIndex, controller.side, controller);
-            connectedPlayers.Add(newIdentity);
-            Debug.Log($"[Flow] Registered P{playerInput.playerIndex + 1}");
+            PlayerIdentity newIdentity = new PlayerIdentity(
+                playerInput.playerIndex, 
+                controller.side, 
+                controller
+            );
+
+            controller.Initialize(newIdentity);
+
+            if (!connectedPlayers.Any(p => p.playerIndex == playerInput.playerIndex))
+            {
+                connectedPlayers.Add(newIdentity);
+                Debug.Log($"[Flow] Registered P{newIdentity.playerIndex + 1} with Identity");
+            }
         }
     }
 
@@ -116,7 +129,6 @@ public class GameFlowManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Debug.Log("FIGHT!");
 
-        currentGameState = GameState.Playing;
     }
 
     public void ApplyDamage(PlayerSide side, float damageAmount)

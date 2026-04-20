@@ -92,6 +92,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HurtBoxPlayer
   playerController: {fileID: 2570392242387121990}
+  iFrameDuration: 1
+  playerSprite: {fileID: 1442476937610693262}
 --- !u!1 &3916306871377495677
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,11 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 154a72194fca1a2478aebd66c8474ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  Identity:
-    playerIndex: 1
-    playerSide: 0
-    isReadyInLobby: 0
-    currentHealth: 100
+  Identity: {fileID: 0}
   side: 1
   facingRight: 1
   moveSpeed: 10

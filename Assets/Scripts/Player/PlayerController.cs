@@ -100,6 +100,7 @@ public class PlayerController : MonoBehaviour
         if (context.started)
         {
             HitType type = HitType.Straight;
+            Debug.Log("Straight Hit!");
 
             if (!isGrounded && Mathf.Abs(moveInput.x) > 0.1f)
             {

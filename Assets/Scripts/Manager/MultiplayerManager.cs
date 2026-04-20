@@ -1,19 +1,18 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Linq;
 
 public class MultiplayerManager : MonoBehaviour
 {
     public static MultiplayerManager Instance;
+    
     [Header("Player Prefabs")]
-    [SerializeField]private GameObject redPrefab;
-    [SerializeField]private GameObject bluePrefab;
+    [SerializeField] private GameObject redPrefab;
+    [SerializeField] private GameObject bluePrefab;
 
     [Header("Spawn Points")]
     public Transform redSpawnPoint;
     public Transform blueSpawnPoint;
-
-    [Header("Join Settings")]
-    [SerializeField] private InputActionReference joinAction;
 
     private PlayerInputManager manager;
 
@@ -22,10 +21,9 @@ public class MultiplayerManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); 
-            
+            DontDestroyOnLoad(gameObject);
             manager = GetComponent<PlayerInputManager>();
-            manager.playerPrefab = redPrefab;
+            manager.joinBehavior = PlayerJoinBehavior.JoinPlayersManually; 
         }
         else
         {
@@ -33,31 +31,78 @@ public class MultiplayerManager : MonoBehaviour
         }
     }
 
-    void OnEnable() 
+    void Update()
     {
-        joinAction.action.Enable();
-        joinAction.action.performed += OnJoinActionTriggered;
+        // 1. จัดการการ Join ผ่าน Keyboard (ใช้ Enter สำหรับทั้ง P1 และ P2)
+        if (Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame)
+        {
+            HandleKeyboardJoin();
+        }
+
+        // 2. จัดการการ Join ผ่าน Gamepad (ใช้ Start)
+        HandleGamepadJoin();
     }
 
-    void OnDisable() 
+    private void HandleKeyboardJoin()
     {
-        joinAction.action.performed -= OnJoinActionTriggered;
-        joinAction.action.Disable();
-    }
-    // ฟังก์ชันนี้จะทำงานเฉพาะเมื่อมีการกดปุ่ม Join ที่เราตั้งไว้ (เช่น Enter)
-    private void OnJoinActionTriggered(InputAction.CallbackContext context)
-    {
-        // ถ้าผู้เล่นยังไม่ครบ 2 คน และคนกดคือ Keyboard
-        if (PlayerInput.all.Count < 2 && context.control.device is Keyboard)
+        int playerCount = PlayerInput.all.Count;
+
+        if (playerCount == 0)
         {
-            JoinKeyboardPlayer2();
+            // P1 เข้าคนแรก
+            JoinPlayer(0, Keyboard.current, "P1_Keyboard");
+        }
+        else if (playerCount == 1)
+        {
+            // P2 เข้าคนที่สอง (แชร์ Keyboard เดียวกัน)
+            // เช็คก่อนว่า P1 ไม่ได้ใช้ Keyboard ใน Scheme อื่นอยู่ (เพื่อความชัวร์)
+            JoinPlayer(1, Keyboard.current, "P2_Keyboard");
         }
     }
 
-    public void JoinKeyboardPlayer2()
+    private void HandleGamepadJoin()
     {
-        //Player2 need to join with Join action referenced on keyboard to avoid conflict with gamepad input
-        manager.JoinPlayer(1, -1, "P2_Keyboard", Keyboard.current);
+        foreach (var gamepad in Gamepad.all)
+        {
+            if (gamepad.startButton.wasPressedThisFrame)
+            {
+                int playerCount = PlayerInput.all.Count;
+
+                if (playerCount == 0)
+                {
+                    JoinPlayer(0, gamepad, "Gamepad");
+                    return;
+                }
+                else if (playerCount == 1)
+                {
+                    // เช็คว่าจอยนี้ไม่ใช่จอยที่ P1 ถืออยู่
+                    bool isDeviceBusy = PlayerInput.all.Any(p => p.devices.Contains(gamepad));
+                    if (!isDeviceBusy)
+                    {
+                        JoinPlayer(1, gamepad, "Gamepad");
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    private void JoinPlayer(int index, InputDevice device, string scheme)
+    {
+        // ป้องกันการ Join ซ้ำ index เดิมในเฟรมเดียวกัน
+        if (PlayerInput.all.Any(p => p.playerIndex == index)) return;
+
+        Debug.Log($"Attempting to Join: P{index + 1} | Device: {device.name} | Scheme: {scheme}");
+        
+        manager.playerPrefab = (index == 0) ? redPrefab : bluePrefab;
+
+        // บังคับ Pair Device เข้ากับ Player Index นั้นๆ
+        var player = manager.JoinPlayer(index, -1, scheme, device);
+
+        if (player != null)
+        {
+            Debug.Log($"P{index + 1} JOINED SUCCESS! (Scheme: {scheme})");
+        }
     }
 
     public void OnPlayerJoined(PlayerInput playerInput)
@@ -67,16 +112,14 @@ public class MultiplayerManager : MonoBehaviour
             GameFlowManager.Instance.RegisterNewPlayer(playerInput);
         }
 
+        // ย้ายตำแหน่ง Spawn
         if (playerInput.playerIndex == 0)
         {
             playerInput.transform.position = redSpawnPoint.position;
-            manager.playerPrefab = bluePrefab;
-            Debug.Log($"P1 Joined and Registered!");
         }
         else if (playerInput.playerIndex == 1)
         {
             playerInput.transform.position = blueSpawnPoint.position;
-            Debug.Log($"P2 Joined and Registered!");
         }
     }
 }

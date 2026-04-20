@@ -268,18 +268,7 @@
                     "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";P1_Keyboard",
-                    "action": "Join",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "370b60bd-d9ed-479d-8476-8fa102870f85",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": ";P1_Keyboard;P2_Keyboard;Gamepad",
                     "action": "Join",
                     "isComposite": false,
                     "isPartOfComposite": false
