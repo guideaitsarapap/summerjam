@@ -8,6 +8,9 @@ public class HurtBoxPlayer : MonoBehaviour
     [Header("Invincibility Settings")]
     [SerializeField] private float iFrameDuration = 0.5f; 
     private bool isInvincible = false;
+    [Header("OnHit Pause time Settings")]
+    [SerializeField] private float hitStopDuration = 1f;
+    [SerializeField] [Range(0, 1)] private float timeScaleIntensity = 0f; // 0 คือหยุดสนิท, 0.1 คือสโลว์สุดๆ
 
     [Header("Visual Feedback")]
     [SerializeField] private SpriteRenderer playerSprite;
@@ -22,13 +25,16 @@ public class HurtBoxPlayer : MonoBehaviour
         // 1. ถ้ายังอยู่ในช่วงอมตะ จะไม่โดนดาเมจ
         if (isInvincible) return;
 
-        // 2. ส่งดาเมจไปที่ GameFlowManager
+        // 2.Pause Game ให้มี Impact
+        StartCoroutine(HitStopRoutine());
+
+        // 3. ส่งดาเมจไปที่ GameFlowManager
         if (GameFlowManager.Instance != null)
         {
             GameFlowManager.Instance.ApplyDamage(playerSide, damageAmount);
         }
 
-        // 3. เริ่มสถานะอมตะชั่วขณะ
+        // 4. เริ่มสถานะอมตะชั่วขณะ
         StartCoroutine(BecomeInvincibleRoutine());
     }
 
@@ -57,5 +63,17 @@ public class HurtBoxPlayer : MonoBehaviour
         if (playerSprite != null) playerSprite.enabled = true;
         isInvincible = false;
         Debug.Log($"[HurtBox] {playerSide} Invincibility ended.");
+    }
+
+    private IEnumerator HitStopRoutine()
+    {
+        float originalTimeScale = Time.timeScale;
+
+        Time.timeScale = timeScaleIntensity;
+
+        yield return new WaitForSecondsRealtime(hitStopDuration);
+
+        // คืนค่าเดิม
+        Time.timeScale = originalTimeScale;
     }
 }
