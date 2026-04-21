@@ -148,8 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   Identity:
-    playerIndex: 0
-    side: 0
+    playerIndex: 1
+    side: 1
     controllerReference: {fileID: 0}
     currentHealth: 0
     maxHealth: 0

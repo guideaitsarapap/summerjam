@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MultiplayerManager
   redPrefab: {fileID: 3916306871377495677, guid: 174edf38e1129fb4692c638cb39634b4, type: 3}
-  bluePrefab: {fileID: 5579653756880970205, guid: 2d980c5c2fe05e64fa59db15ac784207, type: 3}
+  bluePrefab: {fileID: 3916306871377495677, guid: 24873b1cbf49e5647934c3708419d0eb, type: 3}
   redSpawnPoint: {fileID: 165191434}
   blueSpawnPoint: {fileID: 953109503}
 --- !u!1 &422107676

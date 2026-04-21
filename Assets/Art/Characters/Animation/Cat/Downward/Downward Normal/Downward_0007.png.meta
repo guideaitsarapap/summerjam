@@ -121,10 +121,10 @@ TextureImporter:
         serializedVersion: 2
         x: 1838
         y: 1343
-        width: 2467
-        height: 2644
+        width: 3000
+        height: 3000
       alignment: 9
-      pivot: {x: 0.40372923, y: 0.45272312}
+      pivot: {x: 0.33060375, y: 0.3914558}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -133,28 +133,6 @@ TextureImporter:
       bones: []
       spriteID: 96c8ee7a04694a460800000000000000
       internalID: 7252086504412843113
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Downward_0007_1
-      rect:
-        serializedVersion: 2
-        x: 3701
-        y: 2011
-        width: 713
-        height: 1919
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 64b20788a5675ebb0800000000000000
-      internalID: -4907386087742100666
       vertices: []
       indices: 
       edges: []

@@ -116,12 +116,12 @@ TextureImporter:
       name: Set_0003_0
       rect:
         serializedVersion: 2
-        x: 1650
-        y: 590
-        width: 2522
-        height: 3017
+        x: 1513
+        y: 602
+        width: 3000
+        height: 3000
       alignment: 9
-      pivot: {x: 0.35408404, y: 0.6827975}
+      pivot: {x: 0.34222576, y: 0.68675005}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
