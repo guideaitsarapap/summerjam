@@ -99,6 +99,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -108,10 +121,10 @@ TextureImporter:
         serializedVersion: 2
         x: 1958
         y: 1246
-        width: 2347
-        height: 2741
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 3000
+        height: 3000
+      alignment: 9
+      pivot: {x: 0.32011896, y: 0.42604947}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -124,33 +137,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Downwrad_0006_1
-      rect:
-        serializedVersion: 2
-        x: 3701
-        y: 2011
-        width: 713
-        height: 1919
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 396ac6f443e645b40800000000000000
-      internalID: 5428084621838165651
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a50dae8cd42017749a2113d02a8f8e5e
     internalID: 0
     vertices: []
     indices: 

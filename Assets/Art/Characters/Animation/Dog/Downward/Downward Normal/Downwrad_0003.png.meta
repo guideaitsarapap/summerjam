@@ -96,6 +96,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -103,12 +116,12 @@ TextureImporter:
       name: Downwrad_0003_0
       rect:
         serializedVersion: 2
-        x: 654
+        x: 630
         y: 1442
-        width: 2458
-        height: 2009
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 3000
+        height: 3000
+      alignment: 9
+      pivot: {x: 0.6482656, y: 0.38895157}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 30cc3e5b8628a854f96fd23549041307
     internalID: 0
     vertices: []
     indices: 
