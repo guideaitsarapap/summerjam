@@ -96,6 +96,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -103,12 +116,12 @@ TextureImporter:
       name: Hit_0000_0
       rect:
         serializedVersion: 2
-        x: 723
-        y: 1502
-        width: 2358
-        height: 2084
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 722
+        y: 1500
+        width: 2360
+        height: 2088
+      alignment: 9
+      pivot: {x: 0.7966102, y: 0.5483716}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d33615cb199fcb848aaf0f996459ac63
     internalID: 0
     vertices: []
     indices: 

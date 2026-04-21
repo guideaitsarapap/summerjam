@@ -15,7 +15,8 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerText;
 
     [Header("HitStop Settings")]
-    [SerializeField] private float hitStopDuration = 1f;
+    [SerializeField] private float hitStopDuration = 0.5f;
+    [SerializeField] private float slowMoDuration = 1f;
     [SerializeField] [Range(0, 1)] private float timeScaleIntensity = 0f;
 
     [Header("Round Settings")]
@@ -55,16 +56,17 @@ public class TimeManager : MonoBehaviour
     }
 
     // --- 1. ระบบ HitStop ---
-    public void DoHitStop()
+    public void DoHitStop(bool useSlowMo)
     {
         if (hitStopCoroutine != null) StopCoroutine(hitStopCoroutine);
-        hitStopCoroutine = StartCoroutine(HitStopRoutine());
+        hitStopCoroutine = StartCoroutine(HitStopRoutine(useSlowMo));
     }
 
-    private IEnumerator HitStopRoutine()
+    private IEnumerator HitStopRoutine(bool useSlowMo)
     {
-        Time.timeScale = timeScaleIntensity;
-        yield return new WaitForSecondsRealtime(hitStopDuration);
+        Time.timeScale = useSlowMo ? timeScaleIntensity : 0f;
+        float duration = useSlowMo ? slowMoDuration : hitStopDuration;
+        yield return new WaitForSecondsRealtime(duration);
         Time.timeScale = 1f;
         hitStopCoroutine = null;
     }
