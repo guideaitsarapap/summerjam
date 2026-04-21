@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     private HitType pendingHitType;
 
     public event Action<PlayerController,HitType> OnPlayerHit;
+    public event Action<PlayerController,HitType> OnPlayerFinishHit;
 
     public void Initialize(PlayerIdentity identity)
     {
@@ -144,6 +145,11 @@ public class PlayerController : MonoBehaviour
     public void ExecuteHit()
     {
         OnPlayerHit?.Invoke(this, pendingHitType);
+    }
+
+    public void ClearHitBoxHit()
+    {
+        OnPlayerFinishHit?.Invoke(this, pendingHitType);
     }
 
     public void SetAction(InputAction.CallbackContext context)

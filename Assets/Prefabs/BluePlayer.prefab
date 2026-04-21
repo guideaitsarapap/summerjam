@@ -93,7 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HurtBoxPlayer
   playerController: {fileID: 2570392242387121990}
   iFrameDuration: 1
-  playerSprite: {fileID: 1442476937610693262}
+  playerSprite: {fileID: 60801156434993894}
   stunDuration: 1
 --- !u!1 &3916306871377495677
 GameObject:
@@ -126,7 +126,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: -1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2144373405709729835}
@@ -419,7 +419,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.27507937, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -429,7 +429,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.54, y: 1.66}
+  m_Size: {x: 2.0902584, y: 1.66}
   m_EdgeRadius: 0
 --- !u!114 &3265722370509779372
 MonoBehaviour:
@@ -454,6 +454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2144373405709729835}
   - component: {fileID: 1442476937610693262}
+  - component: {fileID: 60801156434993894}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -521,8 +522,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1405305753
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1234390353929444763, guid: c8def2c3d7bac634e9c84fe9dd998df0, type: 3}
@@ -535,6 +536,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &60801156434993894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6832069296482509246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6246688b19593b54f96ecdee2b3071dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeMaterials
+  isHasDefaultMaterials: 0
+  defaultMaterial: {fileID: 2100000, guid: 3451312268de5a441a4fdb7ed3cbe8fb, type: 2}
+  getHitMaterial: {fileID: 2100000, guid: 29e5520be9b933d4b9eedca3c18a1e54, type: 2}
 --- !u!1 &8468177476074867091
 GameObject:
   m_ObjectHideFlags: 0
