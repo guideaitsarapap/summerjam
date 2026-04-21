@@ -193,6 +193,7 @@ MonoBehaviour:
   GameplayballSpawnPoint: {fileID: 1236307034}
   LobbyBallSpawnPoints: []
   connectedPlayers: []
+  ballPrefab: {fileID: 3156442084072604156, guid: 207a5be50533ef640955ec7b0a93f932, type: 3}
   currentGameState: 0
   winsRequiredToMatch: 2
 --- !u!4 &188303590
