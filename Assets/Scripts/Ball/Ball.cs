@@ -30,6 +30,7 @@ public class Ball : MonoBehaviour, IHittable
     private bool isFollowingPlayer = false;
     private Transform targetToFollow;
     private PlayerSide loserSide;
+    private PlayerSide lastSetterSide;
 
     [Header("Force Settings")]
     [SerializeField] private Vector2 forceSetUp = new Vector2(0, 8f);
@@ -113,6 +114,8 @@ public class Ball : MonoBehaviour, IHittable
         ballRigidbody.simulated = true;
         ballRigidbody.gravityScale = 1f;
         ballRigidbody.linearVelocity = force;
+
+        lastSetterSide = setterSide;
         currentSide = BallSide.Neutral;
         ballSpriteRenderer.color = Color.white;
     }
@@ -178,6 +181,11 @@ public class Ball : MonoBehaviour, IHittable
         
         ballRigidbody.linearVelocity = reflectDirection * currentSpeed;
         transform.position += (Vector3)(normal * 0.05f);
+
+        if (currentSide == BallSide.Neutral && !isFollowingPlayer)
+        {
+            SwitchBallSide(lastSetterSide);
+        }
     }
 
     // --- ระบบ Reset และติดตามผู้แพ้ ---

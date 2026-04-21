@@ -56,6 +56,15 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        bool wasGrounded = isGrounded;
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
+
+
+        if (isGrounded && !wasGrounded)
+        {
+            isDoubleJumpUsed = false;
+        }
+
         if (!isMoveable)
         {
             rb.linearVelocity = Vector2.zero;
@@ -65,6 +74,7 @@ public class PlayerController : MonoBehaviour
 
         Vector2 movement = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
         rb.linearVelocity = movement;
+        CheckMoveDirection();
 
 
         bool isActuallyMoving = Mathf.Abs(rb.linearVelocity.x) > 0.1f;
@@ -77,6 +87,7 @@ public class PlayerController : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+        if (!isMoveable) return;
         if (moveInput.x > 0 && !facingRight)
         {
             flip();
@@ -91,6 +102,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
+            if (!isMoveable) return;
             if (isGrounded)
             {
                 Debug.Log("Jumping");
@@ -112,7 +124,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-
+            if (!isMoveable) return;
             if (!isGrounded && Mathf.Abs(moveInput.x) > 0.1f)
             {
                 anim.SetTrigger("DownwardHit");
@@ -164,20 +176,23 @@ public class PlayerController : MonoBehaviour
         else
         {
             rb.gravityScale = 1; 
+            anim.SetBool("isMoving", true);
+        }
+    }
+
+    public void CheckMoveDirection()
+    {
+        if(rb.linearVelocity.x > 0 && !facingRight)
+        {
+            flip();
+        }
+        if(rb.linearVelocity.x < 0 && facingRight)
+        {
+            flip();
         }
     }
     void FixedUpdate()
     {
-
-        bool wasGrounded = isGrounded;
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
-
-
-        if (isGrounded && !wasGrounded)
-        {
-            isDoubleJumpUsed = false;
-        }
-
 
         if (!isMoveable) return; 
 
