@@ -20,6 +20,10 @@ public class GameFlowManager : MonoBehaviour
     public Transform GameplayballSpawnPoint;
     public Transform[] LobbyBallSpawnPoints;
     public List<PlayerIdentity> connectedPlayers = new List<PlayerIdentity>();
+    
+    [Header("Ball Management")]
+    public GameObject ballPrefab;
+    private List<GameObject> activeBalls = new List<GameObject>();
 
     [Header("Match Settings")]
     public GameState currentGameState = GameState.Lobby;
@@ -122,6 +126,7 @@ public class GameFlowManager : MonoBehaviour
 
     public void StartNewRound()
     {
+        ResetPosition();
         currentGameState = GameState.Countdown;
         
         // รีเซ็ตเลือดในข้อมูล
@@ -229,5 +234,66 @@ public class GameFlowManager : MonoBehaviour
         {
             OnRoundWin(winner);
         }
+    }
+
+    public void ResetPosition()
+    {
+        ClearAllBalls();
+        SpawnBall();
+
+        foreach (var playerIdentity in connectedPlayers)
+        {
+            if (playerIdentity.controllerReference != null)
+            {
+                PlayerController playerController = playerIdentity.controllerReference;
+                Transform spawnTarget = (playerController.side == PlayerSide.Red) ? MultiplayerManager.Instance.redSpawnPoint : MultiplayerManager.Instance.blueSpawnPoint;
+
+                if (spawnTarget != null) playerController.transform.position = spawnTarget.position;
+
+                Rigidbody2D playerRb = playerController.GetComponent<Rigidbody2D>();
+                if (playerRb != null) playerRb.linearVelocity = Vector2.zero;
+
+                bool shouldFaceRight = (playerController.side == PlayerSide.Red);
+                if (playerController.facingRight != shouldFaceRight) playerController.flip();
+                
+                playerController.SetMoveable(true); 
+            }
+        }
+        //Time.timeScale = 1f;
+    }
+
+    public void SpawnBall()
+    {
+        if (ballPrefab == null || GameplayballSpawnPoint == null)
+        {
+            Debug.LogWarning("[Flow] Ball Prefab or Spawn Point is missing!");
+            return;
+        }
+
+        GameObject newBall = Instantiate(ballPrefab, GameplayballSpawnPoint.position, Quaternion.identity);
+        
+        activeBalls.Add(newBall);
+
+        Debug.Log("[Flow] Ball Spawned!");
+    }
+    public void ClearAllBalls()
+    {
+        foreach (GameObject ball in activeBalls)
+        {
+            if (ball != null)
+            {
+                Destroy(ball);
+            }
+        }
+
+        activeBalls.Clear();
+
+        GameObject[] extraBalls = GameObject.FindGameObjectsWithTag("Ball");
+        foreach (GameObject eb in extraBalls)
+        {
+            Destroy(eb);
+        }
+
+        Debug.Log("[Flow] All balls cleared.");
     }
 }
