@@ -4,6 +4,7 @@ using UnityEngine;
 public class HitBox : MonoBehaviour
 {
     private PlayerController myPlayer;
+    bool isHitBoxCanHit = true;
     [SerializeField]private List<IHittable> HittableObjects = new List<IHittable>();
 
     [Header("Force Set Up Power")]
@@ -16,16 +17,27 @@ public class HitBox : MonoBehaviour
 
     private void OnEnable()
     {
-        if (myPlayer != null) myPlayer.OnPlayerHit += HandleHit;
+        if (myPlayer != null) 
+        {
+            myPlayer.OnPlayerHit += HandleHit;
+            myPlayer.OnPlayerFinishHit += ResetHitBox;
+        }
     }
 
     private void OnDisable()
     {
-        if (myPlayer != null) myPlayer.OnPlayerHit -= HandleHit;
+        if (myPlayer != null) 
+        {
+            myPlayer.OnPlayerHit -= HandleHit;
+            myPlayer.OnPlayerFinishHit -= ResetHitBox;
+        }
     }
 
     private void HandleHit(PlayerController player, HitType type)
     {
+        if(!isHitBoxCanHit)
+            return;
+
         Debug.Log($"[HitBox] Attempting to hit. Objects in range: {HittableObjects.Count}");
         
         for (int i = HittableObjects.Count - 1; i >= 0; i--)
@@ -36,7 +48,15 @@ public class HitBox : MonoBehaviour
                 HittableObjects[i].OnGetHit(player, type);
             }
         }
+
+        isHitBoxCanHit = false;
     }
+
+    private void ResetHitBox(PlayerController player, HitType type)
+    {
+        isHitBoxCanHit = true;
+    }
+    
 
     private void OnTriggerEnter2D(Collider2D other)
     {

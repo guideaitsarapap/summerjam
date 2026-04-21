@@ -38,7 +38,7 @@ public class Ball : MonoBehaviour, IHittable
     private void Awake()
     {
         ballRigidbody = GetComponent<Rigidbody2D>();
-        ballSpriteRenderer = GetComponent<SpriteRenderer>();
+        ballSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Start()
@@ -87,7 +87,7 @@ public class Ball : MonoBehaviour, IHittable
             case HitType.Down:
                 TimeManager.Instance.DoHitStop(false);
                 finalDirection = new Vector2(directionX, -1f).normalized;
-                ApplyHit(finalDirection, hitter.side);
+                ApplyHit(finalDirection, hitter.side, 0.4f);
                 break;
 
             case HitType.Set:
@@ -96,13 +96,13 @@ public class Ball : MonoBehaviour, IHittable
         }
     }
 
-    private void ApplyHit(Vector2 direction, PlayerSide hitterSide)
+    private void ApplyHit(Vector2 direction, PlayerSide hitterSide, float speedPlus = 0f)
     {
         ballRigidbody.simulated = true;
         ballRigidbody.gravityScale = 0f;
 
         // เพิ่มความเร็ว
-        currentSpeed *= speedIncreaseMultiplier;
+        currentSpeed *= speedIncreaseMultiplier + speedPlus;
         currentSpeed = Mathf.Clamp(currentSpeed, baseSpeed, maximumSpeed);
 
         ballRigidbody.linearVelocity = direction * currentSpeed;
