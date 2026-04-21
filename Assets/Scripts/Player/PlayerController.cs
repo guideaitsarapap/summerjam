@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private bool isDoubleJumpUsed;
     private bool isMoveable = true;
+    [SerializeField]private Animator anim;
 
     [Header("Gravity Multipliers")]
     [SerializeField] float fallMultiplier = 2.5f;      
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
     private Vector2 moveInput;
+    private HitType pendingHitType;
 
     public event Action<PlayerController,HitType> OnPlayerHit;
 
@@ -57,11 +59,19 @@ public class PlayerController : MonoBehaviour
         if (!isMoveable)
         {
             rb.linearVelocity = Vector2.zero;
+            anim.SetBool("isMoving", false);
             return; 
         }
 
         Vector2 movement = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
         rb.linearVelocity = movement;
+
+
+        bool isActuallyMoving = Mathf.Abs(rb.linearVelocity.x) > 0.1f;
+        anim.SetBool("isMoving", isActuallyMoving);
+
+
+        anim.SetBool("isGrounded", isGrounded);  
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -86,6 +96,7 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Jumping");
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 isGrounded = false;
+                anim.SetTrigger("Jump");
             }
             else if (!isDoubleJumpUsed)
             {
@@ -101,25 +112,34 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            HitType type = HitType.Straight;
-            Debug.Log("Straight Hit!");
 
             if (!isGrounded && Mathf.Abs(moveInput.x) > 0.1f)
             {
-                type = HitType.Down;
+                anim.SetTrigger("DownwardHit");
+                pendingHitType = HitType.Down;
                 Debug.Log("Aerial Spike! (Down Hit)");
             }
-
-            OnPlayerHit?.Invoke(this, type);
+            
+            else
+            {
+                pendingHitType = HitType.Straight;
+                anim.SetTrigger("Hit");
+                Debug.Log("Straight Hit!");
+            }
         }
+    }
+
+    public void ExecuteHit()
+    {
+        OnPlayerHit?.Invoke(this, pendingHitType);
     }
 
     public void SetAction(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            HitType type = HitType.Set;
-            OnPlayerHit?.Invoke(this, type);
+            anim.SetTrigger("Set");
+            pendingHitType = HitType.Set;
         }
     }
 

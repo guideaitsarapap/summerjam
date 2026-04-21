@@ -1083,7 +1083,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeManager
   timerText: {fileID: 112496824}
-  hitStopDuration: 1
+  hitStopDuration: 0.5
+  slowMoDuration: 1
   timeScaleIntensity: 0.2
   maxRoundTime: 60
 --- !u!4 &1316996329
@@ -1372,9 +1373,57 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1562393289570198331, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562393289570198331, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562393289570198331, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562393289570198331, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2254199524772691355, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
       propertyPath: m_Name
       value: MainCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709659354412496806, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709659354412496806, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709659354412496806, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709659354412496806, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944996674317036530, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944996674317036530, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944996674317036530, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944996674317036530, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
