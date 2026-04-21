@@ -5,9 +5,6 @@ TextureImporter:
   - first:
       213: -3849964298368572240
     second: Frame round counter_0
-  - first:
-      213: -7534743511227942177
-    second: Frame round counter_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,10 +103,10 @@ TextureImporter:
       name: Frame round counter_0
       rect:
         serializedVersion: 2
-        x: 2061
-        y: 992
-        width: 116
-        height: 115
+        x: 6
+        y: 6
+        width: 500
+        height: 499
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,28 +117,6 @@ TextureImporter:
       bones: []
       spriteID: 0b42ecd5edd229ac0800000000000000
       internalID: -3849964298368572240
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Frame round counter_1
-      rect:
-        serializedVersion: 2
-        x: 2220
-        y: 991
-        width: 117
-        height: 117
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fda349382b63f6790800000000000000
-      internalID: -7534743511227942177
       vertices: []
       indices: 
       edges: []
@@ -161,7 +136,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Frame round counter_0: -3849964298368572240
-      Frame round counter_1: -7534743511227942177
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

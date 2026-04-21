@@ -103,10 +103,10 @@ TextureImporter:
       name: Cat Head_0
       rect:
         serializedVersion: 2
-        x: 135
-        y: 1105
-        width: 591
-        height: 552
+        x: 41
+        y: 54
+        width: 431
+        height: 403
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
