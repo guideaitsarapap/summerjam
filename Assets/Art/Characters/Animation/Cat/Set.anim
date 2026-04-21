@@ -30,6 +30,8 @@ AnimationClip:
       value: {fileID: -8407034015439618243, guid: 95368a1a5621b0940991993d666668d9, type: 3}
     - time: 0.2
       value: {fileID: -5620828481316324590, guid: a952ac1eee9234a4fb0e862581dffb0b, type: 3}
+    - time: 0.25
+      value: {fileID: -5620828481316324590, guid: a952ac1eee9234a4fb0e862581dffb0b, type: 3}
     attribute: m_Sprite
     path: Sprite
     classID: 212
@@ -57,12 +59,13 @@ AnimationClip:
     - {fileID: 406294450180294540, guid: 488fc249427ac2b4988579672a60cfe2, type: 3}
     - {fileID: -8407034015439618243, guid: 95368a1a5621b0940991993d666668d9, type: 3}
     - {fileID: -5620828481316324590, guid: a952ac1eee9234a4fb0e862581dffb0b, type: 3}
+    - {fileID: -5620828481316324590, guid: a952ac1eee9234a4fb0e862581dffb0b, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.25
+    m_StopTime: 0.3
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -84,6 +87,20 @@ AnimationClip:
   m_Events:
   - time: 0.15
     functionName: ExecuteHit
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.2
+    functionName: ExecuteHit
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.25
+    functionName: ClearHitBoxHit
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

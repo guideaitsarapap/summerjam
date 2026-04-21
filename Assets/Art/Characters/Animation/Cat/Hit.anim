@@ -36,6 +36,10 @@ AnimationClip:
       value: {fileID: 3617445299678773529, guid: 189ae2c326e938040b6e50aec52a89a2, type: 3}
     - time: 0.14
       value: {fileID: 7252086504412843113, guid: 93288f286b03ff9429f838ffe488aab3, type: 3}
+    - time: 0.16
+      value: {fileID: 7252086504412843113, guid: 93288f286b03ff9429f838ffe488aab3, type: 3}
+    - time: 0.18
+      value: {fileID: 7252086504412843113, guid: 93288f286b03ff9429f838ffe488aab3, type: 3}
     attribute: m_Sprite
     path: Sprite
     classID: 212
@@ -66,12 +70,14 @@ AnimationClip:
     - {fileID: -3944763031200947519, guid: 7940e3a3778f19c4da5c44f8de7cb2bf, type: 3}
     - {fileID: 3617445299678773529, guid: 189ae2c326e938040b6e50aec52a89a2, type: 3}
     - {fileID: 7252086504412843113, guid: 93288f286b03ff9429f838ffe488aab3, type: 3}
+    - {fileID: 7252086504412843113, guid: 93288f286b03ff9429f838ffe488aab3, type: 3}
+    - {fileID: 7252086504412843113, guid: 93288f286b03ff9429f838ffe488aab3, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.16
+    m_StopTime: 0.2
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -91,8 +97,36 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0.1
+    functionName: ExecuteHit
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.12
     functionName: ExecuteHit
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.14
+    functionName: ExecuteHit
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.16
+    functionName: ExecuteHit
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.18
+    functionName: ClearHitBoxHit
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
