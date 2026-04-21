@@ -102,41 +102,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Downward_0007_0
-      rect:
-        serializedVersion: 2
-        x: 815
-        y: 3437
-        width: 1944
-        height: 644
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 96c8ee7a04694a460800000000000000
-      internalID: 7252086504412843113
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Downward_0007_1
       rect:
         serializedVersion: 2
-        x: 1551
+        x: 810
         y: 1246
-        width: 3169
-        height: 3674
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 4079
+        height: 3694
+      alignment: 9
+      pivot: {x: 0.51744276, y: 0.34830308}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -149,33 +140,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Downward_0007_2
-      rect:
-        serializedVersion: 2
-        x: 4202
-        y: 1478
-        width: 668
-        height: 2579
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5ec4cfbdf1c3d41b0800000000000000
-      internalID: -5670810248257188635
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e81a4dc772444a64e94026d32d313a20
     internalID: 0
     vertices: []
     indices: 
