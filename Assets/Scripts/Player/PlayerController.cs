@@ -158,6 +158,7 @@ public class PlayerController : MonoBehaviour
 
     public void flip()
     {
+        if (Time.timeScale == 0) return;
         facingRight = !facingRight;
         Vector3 scale = transform.localScale;
         scale.x *= -1;
@@ -182,6 +183,7 @@ public class PlayerController : MonoBehaviour
 
     public void CheckMoveDirection()
     {
+        if (Time.timeScale == 0) return;
         if(rb.linearVelocity.x > 0 && !facingRight)
         {
             flip();
