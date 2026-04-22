@@ -77,11 +77,11 @@ public class HurtBoxPlayer : MonoBehaviour
 
     private IEnumerator StunRoutine()
     {
-        playerController.SetMoveable(false);
+        playerController.SetMoveable(false,false);
         
         // ใช้ Realtime เพื่อให้ไม่โดน HitStop รบกวนเวลา
         yield return new WaitForSecondsRealtime(stunDuration);
         
-        playerController.SetMoveable(true);
+        playerController.SetMoveable(true,true);
     }
 }
