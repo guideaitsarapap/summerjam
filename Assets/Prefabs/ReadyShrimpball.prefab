@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5805032039297366228}
   - component: {fileID: 636308267661238855}
   m_Layer: 9
-  m_Name: Shrimpball
+  m_Name: ReadyShrimpball
   m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   baseSpeed: 8
   speedIncreaseMultiplier: 1.2
-  maximumSpeed: 45
+  maximumSpeed: 25
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -133,6 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 174528520662856280}
   - component: {fileID: 6118275042715934687}
+  - component: {fileID: 3771856660118570757}
+  - component: {fileID: 705339697837440433}
   m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
@@ -214,3 +216,53 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &3771856660118570757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6609102981824123962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2929b1f3738237b47b5622f3d9224557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReadyBall
+  forPlayerSide: 0
+  readyColor: {r: 0, g: 1, b: 0, a: 1}
+--- !u!58 &705339697837440433
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6609102981824123962}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 19.560003
