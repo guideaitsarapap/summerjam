@@ -13,6 +13,7 @@ public class TimeManager : MonoBehaviour
 
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] public ShowImageUI showImageUI;
 
     [Header("HitStop Settings")]
     [SerializeField] private float hitStopDuration = 0.5f;
@@ -81,21 +82,39 @@ public class TimeManager : MonoBehaviour
 
     private IEnumerator PreRoundRoutine(int seconds, Action onFinished)
     {
+        if (showImageUI != null)
+        {
+            showImageUI.SetEnable(true);
+        }
+
         timerText.gameObject.SetActive(true);
         int currentCount = seconds;
 
         while (currentCount > 0)
         {
-            //อยากทำ UI เลขใหญ่ๆกลางจอทำตรงนี้
-            timerText.text = currentCount.ToString();
+            if (showImageUI != null)
+            {
+                showImageUI.UpdateCountdownDisplay(currentCount);
+            }
+
             yield return new WaitForSecondsRealtime(1f);
             currentCount--;
+        }
+        
+        if (showImageUI != null)
+        {
+            showImageUI.UpdateCountdownDisplay(0); // เลข 0 แทนรูป GO!
         }
 
         //timerText.text = "FIGHT!";   หรือไม่ก็ทำ UI มาแทน Text
         onFinished?.Invoke(); // บอก GameFlow ว่าเริ่มเล่นได้
 
         yield return new WaitForSecondsRealtime(0.5f);
+
+        if (showImageUI != null)
+        {
+            showImageUI.SetEnable(false);
+        }
         
         // เริ่มนับเวลาถอยหลัง 60 วินาทีของรอบ
         StartRoundTimer();
@@ -120,7 +139,6 @@ public class TimeManager : MonoBehaviour
     private void OnTimeOut()
     {
         isTimerRunning = false;
-        timerText.text = "TIME UP!";
         Debug.Log("Round Time Ended!");
         
         // แจ้ง GameFlowManager ว่าหมดเวลา (Draw หรือหาผู้ชนะจากเลือด)
