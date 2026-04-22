@@ -57,9 +57,12 @@ public class VolumeSetting : MonoBehaviour
 
     private void LoadVolume()
     {
-        musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
-        sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume");
-        ambientSlider.value = PlayerPrefs.GetFloat("ambientVolume");
+        if(musicSlider != null) musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
+            else Debug.LogWarning("Music slider reference is missing!");
+        if(sfxSlider != null) sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume");
+            else Debug.LogWarning("SFX slider reference is missing!");
+        if(ambientSlider != null) ambientSlider.value = PlayerPrefs.GetFloat("ambientVolume");
+            else Debug.LogWarning("Ambient slider reference is missing!");
 
         SetMusicVolume();
         SetSFXVolume();

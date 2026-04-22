@@ -43,6 +43,9 @@ public class GameFlowManager : MonoBehaviour
     // เอาไว้เช็คว่าตอนนี้ลดเลือดได้ไหม
     public bool IsBattleActive => currentGameState == GameState.Playing;
 
+    [Header("Object References for Menu")]
+    [SerializeField] private List<GameObject> menuObjectsToClear = new List<GameObject>();
+
     void Awake()
     {
         if (Instance == null)
@@ -61,7 +64,7 @@ public class GameFlowManager : MonoBehaviour
         CheckAndStartGameTransition();
     }
 
-    // --- Lobby ---
+ #region     --- Lobby ---
 
     public void RegisterNewPlayer(PlayerInput playerInput)
     {
@@ -90,6 +93,9 @@ public class GameFlowManager : MonoBehaviour
     public void MarkPlayerAsReady(PlayerController characterController)
     {
         var playerFound = connectedPlayers.Find(p => p.controllerReference == characterController);
+
+        Debug.Log(playerFound);
+
 
         if (playerFound != null && !playerFound.isReadyInLobby)
         {
@@ -132,11 +138,14 @@ public class GameFlowManager : MonoBehaviour
         StartNewRound();
         yield return null;
     }
+#endregion
 
-    // --- Gameplay ---
+#region      --- Gameplay ---
 
     public void StartNewRound()
     {
+        ClearObjectsAndUInMenuForGamePlay();
+
         ResetPosition();
         currentGameState = GameState.Countdown;
 
@@ -171,6 +180,14 @@ public class GameFlowManager : MonoBehaviour
         
         HealthManager.Instance.ResetAllHealthBars();
         TimeManager.Instance.StartPreRoundCountdown(3 , () => {currentGameState = GameState.Playing;});
+    }
+
+    private void ClearObjectsAndUInMenuForGamePlay()
+    {
+        foreach (GameObject obj in menuObjectsToClear)
+        {
+            obj.SetActive(false);
+        }
     }
 
     public void ApplyDamage(PlayerSide side, float damageAmount)
@@ -346,4 +363,6 @@ public class GameFlowManager : MonoBehaviour
             default: return false;
         }
     }
+#endregion
+
 }
