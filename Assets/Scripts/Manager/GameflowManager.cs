@@ -28,6 +28,17 @@ public class GameFlowManager : MonoBehaviour
     [Header("Match Settings")]
     public GameState currentGameState = GameState.Lobby;
     public int winsRequiredToMatch = 2;
+
+    [Header("Movement Configuration")]
+    public bool allowMoveInLobby = false;
+    public bool allowMoveInCountdown = false;
+    public bool allowMoveInPlaying = false;
+    public bool allowMoveInRoundEnd = false;
+    public bool allowMoveInMatchOver = false;
+    
+    [Header("Round Logic")]
+    private bool isFirstRound = true;
+    private PlayerSide lastRoundLoser;
     
     // เอาไว้เช็คว่าตอนนี้ลดเลือดได้ไหม
     public bool IsBattleActive => currentGameState == GameState.Playing;
@@ -128,7 +139,30 @@ public class GameFlowManager : MonoBehaviour
     {
         ResetPosition();
         currentGameState = GameState.Countdown;
-        
+
+        if (activeBalls.Count > 0)
+        {
+            GameObject currentBallObj = activeBalls[activeBalls.Count - 1];
+            Ball ballScript = currentBallObj.GetComponent<Ball>();
+
+            if (ballScript != null)
+            {
+                if (isFirstRound)
+                {
+                    Debug.Log("[Flow] First Round: Ball at Center");
+                    ballScript.ResetBallToCenter();
+                    isFirstRound = false;
+                }
+                else
+                {
+                    var loserIdentity = connectedPlayers.Find(p => p.side == lastRoundLoser);
+                    if (loserIdentity != null && loserIdentity.controllerReference != null)
+                    {
+                        ballScript.SetupFollowLoser(loserIdentity.controllerReference);
+                    }
+                }
+            }
+        }
         // รีเซ็ตเลือดในข้อมูล
         foreach (var player in connectedPlayers)
         {
@@ -169,6 +203,7 @@ public class GameFlowManager : MonoBehaviour
     {
         currentGameState = GameState.MatchOver;
         Debug.Log($"MATCH OVER! {matchWinner} IS THE CHAMPION!");
+        isFirstRound = true;
         //Show who won the match and return to lobby or something here
     }
 
@@ -222,6 +257,8 @@ public class GameFlowManager : MonoBehaviour
         if (currentGameState != GameState.Playing) return;
         
         currentGameState = GameState.RoundEnd;
+        
+        lastRoundLoser = loserSide;
 
         // --- ส่วนที่เพิ่ม: เมื่อมีคนตาย ต้องสั่งหยุดเวลา 60 วิ ทันที ---
         if (TimeManager.Instance != null)
@@ -295,5 +332,18 @@ public class GameFlowManager : MonoBehaviour
         }
 
         Debug.Log("[Flow] All balls cleared.");
+    }
+
+    public bool CanPlayersMove()
+    {
+        switch (currentGameState)
+        {
+            case GameState.Lobby:     return allowMoveInLobby;
+            case GameState.Countdown: return allowMoveInCountdown;
+            case GameState.Playing:   return allowMoveInPlaying;
+            case GameState.RoundEnd:  return allowMoveInRoundEnd;
+            case GameState.MatchOver: return allowMoveInMatchOver;
+            default: return false;
+        }
     }
 }

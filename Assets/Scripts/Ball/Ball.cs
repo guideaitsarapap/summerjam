@@ -1,6 +1,7 @@
 using UnityEngine;
 using VInspector;
 using System.Collections;
+using Unity.VisualScripting;
 
 public enum BallSide
 {
@@ -35,23 +36,25 @@ public class Ball : MonoBehaviour, IHittable
     [Header("Force Settings")]
     [SerializeField] private Vector2 forceSetUp = new Vector2(0, 8f);
 
+    [Header("Mercy Rule Settings")]
+    [SerializeField] private Vector3 redFollowOffset = new Vector3(0, 1.5f, 0);
+    [SerializeField] private Vector3 blueFollowOffset = new Vector3(0, 1.5f, 0);
+
+    private Vector3 currentFollowOffset;
+
+
     private void Awake()
     {
         ballRigidbody = GetComponent<Rigidbody2D>();
         ballSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
-    private void Start()
-    {
-        ResetBallToCenter();
-    }
-
-    private void Update()
+    private void LateUpdate()
     {
         // อยู่ในโหมดลอยตามตัว (หลังมีคนตาย)
         if (isFollowingPlayer && targetToFollow != null)
         {
-            transform.position = targetToFollow.position + new Vector3(0, 1.5f, 0);
+            transform.position = targetToFollow.position + currentFollowOffset;
         }
     }
 
@@ -68,10 +71,18 @@ public class Ball : MonoBehaviour, IHittable
     public void OnGetHit(PlayerController hitter, HitType hitType)
     {
         // เงื่อนไข: ถ้าบอลลอยตามผู้แพ้ จะต้องเป็นผู้แพ้เท่านั้นที่ตีได้
-        if (isFollowingPlayer && hitter.side != loserSide) return;
+        if (isFollowingPlayer)
+        {
+            if (hitter.side != loserSide) 
+            {
+                Debug.Log("[Ball] Not your turn to serve!");
+                return;
+            }
+            
+            // ถ้าใช่คนแพ้ที่ตี (เสิร์ฟสำเร็จ) ให้ปลดล็อกสถานะทันที
+            StopFollowingPlayer();
+        }
 
-        // ถ้าตีแล้ว ให้เลิกติดตามตัวละคร
-        StopFollowingPlayer();
 
         float directionX = hitter.facingRight ? 1f : -1f;
         Vector2 finalDirection = Vector2.zero;
@@ -219,12 +230,21 @@ public class Ball : MonoBehaviour, IHittable
 
     public void SetupFollowLoser(PlayerController loser)
     {
-        ResetBallToCenter(); // ล้างค่า Speed เดิม
-        
         targetToFollow = loser.transform;
         loserSide = loser.side;
         isFollowingPlayer = true;
 
+        if (loser.side == PlayerSide.Red)
+        {
+            currentFollowOffset = redFollowOffset;
+        }
+        else
+        {
+            currentFollowOffset = blueFollowOffset;
+        }
+
+        ballRigidbody.gravityScale = 0f;
+        ballRigidbody.linearVelocity = Vector2.zero;
         // เริ่มนับถอยหลัง ถ้าไม่ตีภายใน 7 วินาที ให้ดรอปลงพื้น
         StartCoroutine(MercyTimerRoutine());
     }
@@ -233,9 +253,9 @@ public class Ball : MonoBehaviour, IHittable
     {
         if (!isFollowingPlayer) return;
         
-        StopAllCoroutines();
         isFollowingPlayer = false;
         targetToFollow = null;
+        StopAllCoroutines();
         ballRigidbody.simulated = true;
     }
 

@@ -94,6 +94,8 @@ MonoBehaviour:
     m_Bits: 264
   currentSide: 0
   forceSetUp: {x: 0, y: 8}
+  redFollowOffset: {x: 1.5, y: 0, z: 0}
+  blueFollowOffset: {x: -1.5, y: 0, z: 0}
 --- !u!50 &636308267661238855
 Rigidbody2D:
   serializedVersion: 5

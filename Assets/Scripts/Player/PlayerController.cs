@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private bool isDoubleJumpUsed;
     private bool isMoveable = true;
+    private bool CanControl => isMoveable && (GameFlowManager.Instance == null || GameFlowManager.Instance.CanPlayersMove());
     [SerializeField]private Animator anim;
 
     [Header("Gravity Multipliers")]
@@ -66,9 +67,9 @@ public class PlayerController : MonoBehaviour
             isDoubleJumpUsed = false;
         }
 
-        if (!isMoveable)
+        if (!CanControl)
         {
-            rb.linearVelocity = Vector2.zero;
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
             anim.SetBool("isMoving", false);
             return; 
         }
@@ -88,7 +89,7 @@ public class PlayerController : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        if (!isMoveable) return;
+        if (!CanControl) return;
         if (moveInput.x > 0 && !facingRight)
         {
             flip();
@@ -103,7 +104,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            if (!isMoveable) return;
+            if (!CanControl) return;
             if (isGrounded)
             {
                 Debug.Log("Jumping");
@@ -125,7 +126,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            if (!isMoveable) return;
+            if (!CanControl) return;
             if (!isGrounded && Mathf.Abs(moveInput.x) > 0.1f)
             {
                 anim.SetTrigger("DownwardHit");
@@ -171,19 +172,19 @@ public class PlayerController : MonoBehaviour
         transform.localScale = scale;
     }
 
-    public void SetMoveable(bool state)
+    public void SetMoveable(bool state, bool useGravity = true)
     {
         isMoveable = state;
         
         if (!isMoveable)
         {
             rb.linearVelocity = Vector2.zero;
-            rb.gravityScale = 0; 
+            
+            rb.gravityScale = useGravity ? defaultGravityScale : 0;
         }
         else
         {
-            rb.gravityScale = 1; 
-            anim.SetBool("isMoving", true);
+            rb.gravityScale = defaultGravityScale;
         }
     }
 
@@ -202,7 +203,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (!isMoveable) return; 
+        if (!CanControl) return; 
 
         if (rb.linearVelocity.y < 0)
         {
