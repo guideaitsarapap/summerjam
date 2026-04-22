@@ -1267,7 +1267,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -80, y: 481}
+  m_AnchoredPosition: {x: -80, y: 635}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1162169508
@@ -1931,7 +1931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthManager
   redHealthBar: {fileID: 1656061944}
-  blueHealthBar: {fileID: 1656061943}
+  blueHealthBar: {fileID: 0}
 --- !u!4 &1612182281
 Transform:
   m_ObjectHideFlags: 0
@@ -1995,7 +1995,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1644725477
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2385,17 +2385,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
---- !u!114 &1656061943 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8900834995529616147, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
-  m_PrefabInstance: {fileID: 1656061942}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!114 &1656061944 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5447245869929321372, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
