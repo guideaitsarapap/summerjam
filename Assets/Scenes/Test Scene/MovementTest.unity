@@ -1277,7 +1277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthManager
   redHealthBar: {fileID: 1656061944}
-  blueHealthBar: {fileID: 1656061943}
+  blueHealthBar: {fileID: 0}
 --- !u!4 &1612182281
 Transform:
   m_ObjectHideFlags: 0
@@ -1417,6 +1417,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7408383451532882110, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.4618225
+      objectReference: {fileID: 0}
+    - target: {fileID: 7574629342500647029, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.4618225
+      objectReference: {fileID: 0}
     - target: {fileID: 8944996674317036530, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1438,17 +1446,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
---- !u!114 &1656061943 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8900834995529616147, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
-  m_PrefabInstance: {fileID: 1656061942}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!114 &1656061944 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5447245869929321372, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
