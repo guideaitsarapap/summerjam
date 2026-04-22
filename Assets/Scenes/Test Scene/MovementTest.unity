@@ -1061,6 +1061,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 188303590}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1283311227 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6680894101371261481, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
+  m_PrefabInstance: {fileID: 1656061942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1316996327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1276,8 +1287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41237b940144ba64fad1921a785e2624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthManager
-  redHealthBar: {fileID: 1656061944}
-  blueHealthBar: {fileID: 0}
+  redHealthBar: {fileID: 1989730697}
+  blueHealthBar: {fileID: 1283311227}
 --- !u!4 &1612182281
 Transform:
   m_ObjectHideFlags: 0
@@ -1446,17 +1457,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
---- !u!114 &1656061944 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5447245869929321372, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
-  m_PrefabInstance: {fileID: 1656061942}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1828274080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1630,6 +1630,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1828274081}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1989730697 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6009752402100687586, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
+  m_PrefabInstance: {fileID: 1656061942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
