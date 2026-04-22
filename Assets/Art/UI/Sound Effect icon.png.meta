@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: 94baa0fcf52340e40bcb2f213df24e4a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4800123764861479215
+    second: Sound Effect icon_0
+  - first:
+      213: 6920273544950631942
+    second: Sound Effect icon_1
+  - first:
+      213: -6836971921910332800
+    second: Sound Effect icon_2
+  - first:
+      213: -157540221027850752
+    second: Sound Effect icon_3
+  - first:
+      213: -5078858636287215982
+    second: Sound Effect icon_4
+  - first:
+      213: 5799345316924839317
+    second: Sound Effect icon_5
+  - first:
+      213: -5248869577917528559
+    second: Sound Effect icon_6
+  - first:
+      213: -329914918204060286
+    second: Sound Effect icon_7
+  - first:
+      213: -4301995449284878701
+    second: Sound Effect icon_8
+  - first:
+      213: -1322608111689592188
+    second: Sound Effect icon_9
+  - first:
+      213: -7107627654949962733
+    second: Sound Effect icon_10
+  - first:
+      213: 1707542472687060000
+    second: Sound Effect icon_11
+  - first:
+      213: 8734819611647001907
+    second: Sound Effect icon_12
+  - first:
+      213: -9138439477707402914
+    second: Sound Effect icon_13
+  - first:
+      213: 4326277176733950070
+    second: Sound Effect icon_14
+  - first:
+      213: -2090750866649842659
+    second: Sound Effect icon_15
+  - first:
+      213: 747241737557793472
+    second: Sound Effect icon_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sound Effect icon_0
+      rect:
+        serializedVersion: 2
+        x: 1537
+        y: 0
+        width: 462
+        height: 1336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f29aa7ac1277d9240800000000000000
+      internalID: 4800123764861479215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sound Effect icon_1
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 1222
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60ec05bbf10c90060800000000000000
+      internalID: 6920273544950631942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sound Effect icon_2
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 85
+        width: 399
+        height: 1078
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0820737c2423e11a0800000000000000
+      internalID: -6836971921910332800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sound Effect icon_3
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 1161
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0066ccfe00e40ddf0800000000000000
+      internalID: -157540221027850752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sound Effect icon_4
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 1162
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 296fcafaaf44489b0800000000000000
+      internalID: -5078858636287215982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sound Effect icon_5
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 114
+        width: 370
+        height: 1059
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5955129e6d96b7050800000000000000
+      internalID: 5799345316924839317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sound Effect icon_6
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 240
+        width: 279
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1160fd7bde44827b0800000000000000
+      internalID: -5248869577917528559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sound Effect icon_7
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 996
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28d485e3128eb6bf0800000000000000
+      internalID: -329914918204060286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sound Effect icon_8
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 996
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39e170c8eed3c44c0800000000000000
+      internalID: -4301995449284878701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sound Effect icon_9
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 793
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48211bd0ee625ade0800000000000000
+      internalID: -1322608111689592188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sound Effect icon_10
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 802
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31cf6fe3e42ac5d90800000000000000
+      internalID: -7107627654949962733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sound Effect icon_11
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 415
+        width: 375
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 024876bf4d862b710800000000000000
+      internalID: 1707542472687060000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sound Effect icon_12
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 407
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 335c5516820583970800000000000000
+      internalID: 8734819611647001907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sound Effect icon_13
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 407
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5118d966bdbd2180800000000000000
+      internalID: -9138439477707402914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sound Effect icon_14
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 234
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6706b1fab260a0c30800000000000000
+      internalID: 4326277176733950070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sound Effect icon_15
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 89
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1cfe7ff9292cf2e0800000000000000
+      internalID: -2090750866649842659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sound Effect icon_16
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ca5a78b66cbe5a00800000000000000
+      internalID: 747241737557793472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Sound Effect icon_0: 4800123764861479215
+      Sound Effect icon_1: 6920273544950631942
+      Sound Effect icon_10: -7107627654949962733
+      Sound Effect icon_11: 1707542472687060000
+      Sound Effect icon_12: 8734819611647001907
+      Sound Effect icon_13: -9138439477707402914
+      Sound Effect icon_14: 4326277176733950070
+      Sound Effect icon_15: -2090750866649842659
+      Sound Effect icon_16: 747241737557793472
+      Sound Effect icon_2: -6836971921910332800
+      Sound Effect icon_3: -157540221027850752
+      Sound Effect icon_4: -5078858636287215982
+      Sound Effect icon_5: 5799345316924839317
+      Sound Effect icon_6: -5248869577917528559
+      Sound Effect icon_7: -329914918204060286
+      Sound Effect icon_8: -4301995449284878701
+      Sound Effect icon_9: -1322608111689592188
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
