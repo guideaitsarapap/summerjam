@@ -257,6 +257,7 @@ public class GameFlowManager : MonoBehaviour
     private void OnRoundWin(PlayerIdentity winner)
     {
         winner.roundWins++;
+        WinSlotManager.Instance?.AddWin(winner.side);
         Debug.Log($"Round Ended! Winner: {winner.side} (Total Wins: {winner.roundWins})");
 
         if (winner.roundWins >= winsRequiredToMatch)

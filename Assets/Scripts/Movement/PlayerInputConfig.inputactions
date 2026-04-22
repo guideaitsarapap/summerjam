@@ -50,6 +50,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Crouch",
+                    "type": "Button",
+                    "id": "2f147ec5-3097-41a0-9103-2588502848da",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -67,7 +76,7 @@
                 {
                     "name": "",
                     "id": "4fcdbe9b-90dc-4521-8c50-893c717a555b",
-                    "path": "<Keyboard>/p",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": ";P2_Keyboard",
@@ -98,39 +107,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "down",
-                    "id": "393b2fdf-2f60-4f98-b3ad-f0f2b1b2b28b",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";P1_Keyboard",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "6164b8fd-01f1-4f2c-af46-f022d03d1d02",
-                    "path": "<Keyboard>/semicolon",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";P2_Keyboard",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "0dc34626-3430-4ca3-ab24-202104e6a9dd",
-                    "path": "<Gamepad>/leftStick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "left",
                     "id": "cf00b290-5388-4462-b13c-d8960c80ff92",
                     "path": "<Keyboard>/a",
@@ -144,7 +120,7 @@
                 {
                     "name": "left",
                     "id": "9e3b53ca-7087-40c7-baf4-e9f340da9b6d",
-                    "path": "<Keyboard>/l",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": ";P2_Keyboard",
@@ -177,7 +153,7 @@
                 {
                     "name": "right",
                     "id": "18aed517-c9c3-4acc-9a2b-32a07e6d15c5",
-                    "path": "<Keyboard>/quote",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": ";P2_Keyboard",
@@ -199,7 +175,7 @@
                 {
                     "name": "",
                     "id": "125c6074-8aa6-4a57-b56c-bceb894e4922",
-                    "path": "<Keyboard>/leftAlt",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": ";P1_Keyboard",
@@ -210,7 +186,7 @@
                 {
                     "name": "",
                     "id": "e93531ef-afc3-4f56-8244-318ddc48ef5c",
-                    "path": "<Keyboard>/rightAlt",
+                    "path": "<Keyboard>/period",
                     "interactions": "",
                     "processors": "",
                     "groups": ";P2_Keyboard",
@@ -232,7 +208,7 @@
                 {
                     "name": "",
                     "id": "6099f1fd-d331-41d6-b86c-1669af1a029a",
-                    "path": "<Keyboard>/leftShift",
+                    "path": "<Keyboard>/g",
                     "interactions": "",
                     "processors": "",
                     "groups": ";P1_Keyboard",
@@ -243,7 +219,7 @@
                 {
                     "name": "",
                     "id": "209a0191-fd39-4dfa-9dd9-c0448ecd4f53",
-                    "path": "<Keyboard>/rightShift",
+                    "path": "<Keyboard>/slash",
                     "interactions": "",
                     "processors": "",
                     "groups": ";P2_Keyboard",
@@ -270,6 +246,39 @@
                     "processors": "",
                     "groups": ";P1_Keyboard;P2_Keyboard;Gamepad",
                     "action": "Join",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c8f66114-95cd-4f9e-a103-32ef2653a7b6",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";P1_Keyboard",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bab502c0-93fd-4810-b4da-fe0c135bd022",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8b0630c1-1bcc-4807-bdf6-ecda9161730a",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

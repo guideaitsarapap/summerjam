@@ -74,7 +74,14 @@ public class PlayerController : MonoBehaviour
             return; 
         }
 
-        Vector2 movement = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
+        float currentHorizontalSpeed = moveInput.x * moveSpeed;
+
+        if (anim.GetBool("isCrouch")) 
+        {
+            currentHorizontalSpeed = 0;
+        }
+
+        Vector2 movement = new Vector2(currentHorizontalSpeed, rb.linearVelocity.y);
         rb.linearVelocity = movement;
         CheckMoveDirection();
 
@@ -108,6 +115,7 @@ public class PlayerController : MonoBehaviour
             if (isGrounded)
             {
                 Debug.Log("Jumping");
+                rb.linearVelocityY = 0f; 
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 isGrounded = false;
                 anim.SetTrigger("Jump");
@@ -140,6 +148,25 @@ public class PlayerController : MonoBehaviour
                 anim.SetTrigger("Hit");
                 Debug.Log("Straight Hit!");
             }
+        }
+    }
+    public void CrouchAction(InputAction.CallbackContext context)
+    {
+        if (!CanControl || !isGrounded) 
+        {
+            anim.SetBool("isCrouching", false);
+            return;
+        }
+
+        if (context.performed)
+        {
+            anim.SetBool("isCrouch", true);
+            // ใส่โค้ดลดขนาด Collider ตรงนี้
+        }
+        else if (context.canceled) // เมื่อปล่อยปุ่ม
+        {
+            anim.SetBool("isCrouch", false);
+            // ใส่โค้ดคืนขนาด Collider ตรงนี้
         }
     }
 
