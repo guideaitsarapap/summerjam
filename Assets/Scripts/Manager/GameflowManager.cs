@@ -212,6 +212,8 @@ public class GameFlowManager : MonoBehaviour
         if (currentGameState != GameState.Playing) return;
 
         currentGameState = GameState.RoundEnd;
+        TimeManager.Instance.showImageUI.SetEnable(true);
+        TimeManager.Instance.showImageUI.ShowImageDisplay();
         Debug.Log("[Flow] Time Up!");
 
         // หาผู้ชนะตอนหมดเวลา (คนที่มีเลือดมากกว่า)
@@ -258,6 +260,8 @@ public class GameFlowManager : MonoBehaviour
         if (currentGameState != GameState.Playing) return;
         
         currentGameState = GameState.RoundEnd;
+        TimeManager.Instance.showImageUI.SetEnable(true);
+        TimeManager.Instance.showImageUI.ShowImageDisplay();
         
         lastRoundLoser = loserSide;
 

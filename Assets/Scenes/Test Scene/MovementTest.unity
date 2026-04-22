@@ -1102,6 +1102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeManager
   timerText: {fileID: 112496824}
+  showImageUI: {fileID: 2034027948}
   hitStopDuration: 0.5
   slowMoDuration: 1
   timeScaleIntensity: 0.2
@@ -1492,6 +1493,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6713974282447509954, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7408383451532882110, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.4618225
@@ -1654,6 +1659,8 @@ MonoBehaviour:
   emptySlotSprite: {fileID: 3481385280543947036, guid: c13f8946fa6125a4e946a961dd99fc2f, type: 3}
   redWinSprite: {fileID: 142340640444079445, guid: a6a46f934eb1f874e898a0770907f973, type: 3}
   blueWinSprite: {fileID: -6706665112410664520, guid: 4cfbb8b3d0fb2454cbd499ed55dfae89, type: 3}
+  winSpriteScale: 1.5
+  emptySpriteScale: 1
 --- !u!4 &1875224817
 Transform:
   m_ObjectHideFlags: 0
@@ -1818,6 +1825,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!114 &2034027948 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8406208008988723156, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
+  m_PrefabInstance: {fileID: 1656061942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb89c1c90a1056349bc4849b49b2870b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CountDownUI
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
