@@ -565,8 +565,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeMaterials
   isHasDefaultMaterials: 0
-  defaultMaterial: {fileID: 2100000, guid: 3451312268de5a441a4fdb7ed3cbe8fb, type: 2}
-  getHitMaterial: {fileID: 2100000, guid: 29e5520be9b933d4b9eedca3c18a1e54, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: f638baee269963a47b83803fab9fc3f0, type: 2}
+  getHitMaterial: {fileID: 2100000, guid: f5a29a3117f1a684bac01388f26e8761, type: 2}
 --- !u!1 &8468177476074867091
 GameObject:
   m_ObjectHideFlags: 0
