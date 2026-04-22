@@ -56,16 +56,16 @@ public class TimeManager : MonoBehaviour
     }
 
     // --- 1. ระบบ HitStop ---
-    public void DoHitStop(bool useSlowMo)
+    public void DoHitStop(bool useSlowMo, float customDuration = 0f)
     {
         if (hitStopCoroutine != null) StopCoroutine(hitStopCoroutine);
-        hitStopCoroutine = StartCoroutine(HitStopRoutine(useSlowMo));
+        hitStopCoroutine = StartCoroutine(HitStopRoutine(useSlowMo, customDuration));
     }
 
-    private IEnumerator HitStopRoutine(bool useSlowMo)
+    private IEnumerator HitStopRoutine(bool useSlowMo, float customHitStopDuration = 0f)
     {
         Time.timeScale = useSlowMo ? timeScaleIntensity : 0f;
-        float duration = useSlowMo ? slowMoDuration : hitStopDuration;
+        float duration = useSlowMo ? slowMoDuration : customHitStopDuration < 0.4f ? customHitStopDuration : hitStopDuration;
         yield return new WaitForSecondsRealtime(duration);
         Time.timeScale = 1f;
         hitStopCoroutine = null;

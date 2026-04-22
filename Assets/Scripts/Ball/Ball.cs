@@ -79,13 +79,25 @@ public class Ball : MonoBehaviour, IHittable
         switch (hitType)
         {
             case HitType.Straight:
-                TimeManager.Instance.DoHitStop(false);
+                if(currentSpeed > 25f)
+                {
+                    if(currentSpeed > 40f) TimeManager.Instance.DoHitStop(false, 0.3f);
+                    else TimeManager.Instance.DoHitStop(false, 0.25f);
+                    
+                }
+                
                 finalDirection = new Vector2(directionX, 0f).normalized;
                 ApplyHit(finalDirection, hitter.side);
                 break;
 
             case HitType.Down:
-                TimeManager.Instance.DoHitStop(false);
+                if(currentSpeed > 25f)
+                {
+                    if(currentSpeed > 40f) TimeManager.Instance.DoHitStop(false, 0.35f);
+                    else TimeManager.Instance.DoHitStop(false, 0.25f);
+                    
+                }
+
                 finalDirection = new Vector2(directionX, -1f).normalized;
                 ApplyHit(finalDirection, hitter.side, 0.4f);
                 break;
