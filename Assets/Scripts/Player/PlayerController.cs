@@ -108,6 +108,7 @@ public class PlayerController : MonoBehaviour
             if (isGrounded)
             {
                 Debug.Log("Jumping");
+                rb.linearVelocityY = 0f; 
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 isGrounded = false;
                 anim.SetTrigger("Jump");
