@@ -1,0 +1,897 @@
+fileFormatVersion: 2
+guid: d25e1e9eebce3f7458795e3b2913c3c3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -346610642496598630
+    second: Rare Idel Dog Sprite Sheet_0
+  - first:
+      213: 6061895416499104518
+    second: Rare Idel Dog Sprite Sheet_1
+  - first:
+      213: 6276711488087918519
+    second: Rare Idel Dog Sprite Sheet_2
+  - first:
+      213: -8687704270554616471
+    second: Rare Idel Dog Sprite Sheet_3
+  - first:
+      213: 3205774903319042195
+    second: Rare Idel Dog Sprite Sheet_4
+  - first:
+      213: -2504734142134970363
+    second: Rare Idel Dog Sprite Sheet_5
+  - first:
+      213: 7673524825682514828
+    second: Rare Idel Dog Sprite Sheet_6
+  - first:
+      213: 8386876853361220289
+    second: Rare Idel Dog Sprite Sheet_7
+  - first:
+      213: 3145771799668883802
+    second: Rare Idel Dog Sprite Sheet_8
+  - first:
+      213: 2013579869062586146
+    second: Rare Idel Dog Sprite Sheet_9
+  - first:
+      213: 1772359230206671458
+    second: Rare Idel Dog Sprite Sheet_10
+  - first:
+      213: 6420166398157400006
+    second: Rare Idel Dog Sprite Sheet_11
+  - first:
+      213: 7846504777179488682
+    second: Rare Idel Dog Sprite Sheet_12
+  - first:
+      213: 1976084554814290566
+    second: Rare Idel Dog Sprite Sheet_13
+  - first:
+      213: 1916455259797010535
+    second: Rare Idel Dog Sprite Sheet_14
+  - first:
+      213: 2385089941856883971
+    second: Rare Idel Dog Sprite Sheet_15
+  - first:
+      213: -7561010746958164556
+    second: Rare Idel Dog Sprite Sheet_16
+  - first:
+      213: -1827546236229927592
+    second: Rare Idel Dog Sprite Sheet_17
+  - first:
+      213: -2185362532263860524
+    second: Rare Idel Dog Sprite Sheet_18
+  - first:
+      213: 7688842748180104192
+    second: Rare Idel Dog Sprite Sheet_19
+  - first:
+      213: -980499980595949727
+    second: Rare Idel Dog Sprite Sheet_20
+  - first:
+      213: 1637826737538153959
+    second: Rare Idel Dog Sprite Sheet_21
+  - first:
+      213: -3084898330862970637
+    second: Rare Idel Dog Sprite Sheet_22
+  - first:
+      213: 1094601804806158707
+    second: Rare Idel Dog Sprite Sheet_23
+  - first:
+      213: -3843290480093897818
+    second: Rare Idel Dog Sprite Sheet_24
+  - first:
+      213: -2547210163587262407
+    second: Rare Idel Dog Sprite Sheet_25
+  - first:
+      213: 4870908194695707365
+    second: Rare Idel Dog Sprite Sheet_26
+  - first:
+      213: -764955007096556465
+    second: Rare Idel Dog Sprite Sheet_27
+  - first:
+      213: 7296662280420685272
+    second: Rare Idel Dog Sprite Sheet_28
+  - first:
+      213: 3193778767042707941
+    second: Rare Idel Dog Sprite Sheet_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 179
+        width: 746
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9dce920577903bf0800000000000000
+      internalID: -346610642496598630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 179
+        width: 746
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60b6ff593cd202450800000000000000
+      internalID: 6061895416499104518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 2111
+        y: 179
+        width: 746
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b7081dc7db5b1750800000000000000
+      internalID: 6276711488087918519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 3111
+        y: 179
+        width: 746
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96da2ffcef21f6780800000000000000
+      internalID: -8687704270554616471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 4111
+        y: 179
+        width: 746
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39891362a433d7c20800000000000000
+      internalID: 3205774903319042195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 5111
+        y: 179
+        width: 746
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 508904181956d3dd0800000000000000
+      internalID: -2504734142134970363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 6111
+        y: 179
+        width: 746
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8392f14c26dd7a60800000000000000
+      internalID: 7673524825682514828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 7111
+        y: 179
+        width: 746
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ca9a83001c246470800000000000000
+      internalID: 8386876853361220289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 8111
+        y: 179
+        width: 746
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5184b7e8c608ab20800000000000000
+      internalID: 3145771799668883802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 9111
+        y: 179
+        width: 750
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22f5a56f83ca1fb10800000000000000
+      internalID: 2013579869062586146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 10111
+        y: 179
+        width: 759
+        height: 595
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26a7ada545fa89810800000000000000
+      internalID: 1772359230206671458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 11111
+        y: 179
+        width: 769
+        height: 596
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c72219d253091950800000000000000
+      internalID: 6420166398157400006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 12111
+        y: 179
+        width: 778
+        height: 595
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa16034b58264ec60800000000000000
+      internalID: 7846504777179488682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 13111
+        y: 179
+        width: 783
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68a77dfce667c6b10800000000000000
+      internalID: 1976084554814290566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 14111
+        y: 179
+        width: 787
+        height: 595
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 768312ca7ed989a10800000000000000
+      internalID: 1916455259797010535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 15111
+        y: 179
+        width: 794
+        height: 599
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3059cb55aaa891120800000000000000
+      internalID: 2385089941856883971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 16111
+        y: 179
+        width: 800
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bdc5ac19c4e11790800000000000000
+      internalID: -7561010746958164556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 17111
+        y: 179
+        width: 798
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85db9e2816043a6e0800000000000000
+      internalID: -1827546236229927592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 18111
+        y: 179
+        width: 792
+        height: 598
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d6e6fefa580ca1e0800000000000000
+      internalID: -2185362532263860524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 19111
+        y: 179
+        width: 785
+        height: 595
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0040d130eb144ba60800000000000000
+      internalID: 7688842748180104192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 20111
+        y: 179
+        width: 794
+        height: 599
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16f0d4a66709462f0800000000000000
+      internalID: -980499980595949727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 21111
+        y: 179
+        width: 804
+        height: 604
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ed399e7dbabab610800000000000000
+      internalID: 1637826737538153959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 22111
+        y: 179
+        width: 807
+        height: 605
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f897b4005d3035d0800000000000000
+      internalID: -3084898330862970637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 23111
+        y: 179
+        width: 800
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 379f8f1ca8ec03f00800000000000000
+      internalID: 1094601804806158707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 24111
+        y: 179
+        width: 786
+        height: 595
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6abdc55cba3e9aac0800000000000000
+      internalID: -3843290480093897818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 25111
+        y: 179
+        width: 771
+        height: 596
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 938dd171add76acd0800000000000000
+      internalID: -2547210163587262407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 26111
+        y: 179
+        width: 757
+        height: 595
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ea70662231f89340800000000000000
+      internalID: 4870908194695707365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 27111
+        y: 179
+        width: 748
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f447ad459755265f0800000000000000
+      internalID: -764955007096556465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 28111
+        y: 179
+        width: 746
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d577764fa3f24560800000000000000
+      internalID: 7296662280420685272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare Idel Dog Sprite Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 29111
+        y: 179
+        width: 746
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e104c40ed4925c20800000000000000
+      internalID: 3193778767042707941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Rare Idel Dog Sprite Sheet_0: -346610642496598630
+      Rare Idel Dog Sprite Sheet_1: 6061895416499104518
+      Rare Idel Dog Sprite Sheet_10: 1772359230206671458
+      Rare Idel Dog Sprite Sheet_11: 6420166398157400006
+      Rare Idel Dog Sprite Sheet_12: 7846504777179488682
+      Rare Idel Dog Sprite Sheet_13: 1976084554814290566
+      Rare Idel Dog Sprite Sheet_14: 1916455259797010535
+      Rare Idel Dog Sprite Sheet_15: 2385089941856883971
+      Rare Idel Dog Sprite Sheet_16: -7561010746958164556
+      Rare Idel Dog Sprite Sheet_17: -1827546236229927592
+      Rare Idel Dog Sprite Sheet_18: -2185362532263860524
+      Rare Idel Dog Sprite Sheet_19: 7688842748180104192
+      Rare Idel Dog Sprite Sheet_2: 6276711488087918519
+      Rare Idel Dog Sprite Sheet_20: -980499980595949727
+      Rare Idel Dog Sprite Sheet_21: 1637826737538153959
+      Rare Idel Dog Sprite Sheet_22: -3084898330862970637
+      Rare Idel Dog Sprite Sheet_23: 1094601804806158707
+      Rare Idel Dog Sprite Sheet_24: -3843290480093897818
+      Rare Idel Dog Sprite Sheet_25: -2547210163587262407
+      Rare Idel Dog Sprite Sheet_26: 4870908194695707365
+      Rare Idel Dog Sprite Sheet_27: -764955007096556465
+      Rare Idel Dog Sprite Sheet_28: 7296662280420685272
+      Rare Idel Dog Sprite Sheet_29: 3193778767042707941
+      Rare Idel Dog Sprite Sheet_3: -8687704270554616471
+      Rare Idel Dog Sprite Sheet_4: 3205774903319042195
+      Rare Idel Dog Sprite Sheet_5: -2504734142134970363
+      Rare Idel Dog Sprite Sheet_6: 7673524825682514828
+      Rare Idel Dog Sprite Sheet_7: 8386876853361220289
+      Rare Idel Dog Sprite Sheet_8: 3145771799668883802
+      Rare Idel Dog Sprite Sheet_9: 2013579869062586146
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
