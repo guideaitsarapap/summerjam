@@ -116,10 +116,10 @@ TextureImporter:
       name: Cat win_00043_0
       rect:
         serializedVersion: 2
-        x: 156
-        y: 43
-        width: 779
-        height: 806
+        x: 187
+        y: 165
+        width: 625
+        height: 646
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -128,10 +128,10 @@ TextureImporter:
       name: Cat win_00064_0
       rect:
         serializedVersion: 2
-        x: 158
-        y: 43
-        width: 774
-        height: 766
+        x: 189
+        y: 165
+        width: 620
+        height: 614
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +150,10 @@ TextureImporter:
       name: Cat win_00064_1
       rect:
         serializedVersion: 2
-        x: 362
-        y: 761
-        width: 78
-        height: 72
+        x: 352
+        y: 739
+        width: 63
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,10 +172,10 @@ TextureImporter:
       name: Cat win_00064_2
       rect:
         serializedVersion: 2
-        x: 424
-        y: 774
-        width: 34
-        height: 55
+        x: 402
+        y: 749
+        width: 28
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +194,10 @@ TextureImporter:
       name: Cat win_00064_3
       rect:
         serializedVersion: 2
-        x: 632
-        y: 774
-        width: 34
-        height: 56
+        x: 568
+        y: 749
+        width: 29
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,10 +216,10 @@ TextureImporter:
       name: Cat win_00064_4
       rect:
         serializedVersion: 2
-        x: 650
-        y: 761
-        width: 78
-        height: 72
+        x: 583
+        y: 739
+        width: 63
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

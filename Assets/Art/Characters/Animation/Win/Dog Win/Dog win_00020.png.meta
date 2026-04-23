@@ -116,10 +116,10 @@ TextureImporter:
       name: Dog win_00020_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 43
-        width: 929
-        height: 838
+        x: 89
+        y: 165
+        width: 744
+        height: 671
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
