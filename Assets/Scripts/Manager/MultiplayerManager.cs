@@ -1,14 +1,18 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Linq;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class MultiplayerManager : MonoBehaviour
 {
     public static MultiplayerManager Instance;
     
     [Header("Player Prefabs")]
-    [SerializeField] private GameObject redPrefab;
-    [SerializeField] private GameObject bluePrefab;
+    private GameObject redPrefab;
+    private GameObject bluePrefab;
+    public AssetReference PreRedPrefab;
+    public AssetReference PreBluePrefab;
 
     [Header("Spawn Points")]
     public Transform redSpawnPoint;
@@ -36,8 +40,32 @@ public class MultiplayerManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        var handle = Addressables.LoadAssetAsync<GameObject>(PreRedPrefab);
+        handle.Completed += (op) =>
+        {
+            if (op.Status == AsyncOperationStatus.Succeeded)
+            {
+                redPrefab = op.Result;
+                Debug.Log("Player Preloaded into RAM!");
+            }
+        };
+        var handle2 = Addressables.LoadAssetAsync<GameObject>(PreBluePrefab);
+        handle2.Completed += (op) =>
+        {
+            if (op.Status == AsyncOperationStatus.Succeeded)
+            {
+                bluePrefab = op.Result;
+                Debug.Log("Player Preloaded into RAM!");
+            }
+        };
+    }
+
     void Update()
     {
+         if (GameFlowManager.Instance.currentGameState != GameState.Lobby) return;
+
         // 1. จัดการการ Join ผ่าน Keyboard (ใช้ Enter สำหรับทั้ง P1 และ P2)
         if (Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame)
         {
@@ -149,4 +177,23 @@ public class MultiplayerManager : MonoBehaviour
 
         Debug.Log("[MultiplayerManager] All players cleared. Ready for new joins.");
     }
+
+    public void SpawnBallForReadyState(int playerNumber = 0)
+    {
+        if (playerNumber == 1)
+        {
+            Ball ball = Instantiate(ballPrefab, redBallSpawnPoint.position, Quaternion.identity).GetComponent<Ball>();
+            ball.ResetBallToSideInMenuSceneOnly(redBallSpawnPoint.position);
+        }
+        else if (playerNumber > 1)
+        {
+            Ball ball1 = Instantiate(ballPrefab, redBallSpawnPoint.position, Quaternion.identity).GetComponent<Ball>();
+            ball1.ResetBallToSideInMenuSceneOnly(redBallSpawnPoint.position);
+
+            Ball ball2 = Instantiate(ballPrefab, blueBallSpawnPoint.position, Quaternion.identity).GetComponent<Ball>();
+            ball2.ResetBallToSideInMenuSceneOnly(blueBallSpawnPoint.position);
+        }
+        
+    }
+
 }

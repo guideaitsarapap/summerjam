@@ -38,13 +38,11 @@ public class HitBox : MonoBehaviour
         if(!isHitBoxCanHit)
             return;
 
-        Debug.Log($"[HitBox] Attempting to hit. Objects in range: {HittableObjects.Count}");
         
         for (int i = HittableObjects.Count - 1; i >= 0; i--)
         {
             if (HittableObjects[i] != null)
             {
-                Debug.Log("[HitBox] Found ball! Calling OnGetHit");
                 HittableObjects[i].OnGetHit(player, type);
             }
         }

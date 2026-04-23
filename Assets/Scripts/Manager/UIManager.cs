@@ -4,12 +4,12 @@ using UnityEngine;
 
 public enum UIType
 {
-    Menu,
     Lobby,
     CountDown,
     Game,
     Pause,
     GameOver,
+    Setting,
 }
 
 [RequireComponent(typeof(Canvas))]
@@ -65,4 +65,13 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+
+    public void AddUIComponent(UIComponent component)
+    {
+        if (!uiComponents.Contains(component))
+        {
+            uiComponents.Add(component);
+        }
+    }
+
 }
