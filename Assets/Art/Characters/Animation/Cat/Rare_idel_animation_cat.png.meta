@@ -1,0 +1,912 @@
+fileFormatVersion: 2
+guid: 43fe3356682f28241817484540a75302
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5838289479053814097
+    second: Rare_idel_animation_cat_0
+  - first:
+      213: -6726648416068679856
+    second: Rare_idel_animation_cat_1
+  - first:
+      213: 8196590057370818626
+    second: Rare_idel_animation_cat_2
+  - first:
+      213: 7829928882284398628
+    second: Rare_idel_animation_cat_3
+  - first:
+      213: -1952312880169766155
+    second: Rare_idel_animation_cat_4
+  - first:
+      213: -8120996097527332229
+    second: Rare_idel_animation_cat_5
+  - first:
+      213: -7027529727692126584
+    second: Rare_idel_animation_cat_6
+  - first:
+      213: -5463271607444497292
+    second: Rare_idel_animation_cat_7
+  - first:
+      213: -2349372685138864478
+    second: Rare_idel_animation_cat_8
+  - first:
+      213: 6346979021761166826
+    second: Rare_idel_animation_cat_9
+  - first:
+      213: -6099588016402075065
+    second: Rare_idel_animation_cat_10
+  - first:
+      213: -6116549317897068536
+    second: Rare_idel_animation_cat_11
+  - first:
+      213: -8134296741719214217
+    second: Rare_idel_animation_cat_12
+  - first:
+      213: -214320232941466956
+    second: Rare_idel_animation_cat_13
+  - first:
+      213: -8274593418237518922
+    second: Rare_idel_animation_cat_14
+  - first:
+      213: 2578121667460278968
+    second: Rare_idel_animation_cat_15
+  - first:
+      213: 7993641296317691312
+    second: Rare_idel_animation_cat_16
+  - first:
+      213: 6795155970140871499
+    second: Rare_idel_animation_cat_17
+  - first:
+      213: 6114877878835150425
+    second: Rare_idel_animation_cat_18
+  - first:
+      213: -3521193367083524257
+    second: Rare_idel_animation_cat_19
+  - first:
+      213: -6241074869101303105
+    second: Rare_idel_animation_cat_20
+  - first:
+      213: -3593215909429751289
+    second: Rare_idel_animation_cat_21
+  - first:
+      213: -6095867793155549894
+    second: Rare_idel_animation_cat_22
+  - first:
+      213: 3572710299270939156
+    second: Rare_idel_animation_cat_23
+  - first:
+      213: 2267594955335703613
+    second: Rare_idel_animation_cat_24
+  - first:
+      213: -3298554089228789049
+    second: Rare_idel_animation_cat_25
+  - first:
+      213: -1317826972957864450
+    second: Rare_idel_animation_cat_26
+  - first:
+      213: 4442204259179606874
+    second: Rare_idel_animation_cat_27
+  - first:
+      213: 8669053341344825988
+    second: Rare_idel_animation_cat_28
+  - first:
+      213: -8217627287138089644
+    second: Rare_idel_animation_cat_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 30
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4024
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa6d811c6aa3afea0800000000000000
+      internalID: -5838289479053814097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_1
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 4024
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0574847a7e426a2a0800000000000000
+      internalID: -6726648416068679856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_2
+      rect:
+        serializedVersion: 2
+        x: 2012
+        y: 4024
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2481613da3320c170800000000000000
+      internalID: 8196590057370818626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_3
+      rect:
+        serializedVersion: 2
+        x: 3018
+        y: 4024
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 428022d65de79ac60800000000000000
+      internalID: 7829928882284398628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_4
+      rect:
+        serializedVersion: 2
+        x: 4024
+        y: 4024
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f2bf0f77cdf7e4e0800000000000000
+      internalID: -1952312880169766155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_5
+      rect:
+        serializedVersion: 2
+        x: 5030
+        y: 4024
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b72cc80831d6c4f80800000000000000
+      internalID: -8120996097527332229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3018
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 886c96432f2397e90800000000000000
+      internalID: -7027529727692126584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_7
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 3018
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47c1bce2b6f8e24b0800000000000000
+      internalID: -5463271607444497292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_8
+      rect:
+        serializedVersion: 2
+        x: 2012
+        y: 3018
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a6da498df9556fd0800000000000000
+      internalID: -2349372685138864478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_9
+      rect:
+        serializedVersion: 2
+        x: 3018
+        y: 3018
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aed3ee4eacff41850800000000000000
+      internalID: 6346979021761166826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_10
+      rect:
+        serializedVersion: 2
+        x: 4024
+        y: 3018
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 742ff1e1409e95ba0800000000000000
+      internalID: -6099588016402075065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_11
+      rect:
+        serializedVersion: 2
+        x: 5030
+        y: 3018
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 800669f5dc6ad1ba0800000000000000
+      internalID: -6116549317897068536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2012
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7777534f53c2d1f80800000000000000
+      internalID: -8134296741719214217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_13
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 2012
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ba485732e4960df0800000000000000
+      internalID: -214320232941466956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_14
+      rect:
+        serializedVersion: 2
+        x: 2012
+        y: 2012
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bbda25702dba2d80800000000000000
+      internalID: -8274593418237518922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_15
+      rect:
+        serializedVersion: 2
+        x: 3018
+        y: 2012
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ba25b04ff357c320800000000000000
+      internalID: 2578121667460278968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_16
+      rect:
+        serializedVersion: 2
+        x: 4024
+        y: 2012
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b5b8e8286e1fee60800000000000000
+      internalID: 7993641296317691312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_17
+      rect:
+        serializedVersion: 2
+        x: 5030
+        y: 2012
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4b1f914a5e3d4e50800000000000000
+      internalID: 6795155970140871499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1006
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95efcd468096cd450800000000000000
+      internalID: 6114877878835150425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_19
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 1006
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5f5689e945322fc0800000000000000
+      internalID: -3521193367083524257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_20
+      rect:
+        serializedVersion: 2
+        x: 2012
+        y: 1006
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fba6992297f3369a0800000000000000
+      internalID: -6241074869101303105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_21
+      rect:
+        serializedVersion: 2
+        x: 3018
+        y: 1006
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70258250b25522ec0800000000000000
+      internalID: -3593215909429751289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_22
+      rect:
+        serializedVersion: 2
+        x: 4024
+        y: 1006
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3518371a80276ba0800000000000000
+      internalID: -6095867793155549894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_23
+      rect:
+        serializedVersion: 2
+        x: 5030
+        y: 1006
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4128c619611d49130800000000000000
+      internalID: 3572710299270939156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3c904ff89d187f10800000000000000
+      internalID: 2267594955335703613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_25
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 0
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ca1b17488e2932d0800000000000000
+      internalID: -3298554089228789049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_26
+      rect:
+        serializedVersion: 2
+        x: 2012
+        y: 0
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efd0b69a95326bde0800000000000000
+      internalID: -1317826972957864450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_27
+      rect:
+        serializedVersion: 2
+        x: 3018
+        y: 0
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a53b028ec31e5ad30800000000000000
+      internalID: 4442204259179606874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_28
+      rect:
+        serializedVersion: 2
+        x: 4024
+        y: 0
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48285c5551aae4870800000000000000
+      internalID: 8669053341344825988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rare_idel_animation_cat_29
+      rect:
+        serializedVersion: 2
+        x: 5030
+        y: 0
+        width: 1006
+        height: 1006
+      alignment: 9
+      pivot: {x: 0.5417495, y: 0.18986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 455c39d658f15fd80800000000000000
+      internalID: -8217627287138089644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1c3e54e85edcb7342b04e01b6f9b04fe
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":5.0},"gridSpriteSize":{"x":1006.0,"y":1006.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5417494773864746,"y":0.18986083567142487},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Rare_idel_animation_cat_0: -5838289479053814097
+      Rare_idel_animation_cat_1: -6726648416068679856
+      Rare_idel_animation_cat_10: -6099588016402075065
+      Rare_idel_animation_cat_11: -6116549317897068536
+      Rare_idel_animation_cat_12: -8134296741719214217
+      Rare_idel_animation_cat_13: -214320232941466956
+      Rare_idel_animation_cat_14: -8274593418237518922
+      Rare_idel_animation_cat_15: 2578121667460278968
+      Rare_idel_animation_cat_16: 7993641296317691312
+      Rare_idel_animation_cat_17: 6795155970140871499
+      Rare_idel_animation_cat_18: 6114877878835150425
+      Rare_idel_animation_cat_19: -3521193367083524257
+      Rare_idel_animation_cat_2: 8196590057370818626
+      Rare_idel_animation_cat_20: -6241074869101303105
+      Rare_idel_animation_cat_21: -3593215909429751289
+      Rare_idel_animation_cat_22: -6095867793155549894
+      Rare_idel_animation_cat_23: 3572710299270939156
+      Rare_idel_animation_cat_24: 2267594955335703613
+      Rare_idel_animation_cat_25: -3298554089228789049
+      Rare_idel_animation_cat_26: -1317826972957864450
+      Rare_idel_animation_cat_27: 4442204259179606874
+      Rare_idel_animation_cat_28: 8669053341344825988
+      Rare_idel_animation_cat_29: -8217627287138089644
+      Rare_idel_animation_cat_3: 7829928882284398628
+      Rare_idel_animation_cat_4: -1952312880169766155
+      Rare_idel_animation_cat_5: -8120996097527332229
+      Rare_idel_animation_cat_6: -7027529727692126584
+      Rare_idel_animation_cat_7: -5463271607444497292
+      Rare_idel_animation_cat_8: -2349372685138864478
+      Rare_idel_animation_cat_9: 6346979021761166826
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -223,8 +223,8 @@ public class GameFlowManager : MonoBehaviour
     {
         currentGameState = GameState.MatchOver;
         Debug.Log($"MATCH OVER! {matchWinner} IS THE CHAMPION!");
-        isFirstRound = true;
-        //Show who won the match and return to lobby or something here
+        
+        StartCoroutine(WaitAndReturnToLobby(3f));
     }
 
     public void HandleTimeOut()
@@ -370,6 +370,35 @@ public class GameFlowManager : MonoBehaviour
             case GameState.MatchOver: return allowMoveInMatchOver;
             default: return false;
         }
+    }
+
+    public void ReturnToLobby()
+    {
+        currentGameState = GameState.Lobby;
+        isFirstRound = true;
+        WinSlotManager.Instance.ResetWins();
+
+        ClearAllBalls();
+
+        if (MultiplayerManager.Instance != null)
+        {
+            MultiplayerManager.Instance.ResetManagerForLobby();
+        }
+
+        foreach (GameObject obj in menuObjectsToClear)
+        {
+            if(obj != null) obj.SetActive(true);
+        }
+
+        Debug.Log("[Flow] Returned to Lobby Success.");
+    }
+
+    private IEnumerator WaitAndReturnToLobby(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        UIManager.Instance.SetEnableUIComponent(UIType.CountDown, false);
+        UIManager.Instance.SetEnableUIComponent(UIType.Game, false);
+        ReturnToLobby();
     }
 #endregion
 

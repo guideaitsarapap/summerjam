@@ -159,6 +159,7 @@ MonoBehaviour:
   facingRight: 0
   moveSpeed: 10
   jumpForce: 22
+  isDead: 0
   anim: {fileID: 5225852466219338479}
   fallMultiplier: 8
   lowJumpMultiplier: 6
@@ -168,6 +169,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  minIdleTime: 5
+  maxIdleTime: 10
+  rareIdleChance: 100
 --- !u!114 &5083833496778651394
 MonoBehaviour:
   m_ObjectHideFlags: 0
