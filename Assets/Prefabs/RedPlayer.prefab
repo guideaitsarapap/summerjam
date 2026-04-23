@@ -159,6 +159,7 @@ MonoBehaviour:
   facingRight: 1
   moveSpeed: 10
   jumpForce: 22
+  isDead: 0
   anim: {fileID: 5225852466219338479}
   fallMultiplier: 8
   lowJumpMultiplier: 6

@@ -175,6 +175,7 @@ public class GameFlowManager : MonoBehaviour
         // รีเซ็ตเลือดในข้อมูล
         foreach (var player in connectedPlayers)
         {
+            player.controllerReference.isDead = false;
             player.currentHealth = player.maxHealth;
         }
         
@@ -199,12 +200,14 @@ public class GameFlowManager : MonoBehaviour
         if (player != null)
         {
             player.currentHealth -= damageAmount;
+            player.controllerReference.anim.SetTrigger("GetHit");
             player.currentHealth = Mathf.Clamp(player.currentHealth, 0, player.maxHealth);
 
             HealthManager.Instance.UpdateHealthUI(player.side, player.currentHealth, player.maxHealth);
 
             if (player.currentHealth <= 0)
             {
+                player.controllerReference.isDead = true;
                 OnPlayerDefeated(side);
             }
         }

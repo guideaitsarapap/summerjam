@@ -26,8 +26,9 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private bool isDoubleJumpUsed;
     private bool isMoveable = true;
-    private bool CanControl => isMoveable && (GameFlowManager.Instance == null || GameFlowManager.Instance.CanPlayersMove());
-    [SerializeField]private Animator anim;
+    public bool isDead = false;
+    private bool CanControl => isMoveable && !isDead && (GameFlowManager.Instance == null || GameFlowManager.Instance.CanPlayersMove());
+    [SerializeField]public Animator anim;
 
     [Header("Gravity Multipliers")]
     [SerializeField] float fallMultiplier = 2.5f;      
@@ -38,6 +39,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float checkRadius = 0.2f;
     [SerializeField] private LayerMask groundLayer;
+
+    [Header("Rare Idle Settings")]
+    [SerializeField] private float minIdleTime = 5f;
+    [SerializeField] private float maxIdleTime = 10f;
+    [SerializeField] [Range(0, 100)] private float rareIdleChance = 20f;
+
+    private float idleTimer;
+    private float nextCheckTime;
 
     private Vector2 moveInput;
     private HitType pendingHitType;
@@ -58,6 +67,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        anim.SetBool("isDead", isDead);
         bool wasGrounded = isGrounded;
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
 
@@ -66,6 +76,8 @@ public class PlayerController : MonoBehaviour
         {
             isDoubleJumpUsed = false;
         }
+
+        HandleRareIdle();
 
         if (!CanControl)
         {
@@ -90,7 +102,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isMoving", isActuallyMoving);
 
 
-        anim.SetBool("isGrounded", isGrounded);  
+        anim.SetBool("isGrounded", isGrounded); 
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -226,6 +238,37 @@ public class PlayerController : MonoBehaviour
         {
             flip();
         }
+    }
+
+    private void HandleRareIdle()
+    {
+        bool isStationary = isGrounded && Mathf.Abs(rb.linearVelocity.x) < 0.01f && Mathf.Abs(moveInput.x) < 0.01f;
+
+        if (isDead || !isStationary || !isMoveable)
+        {
+            ResetIdleTimer();
+            return;
+        }
+
+        idleTimer += Time.deltaTime;
+
+        if (idleTimer >= nextCheckTime)
+        {
+            float roll = UnityEngine.Random.Range(0f, 100f);
+            if (roll <= rareIdleChance)
+            {
+                anim.SetTrigger("RareIdle");
+                Debug.Log($"[RareIdle] {side} played rare animation!");
+            }
+            
+            ResetIdleTimer();
+        }
+    }
+
+    private void ResetIdleTimer()
+    {
+        idleTimer = 0f;
+        nextCheckTime = UnityEngine.Random.Range(minIdleTime, maxIdleTime);
     }
     void FixedUpdate()
     {
