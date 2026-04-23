@@ -47,6 +47,7 @@ public class Ball : MonoBehaviour, IHittable
     {
         ballRigidbody = GetComponent<Rigidbody2D>();
         ballSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        currentSpeed = baseSpeed;
     }
 
     private void LateUpdate()
@@ -223,6 +224,22 @@ public class Ball : MonoBehaviour, IHittable
         ballRigidbody.gravityScale = 0f;
 
         transform.position = GameFlowManager.Instance.GameplayballSpawnPoint.position;
+        currentSpeed = baseSpeed;
+        currentSide = BallSide.Neutral;
+        ballSpriteRenderer.color = Color.white;
+    }
+
+    // ใช้สำหรับรีเซ็ตบอลในหน้าMenu เพื่อให้บอลกลับมาที่ฝั่งตัวเอง
+    public void ResetBallToSideInMenuSceneOnly(Vector3 positionBall)
+    {
+        StopAllCoroutines();
+        isFollowingPlayer = false;
+        ballRigidbody.simulated = true;
+        ballRigidbody.bodyType = RigidbodyType2D.Dynamic;
+        ballRigidbody.linearVelocity = Vector2.zero;
+        ballRigidbody.gravityScale = 0f;
+
+        transform.position = positionBall;
         currentSpeed = baseSpeed;
         currentSide = BallSide.Neutral;
         ballSpriteRenderer.color = Color.white;

@@ -13,6 +13,11 @@ public class MultiplayerManager : MonoBehaviour
     [Header("Spawn Points")]
     public Transform redSpawnPoint;
     public Transform blueSpawnPoint;
+    public Transform redBallSpawnPoint;
+    public Transform blueBallSpawnPoint;
+
+    [Header("Ball Prefab for Ready State")]
+    public GameObject ballPrefab;
 
     private PlayerInputManager manager;
 
@@ -115,11 +120,33 @@ public class MultiplayerManager : MonoBehaviour
         // ย้ายตำแหน่ง Spawn
         if (playerInput.playerIndex == 0)
         {
+            Ball ball = Instantiate(ballPrefab, redBallSpawnPoint.position, Quaternion.identity).GetComponent<Ball>();
+            ball.ResetBallToSideInMenuSceneOnly(redBallSpawnPoint.position);
+
             playerInput.transform.position = redSpawnPoint.position;
         }
         else if (playerInput.playerIndex == 1)
         {
+            Ball ball = Instantiate(ballPrefab, blueBallSpawnPoint.position, Quaternion.identity).GetComponent<Ball>();
+            ball.ResetBallToSideInMenuSceneOnly(blueBallSpawnPoint.position);
+
             playerInput.transform.position = blueSpawnPoint.position;
         }
+    }
+
+    public void ResetManagerForLobby()
+    {
+        var allPlayers = PlayerInput.all.ToList();
+        foreach (var p in allPlayers)
+        {
+            Destroy(p.gameObject);
+        }
+
+        if (GameFlowManager.Instance != null)
+        {
+            GameFlowManager.Instance.connectedPlayers.Clear();
+        }
+
+        Debug.Log("[MultiplayerManager] All players cleared. Ready for new joins.");
     }
 }

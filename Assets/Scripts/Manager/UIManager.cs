@@ -17,11 +17,21 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private Canvas canvas;
     private List<UIComponent> uiComponents;
+    public static UIManager Instance;
 
     private void Awake()
     {
         uiComponents = new List<UIComponent>();
         canvas = GetComponent<Canvas>();
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8636627447306021825}
   - component: {fileID: 5805032039297366228}
   - component: {fileID: 636308267661238855}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shrimpball
   m_TagString: Ball
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 174528520662856280}
   - component: {fileID: 6118275042715934687}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

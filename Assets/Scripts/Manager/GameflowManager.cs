@@ -43,6 +43,9 @@ public class GameFlowManager : MonoBehaviour
     // เอาไว้เช็คว่าตอนนี้ลดเลือดได้ไหม
     public bool IsBattleActive => currentGameState == GameState.Playing;
 
+    [Header("Object References for Menu")]
+    [SerializeField] private List<GameObject> menuObjectsToClear = new List<GameObject>();
+
     void Awake()
     {
         if (Instance == null)
@@ -61,7 +64,7 @@ public class GameFlowManager : MonoBehaviour
         CheckAndStartGameTransition();
     }
 
-    // --- Lobby ---
+ #region     --- Lobby ---
 
     public void RegisterNewPlayer(PlayerInput playerInput)
     {
@@ -90,6 +93,9 @@ public class GameFlowManager : MonoBehaviour
     public void MarkPlayerAsReady(PlayerController characterController)
     {
         var playerFound = connectedPlayers.Find(p => p.controllerReference == characterController);
+
+        Debug.Log(playerFound);
+
 
         if (playerFound != null && !playerFound.isReadyInLobby)
         {
@@ -132,11 +138,14 @@ public class GameFlowManager : MonoBehaviour
         StartNewRound();
         yield return null;
     }
+#endregion
 
-    // --- Gameplay ---
+#region      --- Gameplay ---
 
     public void StartNewRound()
     {
+        ClearObjectsAndUInMenuForGamePlay();
+
         ResetPosition();
         currentGameState = GameState.Countdown;
 
@@ -166,11 +175,20 @@ public class GameFlowManager : MonoBehaviour
         // รีเซ็ตเลือดในข้อมูล
         foreach (var player in connectedPlayers)
         {
+            player.controllerReference.isDead = false;
             player.currentHealth = player.maxHealth;
         }
         
         HealthManager.Instance.ResetAllHealthBars();
         TimeManager.Instance.StartPreRoundCountdown(3 , () => {currentGameState = GameState.Playing;});
+    }
+
+    private void ClearObjectsAndUInMenuForGamePlay()
+    {
+        foreach (GameObject obj in menuObjectsToClear)
+        {
+            obj.SetActive(false);
+        }
     }
 
     public void ApplyDamage(PlayerSide side, float damageAmount)
@@ -182,12 +200,14 @@ public class GameFlowManager : MonoBehaviour
         if (player != null)
         {
             player.currentHealth -= damageAmount;
+            player.controllerReference.anim.SetTrigger("GetHit");
             player.currentHealth = Mathf.Clamp(player.currentHealth, 0, player.maxHealth);
 
             HealthManager.Instance.UpdateHealthUI(player.side, player.currentHealth, player.maxHealth);
 
             if (player.currentHealth <= 0)
             {
+                player.controllerReference.isDead = true;
                 OnPlayerDefeated(side);
             }
         }
@@ -203,8 +223,8 @@ public class GameFlowManager : MonoBehaviour
     {
         currentGameState = GameState.MatchOver;
         Debug.Log($"MATCH OVER! {matchWinner} IS THE CHAMPION!");
-        isFirstRound = true;
-        //Show who won the match and return to lobby or something here
+        
+        StartCoroutine(WaitAndReturnToLobby(3f));
     }
 
     public void HandleTimeOut()
@@ -212,6 +232,8 @@ public class GameFlowManager : MonoBehaviour
         if (currentGameState != GameState.Playing) return;
 
         currentGameState = GameState.RoundEnd;
+        TimeManager.Instance.showImageUI.SetEnable(true);
+        TimeManager.Instance.showImageUI.ShowImageDisplay();
         Debug.Log("[Flow] Time Up!");
 
         // หาผู้ชนะตอนหมดเวลา (คนที่มีเลือดมากกว่า)
@@ -240,6 +262,7 @@ public class GameFlowManager : MonoBehaviour
     private void OnRoundWin(PlayerIdentity winner)
     {
         winner.roundWins++;
+        WinSlotManager.Instance?.AddWin(winner.side);
         Debug.Log($"Round Ended! Winner: {winner.side} (Total Wins: {winner.roundWins})");
 
         if (winner.roundWins >= winsRequiredToMatch)
@@ -257,6 +280,8 @@ public class GameFlowManager : MonoBehaviour
         if (currentGameState != GameState.Playing) return;
         
         currentGameState = GameState.RoundEnd;
+        TimeManager.Instance.showImageUI.SetEnable(true);
+        TimeManager.Instance.showImageUI.ShowImageDisplay();
         
         lastRoundLoser = loserSide;
 
@@ -346,4 +371,35 @@ public class GameFlowManager : MonoBehaviour
             default: return false;
         }
     }
+
+    public void ReturnToLobby()
+    {
+        currentGameState = GameState.Lobby;
+        isFirstRound = true;
+        WinSlotManager.Instance.ResetWins();
+
+        ClearAllBalls();
+
+        if (MultiplayerManager.Instance != null)
+        {
+            MultiplayerManager.Instance.ResetManagerForLobby();
+        }
+
+        foreach (GameObject obj in menuObjectsToClear)
+        {
+            if(obj != null) obj.SetActive(true);
+        }
+
+        Debug.Log("[Flow] Returned to Lobby Success.");
+    }
+
+    private IEnumerator WaitAndReturnToLobby(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        UIManager.Instance.SetEnableUIComponent(UIType.CountDown, false);
+        UIManager.Instance.SetEnableUIComponent(UIType.Game, false);
+        ReturnToLobby();
+    }
+#endregion
+
 }

@@ -159,6 +159,7 @@ MonoBehaviour:
   facingRight: 0
   moveSpeed: 10
   jumpForce: 22
+  isDead: 0
   anim: {fileID: 5225852466219338479}
   fallMultiplier: 8
   lowJumpMultiplier: 6
@@ -168,6 +169,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  minIdleTime: 5
+  maxIdleTime: 10
+  rareIdleChance: 100
 --- !u!114 &5083833496778651394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +265,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 4c8d698f-e43b-4cb3-b8b6-5c90ff78c1d7
     m_ActionName: 'Player/Join[/Keyboard/enter,/XInputControllerWindows1/start]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2570392242387121990}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: CrouchAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2f147ec5-3097-41a0-9103-2588502848da
+    m_ActionName: 'Player/Crouch[/Keyboard/s,/Keyboard/semicolon,/XInputControllerWindows/leftStick/down,/XInputControllerWindows1/leftStick/down]'
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -471,7 +491,7 @@ Transform:
   m_GameObject: {fileID: 6832069296482509246}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.14, y: 0.05, z: 0}
+  m_LocalPosition: {x: -0.37, y: -0.79, z: 0}
   m_LocalScale: {x: 0.08122642, y: 0.08122642, z: 0.08122642}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -549,8 +569,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeMaterials
   isHasDefaultMaterials: 0
-  defaultMaterial: {fileID: 2100000, guid: 3451312268de5a441a4fdb7ed3cbe8fb, type: 2}
-  getHitMaterial: {fileID: 2100000, guid: 29e5520be9b933d4b9eedca3c18a1e54, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: f638baee269963a47b83803fab9fc3f0, type: 2}
+  getHitMaterial: {fileID: 2100000, guid: f5a29a3117f1a684bac01388f26e8761, type: 2}
 --- !u!1 &8468177476074867091
 GameObject:
   m_ObjectHideFlags: 0
