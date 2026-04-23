@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIFrameAnimator
   targetImage: {fileID: 6039699683039324226}
-  frameRate: 0.1
+  frameRate: 0.016
 --- !u!114 &7244423740527240380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c37440e93ef5d624f9db8d1fdc7ec8f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShowWinnerUI
-  uiType: 5
+  uiType: 4
   redLayout: {fileID: 1535354562489380908}
   blueLayout: {fileID: 4210662718630008255}
   redSideAnimator: {fileID: 3942448735718104390}
@@ -1031,7 +1031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIFrameAnimator
   targetImage: {fileID: 3937750213190485518}
-  frameRate: 0.1
+  frameRate: 0.016
 --- !u!114 &4439794697499578700
 MonoBehaviour:
   m_ObjectHideFlags: 0
