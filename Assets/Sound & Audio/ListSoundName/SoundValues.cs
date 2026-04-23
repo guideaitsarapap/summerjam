@@ -4,7 +4,24 @@
 
 public enum SoundType
 {
-    //Put sound names in here For easy called in scripts. You need to set name at SoundsSO too.
-    Attack,
-    Dead,
+    Cat_Dead,
+    Dog_Dead,
+    Count_Down,
+    TimeOut,
+    Over,
+    Got_Hit,
+    Hit,
+    Hit_Hard,
+    Set,
+    Walk,
+    Jump,
+    Landing,
+    Ball_Bounce,
+    Ball_Wind,
+    Refresh,
+    Sizzler,
+    Fire,
+    Object_Bounce,
+
+
 }
