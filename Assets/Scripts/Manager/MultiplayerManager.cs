@@ -133,4 +133,20 @@ public class MultiplayerManager : MonoBehaviour
             playerInput.transform.position = blueSpawnPoint.position;
         }
     }
+
+    public void ResetManagerForLobby()
+    {
+        var allPlayers = PlayerInput.all.ToList();
+        foreach (var p in allPlayers)
+        {
+            Destroy(p.gameObject);
+        }
+
+        if (GameFlowManager.Instance != null)
+        {
+            GameFlowManager.Instance.connectedPlayers.Clear();
+        }
+
+        Debug.Log("[MultiplayerManager] All players cleared. Ready for new joins.");
+    }
 }
