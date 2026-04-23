@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb89c1c90a1056349bc4849b49b2870b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CountDownUI
-  uiType: 3
+  uiType: 2
   image: {fileID: 5587060623582233573}
   countDownSprites:
   - {fileID: -6470460504253458178, guid: d60568b5349038a4394786363283e629, type: 3}
