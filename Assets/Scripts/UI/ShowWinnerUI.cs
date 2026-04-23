@@ -27,9 +27,13 @@ public class ShowWinnerUI : UIComponent
     [Range(1f, 10f)] public float winnerRatio = 7f;
     [Range(1f, 10f)] public float loserRatio = 3f;
 
+
     public IEnumerator ShowMatchWinnerRoutine(PlayerSide winner)
     {
         this.gameObject.SetActive(true);
+
+        SetAlpha(redSideAnimator.targetImage, 0);
+        SetAlpha(blueSideAnimator.targetImage, 0);
 
         redLayout.flexibleWidth = 5;
         blueLayout.flexibleWidth = 5;
@@ -38,38 +42,47 @@ public class ShowWinnerUI : UIComponent
         if (winner == PlayerSide.Red)
         {
             redSideAnimator.PlayAnimation(redWinFrames);
+            SetAlpha(redSideAnimator.targetImage, 1);
             redLayout.flexibleWidth = winnerRatio; 
             blueLayout.flexibleWidth = loserRatio;
-            
+            Canvas.ForceUpdateCanvases();
+            LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
 
             yield return StartCoroutine(PunchEffect(redSideAnimator.targetImage, punchSpeed));
             
-
             yield return new WaitForSecondsRealtime(delayBetweenPlayers);
             
-
             blueSideAnimator.PlayAnimation(blueLoseFrames);
+            SetAlpha(blueSideAnimator.targetImage, 1);
             yield return StartCoroutine(PunchEffect(blueSideAnimator.targetImage, punchSpeed));
         }
         else
         {
-
             blueSideAnimator.PlayAnimation(blueWinFrames);
+            SetAlpha(blueSideAnimator.targetImage, 1);
             blueLayout.flexibleWidth = winnerRatio;
             redLayout.flexibleWidth = loserRatio;
-
+            LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
 
             yield return StartCoroutine(PunchEffect(blueSideAnimator.targetImage, punchSpeed));
 
-
             yield return new WaitForSecondsRealtime(delayBetweenPlayers);
 
-
             redSideAnimator.PlayAnimation(redLoseFrames);
+            SetAlpha(redSideAnimator.targetImage, 1); // เพิ่งจะโชว์ตัวตอนนี้!
             yield return StartCoroutine(PunchEffect(redSideAnimator.targetImage, punchSpeed));
         }
 
         yield return new WaitForSecondsRealtime(3f);
+    }
+
+
+    private void SetAlpha(Image img, float alpha)
+    {
+        if (img == null) return;
+        Color c = img.color;
+        c.a = alpha;
+        img.color = c;
     }
 
     private IEnumerator PunchEffect(Image target, float speed)
@@ -77,16 +90,19 @@ public class ShowWinnerUI : UIComponent
         if (target == null) yield break;
         RectTransform rect = target.rectTransform;
         
-        float startScaleMult = 1.5f;
-        rect.localScale = Vector3.one * startScaleMult;
+        float startScale = 1.8f; 
+        float endScale = 1.2f;
+        
+        rect.localScale = Vector3.one * startScale;
         
         float t = 0;
         while (t < 1)
         {
             t += Time.unscaledDeltaTime * speed;
-            rect.localScale = Vector3.Lerp(Vector3.one * startScaleMult, Vector3.one, t);
+            float easedT = 1f - Mathf.Pow(1f - t, 4); 
+            rect.localScale = Vector3.Lerp(Vector3.one * startScale, Vector3.one * endScale, easedT);
             yield return null;
         }
-        rect.localScale = Vector3.one;
+        rect.localScale = Vector3.one * endScale;
     }
 }

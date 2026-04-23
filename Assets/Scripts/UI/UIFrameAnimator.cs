@@ -12,10 +12,16 @@ public class UIFrameAnimator : MonoBehaviour
 
     public void PlayAnimation(Sprite[] sprites)
     {
-        if (sprites == null || sprites.Length == 0) return;
+        if (sprites == null || sprites.Length == 0) 
+        {
+            Debug.LogError($"{gameObject.name}: No image");
+            return;
+        }
         
         currentSprites = sprites;
         currentFrame = 0;
+
+        targetImage.sprite = currentSprites[0];
 
         if (animationRoutine != null) StopCoroutine(animationRoutine);
         animationRoutine = StartCoroutine(AnimateRoutine());
@@ -23,9 +29,10 @@ public class UIFrameAnimator : MonoBehaviour
 
     private IEnumerator AnimateRoutine()
     {
+        Debug.Log($"{gameObject.name} Animation Started!");
         while (true)
         {
-            targetImage.sprite = currentSprites[currentFrame];
+            targetImage.overrideSprite = currentSprites[currentFrame];
             currentFrame = (currentFrame + 1) % currentSprites.Length;
             yield return new WaitForSecondsRealtime(frameRate);
         }
