@@ -201,6 +201,7 @@ MonoBehaviour:
   allowMoveInPlaying: 1
   allowMoveInRoundEnd: 0
   allowMoveInMatchOver: 0
+  menuObjectsToClear: []
 --- !u!4 &188303590
 Transform:
   m_ObjectHideFlags: 0
@@ -324,6 +325,9 @@ MonoBehaviour:
   bluePrefab: {fileID: 3916306871377495677, guid: 24873b1cbf49e5647934c3708419d0eb, type: 3}
   redSpawnPoint: {fileID: 165191434}
   blueSpawnPoint: {fileID: 953109503}
+  redBallSpawnPoint: {fileID: 0}
+  blueBallSpawnPoint: {fileID: 0}
+  ballPrefab: {fileID: 0}
 --- !u!1 &422107676
 GameObject:
   m_ObjectHideFlags: 0
