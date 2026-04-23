@@ -172,7 +172,6 @@ public class Ball : MonoBehaviour, IHittable
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!GameFlowManager.Instance.IsBattleActive) {
-            Debug.Log("Damage failed: GameState is not Playing");
             return;
         }
 
@@ -181,13 +180,10 @@ public class Ball : MonoBehaviour, IHittable
             HurtBoxPlayer hurtBox = other.gameObject.GetComponent<HurtBoxPlayer>();
             if (hurtBox != null)
             {
-                Debug.Log($"Ball Status: Side={currentSide}, Speed={currentSpeed}");
-                Debug.Log($"Player Status: Side={hurtBox.playerSide}");
                 
                 bool isOpponent = IsOpponent(hurtBox.playerSide, currentSide);
                 bool isNotNeutral = currentSide != BallSide.Neutral;
 
-                Debug.Log($"Logic Check: isOpponent={isOpponent}, isNotNeutral={isNotNeutral}");
 
                 if (IsOpponent(hurtBox.playerSide, currentSide) && currentSide != BallSide.Neutral)
                 {

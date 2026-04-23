@@ -11,7 +11,8 @@ public enum GameState
     Countdown,   
     Playing,        
     RoundEnd,       
-    MatchOver       
+    MatchOver,
+    Setting,       
 }
 
 public class GameFlowManager : MonoBehaviour
@@ -35,6 +36,7 @@ public class GameFlowManager : MonoBehaviour
     public bool allowMoveInPlaying = false;
     public bool allowMoveInRoundEnd = false;
     public bool allowMoveInMatchOver = false;
+    public bool allowMoveInSetting = false;
     
     [Header("Round Logic")]
     private bool isFirstRound = true;
@@ -59,10 +61,6 @@ public class GameFlowManager : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        CheckAndStartGameTransition();
-    }
 
  #region     --- Lobby ---
 
@@ -138,6 +136,32 @@ public class GameFlowManager : MonoBehaviour
         StartNewRound();
         yield return null;
     }
+#endregion
+
+#region    --- Setting ---
+
+    public void ReturnToLobbyFromSetting()
+    {
+        currentGameState = GameState.Lobby;
+        UIManager.Instance.SetEnableUIComponent(UIType.Lobby, true);
+        UIManager.Instance.SetEnableUIComponent(UIType.Setting, false);
+
+        MultiplayerManager.Instance.SpawnBallForReadyState(connectedPlayers.Count);
+    }
+
+    public void GoToSettingFromLobby()
+    {
+        currentGameState = GameState.Setting;
+        UIManager.Instance.SetEnableUIComponent(UIType.Lobby, false);
+        UIManager.Instance.SetEnableUIComponent(UIType.Setting, true);
+
+        ClearAllBalls();
+        foreach (var player in connectedPlayers)
+        {
+            player.isReadyInLobby = false;
+        }
+    }
+
 #endregion
 
 #region      --- Gameplay ---
@@ -368,6 +392,7 @@ public class GameFlowManager : MonoBehaviour
             case GameState.Playing:   return allowMoveInPlaying;
             case GameState.RoundEnd:  return allowMoveInRoundEnd;
             case GameState.MatchOver: return allowMoveInMatchOver;
+            case GameState.Setting:   return allowMoveInSetting;
             default: return false;
         }
     }

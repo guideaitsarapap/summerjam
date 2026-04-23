@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 9c0550e091668cc4e8fb112475f80bea
+guid: b2175bf9025bc454e9927774562363a2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3824758766359398190
-    second: dot and slash_0
+      213: 6867082953999104597
+    second: dot_and_slash_0
   - first:
-      213: 5296927233428383968
-    second: dot and slash_1
+      213: 7266513328982289889
+    second: dot_and_slash_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,11 +103,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dot and slash_0
+      name: dot_and_slash_0
       rect:
         serializedVersion: 2
         x: 10
-        y: 5
+        y: 4
         width: 533
         height: 555
       alignment: 0
@@ -118,18 +118,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e27c96465d5441530800000000000000
-      internalID: 3824758766359398190
+      spriteID: 55ab1443097cc4f50800000000000000
+      internalID: 6867082953999104597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dot and slash_1
+      name: dot_and_slash_1
       rect:
         serializedVersion: 2
         x: 619
-        y: 5
+        y: 4
         width: 533
         height: 555
       alignment: 0
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0e867952147728940800000000000000
-      internalID: 5296927233428383968
+      spriteID: 1ed61a18f57d7d460800000000000000
+      internalID: 7266513328982289889
       vertices: []
       indices: 
       edges: []
@@ -150,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      dot and slash_0: 3824758766359398190
-      dot and slash_1: 5296927233428383968
+      dot_and_slash_0: 6867082953999104597
+      dot_and_slash_1: 7266513328982289889
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
