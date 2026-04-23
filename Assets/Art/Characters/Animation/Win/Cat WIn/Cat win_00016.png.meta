@@ -11,6 +11,12 @@ TextureImporter:
   - first:
       213: 2587722785017568507
     second: Cat win_00016_2
+  - first:
+      213: 5684737591935064062
+    second: Cat win_00016_3
+  - first:
+      213: 3322835712299794678
+    second: Cat win_00016_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,10 +115,10 @@ TextureImporter:
       name: Cat win_00016_0
       rect:
         serializedVersion: 2
-        x: 56
-        y: 43
-        width: 963
-        height: 794
+        x: 108
+        y: 165
+        width: 773
+        height: 629
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,10 +137,10 @@ TextureImporter:
       name: Cat win_00016_1
       rect:
         serializedVersion: 2
-        x: 353
-        y: 764
-        width: 82
-        height: 75
+        x: 345
+        y: 741
+        width: 66
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,10 +159,10 @@ TextureImporter:
       name: Cat win_00016_2
       rect:
         serializedVersion: 2
-        x: 655
-        y: 764
-        width: 82
-        height: 75
+        x: 397
+        y: 753
+        width: 29
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,6 +173,50 @@ TextureImporter:
       bones: []
       spriteID: bfc1822a92079e320800000000000000
       internalID: 2587722785017568507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat win_00016_3
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 753
+        width: 29
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef7599888be34ee40800000000000000
+      internalID: 5684737591935064062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat win_00016_4
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 741
+        width: 66
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f08c96a9751d1e20800000000000000
+      internalID: 3322835712299794678
       vertices: []
       indices: 
       edges: []
@@ -188,6 +238,8 @@ TextureImporter:
       Cat win_00016_0: 1739988220076977999
       Cat win_00016_1: 6157662232814713306
       Cat win_00016_2: 2587722785017568507
+      Cat win_00016_3: 5684737591935064062
+      Cat win_00016_4: 3322835712299794678
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
