@@ -5,7 +5,7 @@ using System.Collections;
 public class UIFrameAnimator : MonoBehaviour
 {
     public Image targetImage;
-    [SerializeField] private float frameRate = 0.1f; // ความเร็วต่อเฟรม
+    [SerializeField] private float frameRate = 0.1f;
     private Sprite[] currentSprites;
     private int currentFrame;
     private Coroutine animationRoutine;
@@ -14,7 +14,6 @@ public class UIFrameAnimator : MonoBehaviour
     {
         if (sprites == null || sprites.Length == 0) 
         {
-            Debug.LogError($"{gameObject.name}: No image");
             return;
         }
         
@@ -29,7 +28,6 @@ public class UIFrameAnimator : MonoBehaviour
 
     private IEnumerator AnimateRoutine()
     {
-        Debug.Log($"{gameObject.name} Animation Started!");
         while (true)
         {
             targetImage.overrideSprite = currentSprites[currentFrame];
