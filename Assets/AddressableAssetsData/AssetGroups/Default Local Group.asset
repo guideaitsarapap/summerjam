@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Default Local Group
+  m_GUID: 0feb4e977d12a104dbe8b3cdb2a172ca
+  m_SerializeEntries:
+  - m_GUID: 174edf38e1129fb4692c638cb39634b4
+    m_Address: Assets/Prefabs/RedPlayer.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1fdc6d21c10c3ab4bac864ad50ee3fe2
+    m_Address: Assets/Art/Sprite Atlas/PlayerRed_SpriteAtlas.spriteatlasv2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24873b1cbf49e5647934c3708419d0eb
+    m_Address: Assets/Prefabs/BluePlayer.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a62f7b0bc35caf47b7d97c5f2bf90d8
+    m_Address: Assets/Art/Sprite Atlas/PlayerBlue_SpriteAtlas.spriteatlasv2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 04ab44bf3be15ac4485decd6b2ee4c80, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 77bbf1294f20d1647990e0ff455b6060, type: 2}
+    - {fileID: 11400000, guid: 81b760479c80be643ad050b35daa22f5, type: 2}

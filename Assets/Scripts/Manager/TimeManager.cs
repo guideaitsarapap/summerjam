@@ -78,8 +78,8 @@ public class TimeManager : MonoBehaviour
         if (countdownCoroutine != null) StopCoroutine(countdownCoroutine);
         isTimerRunning = false; // หยุดเวลา 60 วิไว้ก่อน (ถ้ามี)
 
-        UIManager.Instance.SetEnableUIComponent(UIType.Menu, false);
         UIManager.Instance.SetEnableUIComponent(UIType.Lobby, false);
+        UIManager.Instance.SetEnableUIComponent(UIType.Setting, false);
         UIManager.Instance.SetEnableUIComponent(UIType.CountDown, true);
         UIManager.Instance.SetEnableUIComponent(UIType.Game, true);
 

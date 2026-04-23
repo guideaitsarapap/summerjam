@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 8d2b69bcdd9b51a48931647d910c9ea0
+guid: 3d782979d05d1454cbe812e0bf9dfab8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8838656460865958525
-    second: FG_0
-  - first:
-      213: -728123584180139895
-    second: FG_1
+      213: -1202431009887223133
+    second: Arrow_Twist_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FG_0
+      name: Arrow_Twist_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 5
-        width: 533
-        height: 555
+        x: 97
+        y: 7
+        width: 1013
+        height: 1448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d7270a1d83739aa70800000000000000
-      internalID: 8838656460865958525
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FG_1
-      rect:
-        serializedVersion: 2
-        x: 615
-        y: 5
-        width: 533
-        height: 555
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 988cb5c357f25e5f0800000000000000
-      internalID: -728123584180139895
+      spriteID: 3a202c40e5b105fe0800000000000000
+      internalID: -1202431009887223133
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FG_0: 8838656460865958525
-      FG_1: -728123584180139895
+      Arrow_Twist_0: -1202431009887223133
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

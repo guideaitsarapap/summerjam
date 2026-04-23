@@ -140,10 +140,10 @@ TextureImporter:
       name: Ready_1
       rect:
         serializedVersion: 2
-        x: 576
-        y: 131
-        width: 306
-        height: 310
+        x: 597
+        y: 120
+        width: 279
+        height: 274
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

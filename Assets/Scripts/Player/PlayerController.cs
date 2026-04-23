@@ -126,7 +126,6 @@ public class PlayerController : MonoBehaviour
             if (!CanControl) return;
             if (isGrounded)
             {
-                Debug.Log("Jumping");
                 rb.linearVelocityY = 0f; 
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 isGrounded = false;
@@ -134,7 +133,6 @@ public class PlayerController : MonoBehaviour
             }
             else if (!isDoubleJumpUsed)
             {
-                Debug.Log("Double Jump!");
                 rb.linearVelocityY = 0f; 
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 isDoubleJumpUsed = true;
@@ -151,14 +149,12 @@ public class PlayerController : MonoBehaviour
             {
                 anim.SetTrigger("DownwardHit");
                 pendingHitType = HitType.Down;
-                Debug.Log("Aerial Spike! (Down Hit)");
             }
             
             else
             {
                 pendingHitType = HitType.Straight;
                 anim.SetTrigger("Hit");
-                Debug.Log("Straight Hit!");
             }
         }
     }
@@ -166,7 +162,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!CanControl || !isGrounded) 
         {
-            anim.SetBool("isCrouching", false);
+            anim.SetBool("isCrouch", false);
             return;
         }
 
@@ -258,7 +254,6 @@ public class PlayerController : MonoBehaviour
             if (roll <= rareIdleChance)
             {
                 anim.SetTrigger("RareIdle");
-                Debug.Log($"[RareIdle] {side} played rare animation!");
             }
             
             ResetIdleTimer();
