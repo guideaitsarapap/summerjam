@@ -45,6 +45,8 @@ public class GameFlowManager : MonoBehaviour
 
     [Header("Object References for Menu")]
     [SerializeField] private List<GameObject> menuObjectsToClear = new List<GameObject>();
+    [Header("Object References for Match Over")]
+    [SerializeField] private ShowWinnerUI winnerUI;
 
     void Awake()
     {
@@ -222,6 +224,8 @@ public class GameFlowManager : MonoBehaviour
     private void FinishMatch(PlayerSide matchWinner)
     {
         currentGameState = GameState.MatchOver;
+        UIManager.Instance.SetEnableUIComponent(UIType.GameOver,true);
+        StartCoroutine(winnerUI.ShowMatchWinnerRoutine(matchWinner));
         Debug.Log($"MATCH OVER! {matchWinner} IS THE CHAMPION!");
         
         StartCoroutine(WaitAndReturnToLobby(3f));
@@ -398,6 +402,7 @@ public class GameFlowManager : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         UIManager.Instance.SetEnableUIComponent(UIType.CountDown, false);
         UIManager.Instance.SetEnableUIComponent(UIType.Game, false);
+        UIManager.Instance.SetEnableUIComponent(UIType.GameOver,false);
         ReturnToLobby();
     }
 #endregion
