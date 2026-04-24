@@ -49,7 +49,7 @@ MonoBehaviour:
   - {fileID: 8323349048095858608, guid: b190c06647d590e42ac41e9b553a4d65, type: 3}
   - {fileID: 4368035440098070851, guid: 274b1ebd5db4c8e43a42d0dde8f5d1d0, type: 3}
   spawnArea: {fileID: 3817510854544848828}
-  spawnInterval: 10
+  spawnInterval: 15
   maxItemsInScene: 3
 --- !u!61 &3817510854544848828
 BoxCollider2D:
@@ -85,7 +85,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 1.3}
+  m_Offset: {x: 0, y: 0.56}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -95,5 +95,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 25.78, y: 4.52}
+  m_Size: {x: 16.7, y: 4.52}
   m_EdgeRadius: 0

@@ -191,6 +191,9 @@ public class GameFlowManager : MonoBehaviour
         ClearObjectsAndUInMenuForGamePlay();
 
         ResetPosition();
+        
+        ItemManager.Instance.ClearAllItems();
+
         currentGameState = GameState.Countdown;
 
         if (activeBalls.Count > 0)
@@ -428,6 +431,7 @@ public class GameFlowManager : MonoBehaviour
         UIManager.Instance.SetEnableUIComponent(UIType.Lobby,true);
 
         ClearAllBalls();
+        ItemManager.Instance.ClearAllItems();
 
         if (MultiplayerManager.Instance != null)
         {
