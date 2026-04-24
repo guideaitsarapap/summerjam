@@ -23,6 +23,12 @@ public enum SoundType
     Fire,
     OnFire,
     Object_Bounce,
-
+    CatLose,
+    DogLose,
+    CatWin,
+    DogWin,
+    Crouch,
+    Whistle_Long,
+    Whistle_Short,
 
 }

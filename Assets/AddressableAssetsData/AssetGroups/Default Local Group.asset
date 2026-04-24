@@ -35,6 +35,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1cfb6b70e42afc945a0dcf9899d28116
+    m_Address: Assets/Sound & Audio/Sound Effect/catLaugh.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1e06eb9e227fad540a7d94d5087bd578
     m_Address: Assets/Sound & Audio/Sound Effect/wood.wav
     m_ReadOnly: 0
@@ -72,6 +77,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3093ee4ca51e56443a76849a56733001
     m_Address: Assets/Sound & Audio/Sound Effect/gotHit.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32cf30c676410684dbcfe829ed7f8d4d
+    m_Address: Assets/Sound & Audio/Sound Effect/catCry.wav
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -115,6 +125,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c46b307c2ff7b044a7964c5372b8058
+    m_Address: Assets/Sound & Audio/Sound Effect/whistleLong.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8d34de3f31774194e86b279a4e187093
     m_Address: Assets/Sound & Audio/Sound Effect/Jump vocal.wav
     m_ReadOnly: 0
@@ -127,6 +142,21 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b6e1af8955d78724b988e86506d1e722
     m_Address: Assets/Sound & Audio/Sound Effect/landing.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc6f070e6d93ebb4181c195e9ec2d135
+    m_Address: Assets/Sound & Audio/Sound Effect/dogLaugh.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf1a3e3a597bf5147b6377e64dcdff54
+    m_Address: Assets/Sound & Audio/Sound Effect/whistleShort.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5faf0cf9fe85414597edce9088cf1e8
+    m_Address: Assets/Sound & Audio/Sound Effect/dogCry.wav
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

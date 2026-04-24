@@ -93,8 +93,15 @@ public class Ball : MonoBehaviour, IHittable
             case HitType.Straight:
                 if(currentSpeed > 25f)
                 {
-                    if(currentSpeed > 40f) TimeManager.Instance.DoHitStop(false, 0.3f);
-                    else TimeManager.Instance.DoHitStop(false, 0.25f);
+                    if(currentSpeed > 40f)
+                    {
+                        SoundManager.instance.PlaySound(SoundType.OnFire);
+                        TimeManager.Instance.DoHitStop(false, 0.3f);
+                    } 
+                    else
+                    {
+                        TimeManager.Instance.DoHitStop(false, 0.25f);
+                    } 
                     
                 }
                 
@@ -105,17 +112,26 @@ public class Ball : MonoBehaviour, IHittable
             case HitType.Down:
                 if(currentSpeed > 25f)
                 {
-                    if(currentSpeed > 40f) TimeManager.Instance.DoHitStop(false, 0.35f);
-                    else TimeManager.Instance.DoHitStop(false, 0.25f);
+                    if(currentSpeed > 40f)
+                    {
+                        SoundManager.instance.PlaySound(SoundType.OnFire);
+                        TimeManager.Instance.DoHitStop(false, 0.35f);
+                    } 
+                    else
+                    {
+                        TimeManager.Instance.DoHitStop(false, 0.25f);
+                    } 
                     
                 }
-
+                
                 finalDirection = new Vector2(directionX, -1f).normalized;
                 ApplyHit(finalDirection, hitter.side, 0.4f);
                 break;
 
             case HitType.Set:
+                
                 ApplySet(forceSetUp, hitter.side);
+                SoundManager.instance.PlaySound(SoundType.Set);
                 break;
         }
     }
@@ -195,6 +211,7 @@ public class Ball : MonoBehaviour, IHittable
 
     private void ReflectFromWall(Collision2D collision)
     {
+        SoundManager.instance.PlaySound(SoundType.Ball_Bounce);
         ballRigidbody.gravityScale = 0f;
         Vector2 normal = collision.contacts[0].normal;
         Vector2 reflectDirection = Vector2.Reflect(velocityBeforePhysicsUpdate.normalized, normal);

@@ -151,6 +151,7 @@ public class GameFlowManager : MonoBehaviour
 
         // 2. เมื่อเข้าฉากใหม่ ให้เริ่มนับถอยหลัง
         StartNewRound();
+        SoundManager.instance.PlayMusic(MusicType.GameMusic);
         yield return null;
     }
 #endregion
@@ -176,6 +177,8 @@ public class GameFlowManager : MonoBehaviour
         foreach (var player in connectedPlayers)
         {
             player.isReadyInLobby = false;
+            if(player.side == PlayerSide.Red) ReadyRedObject.SetActive(false);
+            else if(player.side == PlayerSide.Blue) ReadyBlueObject.SetActive(false);
         }
     }
 
@@ -263,11 +266,11 @@ public class GameFlowManager : MonoBehaviour
     private void FinishMatch(PlayerSide matchWinner)
     {
         currentGameState = GameState.MatchOver;
-        UIManager.Instance.SetEnableUIComponent(UIType.GameOver,true);
-        StartCoroutine(winnerUI.ShowMatchWinnerRoutine(matchWinner));
-        Debug.Log($"MATCH OVER! {matchWinner} IS THE CHAMPION!");
+        SoundManager.instance.PlaySound(SoundType.Over);
         
-        StartCoroutine(WaitAndReturnToLobby(3f));
+        //Debug.Log($"MATCH OVER! {matchWinner} IS THE CHAMPION!");
+        
+        StartCoroutine(WaitAndReturnToLobby(3f, matchWinner));
     }
 
     public void HandleTimeOut()
@@ -323,6 +326,7 @@ public class GameFlowManager : MonoBehaviour
         if (currentGameState != GameState.Playing) return;
         
         currentGameState = GameState.RoundEnd;
+        SoundManager.instance.PlaySound(SoundType.Whistle_Long);
         TimeManager.Instance.showImageUI.SetEnable(true);
         TimeManager.Instance.showImageUI.ShowImageDisplay();
         
@@ -422,7 +426,7 @@ public class GameFlowManager : MonoBehaviour
         isFirstRound = true;
         WinSlotManager.Instance.ResetWins();
         UIManager.Instance.SetEnableUIComponent(UIType.Lobby,true);
-        
+
         ClearAllBalls();
 
         if (MultiplayerManager.Instance != null)
@@ -435,11 +439,33 @@ public class GameFlowManager : MonoBehaviour
             if(obj != null) obj.SetActive(true);
         }
 
+        SoundManager.instance.PlayMusic(MusicType.Menu);
         Debug.Log("[Flow] Returned to Lobby Success.");
     }
 
-    private IEnumerator WaitAndReturnToLobby(float waitTime)
+    private IEnumerator WaitAndReturnToLobby(float waitTime, PlayerSide matchWinner)
     {
+        SoundManager.instance.StopPlayMusic();
+
+        yield return new WaitForSeconds(1.5f);
+        UIManager.Instance.SetEnableUIComponent(UIType.GameOver,true);
+        StartCoroutine(winnerUI.ShowMatchWinnerRoutine(matchWinner));
+
+       
+        yield return new WaitForSeconds(0.25f);
+        if (matchWinner == PlayerSide.Red)
+        {
+            SoundManager.instance.PlaySound(SoundType.CatWin);
+            yield return new WaitForSeconds(0.4f);
+            SoundManager.instance.PlaySound(SoundType.DogLose);
+        }
+        else if (matchWinner == PlayerSide.Blue)
+        {
+            SoundManager.instance.PlaySound(SoundType.DogWin);
+            yield return new WaitForSeconds(0.4f);
+            SoundManager.instance.PlaySound(SoundType.CatLose);
+        }
+        
         yield return new WaitForSeconds(waitTime);
         UIManager.Instance.SetEnableUIComponent(UIType.CountDown, false);
         UIManager.Instance.SetEnableUIComponent(UIType.Game, false);

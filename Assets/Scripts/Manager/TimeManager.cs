@@ -83,6 +83,7 @@ public class TimeManager : MonoBehaviour
         UIManager.Instance.SetEnableUIComponent(UIType.CountDown, true);
         UIManager.Instance.SetEnableUIComponent(UIType.Game, true);
 
+        SoundManager.instance.PlaySound(SoundType.Count_Down);
         countdownCoroutine = StartCoroutine(PreRoundRoutine(seconds, onFinished));
     }
 
@@ -114,6 +115,7 @@ public class TimeManager : MonoBehaviour
 
         //timerText.text = "FIGHT!";   หรือไม่ก็ทำ UI มาแทน Text
         onFinished?.Invoke(); // บอก GameFlow ว่าเริ่มเล่นได้
+        SoundManager.instance.PlaySound(SoundType.Whistle_Short);
 
         yield return new WaitForSecondsRealtime(0.5f);
 
@@ -147,6 +149,7 @@ public class TimeManager : MonoBehaviour
         isTimerRunning = false;
         Debug.Log("Round Time Ended!");
         
+        SoundManager.instance.PlaySound(SoundType.TimeOut);
         // แจ้ง GameFlowManager ว่าหมดเวลา (Draw หรือหาผู้ชนะจากเลือด)
         if (GameFlowManager.Instance != null)
         {
