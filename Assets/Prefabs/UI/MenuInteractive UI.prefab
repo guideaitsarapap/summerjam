@@ -332,10 +332,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2234461608848477039}
+  - component: {fileID: 139974383120203461}
+  - component: {fileID: 4624413507496813654}
   - component: {fileID: 4482074231593560837}
   - component: {fileID: 3722594044250593446}
-  - component: {fileID: 4624413507496813654}
-  - component: {fileID: 139974383120203461}
   m_Layer: 0
   m_Name: Button in WorldSpace Setting
   m_TagString: Untagged
@@ -360,61 +360,6 @@ Transform:
   - {fileID: 360425601505080837}
   m_Father: {fileID: 568328549558161888}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!225 &4482074231593560837
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1582480077451440207}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
---- !u!114 &3722594044250593446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1582480077451440207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 490c83204fee8324d8b61cda7c7f8557, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIInteractiveWorldSpace
-  uiType: 0
-  buttonType: 1
---- !u!114 &4624413507496813654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1582480077451440207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3722594044250593446}
-          m_TargetAssemblyTypeName: UIInteractiveWorldSpace, Assembly-CSharp
-          m_MethodName: GoToSettingMenu
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!61 &139974383120203461
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -461,6 +406,62 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4624413507496813654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582480077451440207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3722594044250593446}
+          m_TargetAssemblyTypeName: UIInteractiveWorldSpace, Assembly-CSharp
+          m_MethodName: GoToSettingMenu
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!225 &4482074231593560837
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582480077451440207}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &3722594044250593446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582480077451440207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 490c83204fee8324d8b61cda7c7f8557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIInteractiveWorldSpace
+  uiType: 0
+  OutsideMainCanvas: 0
+  buttonType: 1
 --- !u!1 &1680104814187718295
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,7 +550,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0001
+  m_Value: 0.8
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -590,6 +591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInteractiveForAudio
   uiType: 5
+  OutsideMainCanvas: 0
   buttonType: 2
   volumeSetting: {fileID: 0}
 --- !u!1 &1720721866189650956
@@ -702,6 +704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInteractiveForAudio
   uiType: 5
+  OutsideMainCanvas: 0
   buttonType: 3
   volumeSetting: {fileID: 4280885577939030060}
 --- !u!1 &2211450204603436714
@@ -903,6 +906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   uiType: 5
+  OutsideMainCanvas: 0
   buttonType: 2
 --- !u!114 &7242827079519444162
 MonoBehaviour:
@@ -2059,7 +2063,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0001
+  m_Value: 0.8
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2100,6 +2104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInteractiveForAudio
   uiType: 5
+  OutsideMainCanvas: 0
   buttonType: 2
   volumeSetting: {fileID: 0}
 --- !u!1 &6767359405553818329
@@ -3099,6 +3104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInteractiveForAudio
   uiType: 5
+  OutsideMainCanvas: 0
   buttonType: 4
   volumeSetting: {fileID: 4280885577939030060}
 --- !u!1 &8387100710419694777
@@ -3188,7 +3194,7 @@ GameObject:
   - component: {fileID: 663981244534620375}
   - component: {fileID: 82661451291851966}
   - component: {fileID: 6209798985691108844}
-  - component: {fileID: 6979405972867088361}
+  - component: {fileID: 6415420901343333169}
   m_Layer: 0
   m_Name: Button in WorldSpace Quit
   m_TagString: Untagged
@@ -3276,7 +3282,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 6979405972867088361}
+        - m_Target: {fileID: 6415420901343333169}
           m_TargetAssemblyTypeName: UIInteractiveWorldSpace, Assembly-CSharp
           m_MethodName: GoQuitGame
           m_Mode: 1
@@ -3300,7 +3306,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &6979405972867088361
+--- !u!114 &6415420901343333169
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3313,6 +3319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInteractiveWorldSpace
   uiType: 0
+  OutsideMainCanvas: 0
   buttonType: 0
 --- !u!1 &8954470473219181418
 GameObject:

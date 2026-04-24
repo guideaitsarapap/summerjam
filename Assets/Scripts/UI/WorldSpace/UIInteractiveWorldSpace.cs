@@ -13,18 +13,18 @@ public class UIInteractiveWorldSpace : UIComponent, IHittable
     public virtual void OnGetHit(PlayerController hitter, HitType hitType)
     {
         SoundManager.instance.PlaySound(SoundType.Object_Bounce);
-        switch (buttonType)
-        {
-            case ButtonWoldSpaceType.Quit:
-                GoQuitGame();
-                break;
-            case ButtonWoldSpaceType.Setting:
-                GoToSettingMenu();
-                break;
-            case ButtonWoldSpaceType.Back:
-                GoToMainMenu();
-                break;
-        }
+        // switch (buttonType)
+        // {
+        //     case ButtonWoldSpaceType.Quit:
+        //         GoQuitGame();
+        //         break;
+        //     case ButtonWoldSpaceType.Setting:
+        //         GoToSettingMenu();
+        //         break;
+        //     case ButtonWoldSpaceType.Back:
+        //         GoToMainMenu();
+        //         break;
+        // }
         
     }
 
