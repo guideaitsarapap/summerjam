@@ -21,6 +21,7 @@ public enum SoundType
     Refresh,
     Sizzler,
     Fire,
+    OnFire,
     Object_Bounce,
 
 
