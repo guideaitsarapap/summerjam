@@ -129,3 +129,45 @@ MonoBehaviour:
     IsRandomPitch: 0
     sounds:
     - {fileID: 8300000, guid: 1e06eb9e227fad540a7d94d5087bd578, type: 3}
+  - name: CatLose
+    volume: 1
+    mixer: {fileID: 2077038909085311606, guid: 33edfb51b5477a749b09730692c0b57f, type: 2}
+    IsRandomPitch: 0
+    sounds:
+    - {fileID: 8300000, guid: 32cf30c676410684dbcfe829ed7f8d4d, type: 3}
+  - name: DogLose
+    volume: 1
+    mixer: {fileID: 2077038909085311606, guid: 33edfb51b5477a749b09730692c0b57f, type: 2}
+    IsRandomPitch: 0
+    sounds:
+    - {fileID: 8300000, guid: c5faf0cf9fe85414597edce9088cf1e8, type: 3}
+  - name: CatWin
+    volume: 1
+    mixer: {fileID: 2077038909085311606, guid: 33edfb51b5477a749b09730692c0b57f, type: 2}
+    IsRandomPitch: 0
+    sounds:
+    - {fileID: 8300000, guid: 1cfb6b70e42afc945a0dcf9899d28116, type: 3}
+  - name: DogWin
+    volume: 1
+    mixer: {fileID: 2077038909085311606, guid: 33edfb51b5477a749b09730692c0b57f, type: 2}
+    IsRandomPitch: 0
+    sounds:
+    - {fileID: 8300000, guid: bc6f070e6d93ebb4181c195e9ec2d135, type: 3}
+  - name: Crouch
+    volume: 0.75
+    mixer: {fileID: 2077038909085311606, guid: 33edfb51b5477a749b09730692c0b57f, type: 2}
+    IsRandomPitch: 0
+    sounds:
+    - {fileID: 8300000, guid: 2a8697e55fc0a1941a8dcf924c3a8cde, type: 3}
+  - name: Whistle_Long
+    volume: 1
+    mixer: {fileID: 2077038909085311606, guid: 33edfb51b5477a749b09730692c0b57f, type: 2}
+    IsRandomPitch: 0
+    sounds:
+    - {fileID: 8300000, guid: 8c46b307c2ff7b044a7964c5372b8058, type: 3}
+  - name: Whistle_Short
+    volume: 1
+    mixer: {fileID: 2077038909085311606, guid: 33edfb51b5477a749b09730692c0b57f, type: 2}
+    IsRandomPitch: 0
+    sounds:
+    - {fileID: 8300000, guid: bf1a3e3a597bf5147b6377e64dcdff54, type: 3}

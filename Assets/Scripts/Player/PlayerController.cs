@@ -130,13 +130,16 @@ public class PlayerController : MonoBehaviour
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 isGrounded = false;
                 anim.SetTrigger("Jump");
+                SoundManager.instance.PlaySound(SoundType.Jump);
             }
             else if (!isDoubleJumpUsed)
             {
                 rb.linearVelocityY = 0f; 
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 isDoubleJumpUsed = true;
+                SoundManager.instance.PlaySound(SoundType.Jump);
             }
+            
         }
     }
 
@@ -149,12 +152,14 @@ public class PlayerController : MonoBehaviour
             {
                 anim.SetTrigger("DownwardHit");
                 pendingHitType = HitType.Down;
+                SoundManager.instance.PlaySound(SoundType.Hit_Hard);
             }
             
             else
             {
                 pendingHitType = HitType.Straight;
                 anim.SetTrigger("Hit");
+                SoundManager.instance.PlaySound(SoundType.Hit);
             }
         }
     }
@@ -166,6 +171,12 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        if (context.started)
+        {
+            SoundManager.instance.PlaySound(SoundType.Crouch);
+            // Do get Item Pickup logic here
+
+        }
         if (context.performed)
         {
             anim.SetBool("isCrouch", true);
@@ -194,6 +205,7 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetTrigger("Set");
             pendingHitType = HitType.Set;
+            SoundManager.instance.PlaySound(SoundType.Object_Bounce);
         }
     }
 
