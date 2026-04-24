@@ -21,7 +21,14 @@ public enum SoundType
     Refresh,
     Sizzler,
     Fire,
+    OnFire,
     Object_Bounce,
-
+    CatLose,
+    DogLose,
+    CatWin,
+    DogWin,
+    Crouch,
+    Whistle_Long,
+    Whistle_Short,
 
 }

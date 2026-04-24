@@ -11,7 +11,7 @@ public class UIInteractiveForAudio : UIInteractiveWorldSpace, IHittable
 
     public override void OnGetHit(PlayerController hitter, HitType hitType)
     {
-
+        SoundManager.instance.PlaySound(SoundType.Object_Bounce);
         if (buttonType == ButtonWoldSpaceType.MusicSetting)
         {
             volumeSetting.SetMusicVolumeByPlayer(hitter.side);

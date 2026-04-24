@@ -49,6 +49,9 @@ public class GameFlowManager : MonoBehaviour
     [SerializeField] private List<GameObject> menuObjectsToClear = new List<GameObject>();
     [Header("Object References for Match Over")]
     [SerializeField] private ShowWinnerUI winnerUI;
+    [Header("Object References for Menu")]
+    [SerializeField] private GameObject ReadyRedObject;
+    [SerializeField] private GameObject ReadyBlueObject;
 
     void Awake()
     {
@@ -63,8 +66,14 @@ public class GameFlowManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        ReadyRedObject.SetActive(false);
+        ReadyBlueObject.SetActive(false);
+    }
 
- #region     --- Lobby ---
+
+    #region     --- Lobby ---
 
     public void RegisterNewPlayer(PlayerInput playerInput)
     {
@@ -100,6 +109,8 @@ public class GameFlowManager : MonoBehaviour
         if (playerFound != null && !playerFound.isReadyInLobby)
         {
             playerFound.isReadyInLobby = true;
+            if(playerFound.side == PlayerSide.Red) ReadyRedObject.SetActive(true);
+            else if(playerFound.side == PlayerSide.Blue) ReadyBlueObject.SetActive(true);
             // เปลี่ยนสีตัวละครเพื่อบอกว่า Ready แล้ว
             //characterController.GetComponentInChildren<SpriteRenderer>().color = Color.green;
             
@@ -112,6 +123,8 @@ public class GameFlowManager : MonoBehaviour
         foreach (var player in connectedPlayers)
         {
             player.isReadyInLobby = false;
+            if(player.side == PlayerSide.Red) ReadyRedObject.SetActive(false);
+            else if(player.side == PlayerSide.Blue) ReadyBlueObject.SetActive(false);
             Debug.Log($"[Flow] Reset Ready status for P{player.playerIndex + 1}");
         }
     }
@@ -128,14 +141,17 @@ public class GameFlowManager : MonoBehaviour
 
     private IEnumerator TransitionToGameplayRoutine()
     {
-        ResetReadyStatus();
+        //ResetReadyStatus();
 
         // 1. โหลด Scene (สมมติว่าชื่อ GameScene)
         // SceneManager.LoadScene("GameScene");
-        // yield return new WaitForSeconds(0.5f); // รอโหลดแป๊บนึง
+        yield return new WaitForSeconds(1f); // รอโหลดแป๊บนึง
+
+        ResetReadyStatus();
 
         // 2. เมื่อเข้าฉากใหม่ ให้เริ่มนับถอยหลัง
         StartNewRound();
+        SoundManager.instance.PlayMusic(MusicType.GameMusic);
         yield return null;
     }
 #endregion
@@ -161,6 +177,8 @@ public class GameFlowManager : MonoBehaviour
         foreach (var player in connectedPlayers)
         {
             player.isReadyInLobby = false;
+            if(player.side == PlayerSide.Red) ReadyRedObject.SetActive(false);
+            else if(player.side == PlayerSide.Blue) ReadyBlueObject.SetActive(false);
         }
     }
 
@@ -248,11 +266,11 @@ public class GameFlowManager : MonoBehaviour
     private void FinishMatch(PlayerSide matchWinner)
     {
         currentGameState = GameState.MatchOver;
-        UIManager.Instance.SetEnableUIComponent(UIType.GameOver,true);
-        StartCoroutine(winnerUI.ShowMatchWinnerRoutine(matchWinner));
-        Debug.Log($"MATCH OVER! {matchWinner} IS THE CHAMPION!");
+        SoundManager.instance.PlaySound(SoundType.Over);
         
-        StartCoroutine(WaitAndReturnToLobby(3f));
+        //Debug.Log($"MATCH OVER! {matchWinner} IS THE CHAMPION!");
+        
+        StartCoroutine(WaitAndReturnToLobby(3f, matchWinner));
     }
 
     public void HandleTimeOut()
@@ -308,6 +326,7 @@ public class GameFlowManager : MonoBehaviour
         if (currentGameState != GameState.Playing) return;
         
         currentGameState = GameState.RoundEnd;
+        SoundManager.instance.PlaySound(SoundType.Whistle_Long);
         TimeManager.Instance.showImageUI.SetEnable(true);
         TimeManager.Instance.showImageUI.ShowImageDisplay();
         
@@ -406,6 +425,7 @@ public class GameFlowManager : MonoBehaviour
         currentGameState = GameState.Lobby;
         isFirstRound = true;
         WinSlotManager.Instance.ResetWins();
+        UIManager.Instance.SetEnableUIComponent(UIType.Lobby,true);
 
         ClearAllBalls();
 
@@ -419,11 +439,33 @@ public class GameFlowManager : MonoBehaviour
             if(obj != null) obj.SetActive(true);
         }
 
+        SoundManager.instance.PlayMusic(MusicType.Menu);
         Debug.Log("[Flow] Returned to Lobby Success.");
     }
 
-    private IEnumerator WaitAndReturnToLobby(float waitTime)
+    private IEnumerator WaitAndReturnToLobby(float waitTime, PlayerSide matchWinner)
     {
+        SoundManager.instance.StopPlayMusic();
+
+        yield return new WaitForSeconds(1.5f);
+        UIManager.Instance.SetEnableUIComponent(UIType.GameOver,true);
+        StartCoroutine(winnerUI.ShowMatchWinnerRoutine(matchWinner));
+
+       
+        yield return new WaitForSeconds(0.25f);
+        if (matchWinner == PlayerSide.Red)
+        {
+            SoundManager.instance.PlaySound(SoundType.CatWin);
+            yield return new WaitForSeconds(0.4f);
+            SoundManager.instance.PlaySound(SoundType.DogLose);
+        }
+        else if (matchWinner == PlayerSide.Blue)
+        {
+            SoundManager.instance.PlaySound(SoundType.DogWin);
+            yield return new WaitForSeconds(0.4f);
+            SoundManager.instance.PlaySound(SoundType.CatLose);
+        }
+        
         yield return new WaitForSeconds(waitTime);
         UIManager.Instance.SetEnableUIComponent(UIType.CountDown, false);
         UIManager.Instance.SetEnableUIComponent(UIType.Game, false);

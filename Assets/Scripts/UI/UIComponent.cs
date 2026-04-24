@@ -8,6 +8,7 @@ public class UIComponent : MonoBehaviour
     public UIType UIType => uiType;
 
     [SerializeField] private UIType uiType;
+    [SerializeField] private bool OutsideMainCanvas = false;
 
     public void SetEnable(bool isEnable)
     {
@@ -18,6 +19,15 @@ public class UIComponent : MonoBehaviour
         else OnDisabled();
     
         gameObject.SetActive(isEnable);
+    }
+
+    protected void Start()
+    {
+        if(OutsideMainCanvas)
+        {
+            UIManager.Instance.AddUIComponent(this);
+        }
+
     }
 
     protected virtual void OnEnabled() { }
