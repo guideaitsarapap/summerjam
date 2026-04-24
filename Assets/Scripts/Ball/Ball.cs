@@ -46,6 +46,8 @@ public class Ball : MonoBehaviour, IHittable
     private Vector3 currentFollowOffset;
     [SerializeField]private TrailRenderer ballTrail;
 
+    [SerializeField] private ParticleSystem hitEffectPrefabRed;
+    [SerializeField] private ParticleSystem hitEffectPrefabBlue;
 
     private void Awake()
     {
@@ -109,7 +111,7 @@ public class Ball : MonoBehaviour, IHittable
                     {
                         TimeManager.Instance.DoHitStop(false, 0.25f);
                     } 
-                    
+                    HitEffectParticle(hitter.side);
                 }
                 
                 finalDirection = new Vector2(directionX, 0f).normalized;
@@ -128,7 +130,7 @@ public class Ball : MonoBehaviour, IHittable
                     {
                         TimeManager.Instance.DoHitStop(false, 0.25f);
                     } 
-                    
+                    HitEffectParticle(hitter.side);
                 }
                 
                 finalDirection = new Vector2(directionX, -1f).normalized;
@@ -161,6 +163,18 @@ public class Ball : MonoBehaviour, IHittable
         ballRigidbody.linearVelocity = direction * currentSpeed;
         SwitchBallSide(hitterSide);
         isOverdriveMode = false;
+
+        float torqueAmount = 10f;
+        ballRigidbody.angularVelocity = 0f;
+        if (hitterSide == PlayerSide.Red)
+        {
+            ballRigidbody.AddTorque(torqueAmount, ForceMode2D.Impulse); 
+        }
+        else
+        {
+            ballRigidbody.AddTorque(-torqueAmount, ForceMode2D.Impulse); 
+        }
+        
     }
 
     private void ApplySet(Vector2 force, PlayerSide setterSide)
@@ -341,5 +355,34 @@ public class Ball : MonoBehaviour, IHittable
     {
         isOverdriveMode = true;
         currentSpeed = overdriveSpeed;
+    }
+
+    private void HitEffectParticle(PlayerSide hitterSide)
+    {
+        if (hitterSide == PlayerSide.Red)
+        {
+            if(hitEffectPrefabRed != null)
+            {
+                if (hitEffectPrefabRed.isPlaying)
+                {
+                    hitEffectPrefabRed.Stop();
+                    hitEffectPrefabRed.Clear(); // Clear old particles
+                }
+                hitEffectPrefabRed.Play();
+            }
+        }
+        else
+        {
+            if(hitEffectPrefabBlue != null)
+            {
+                if (hitEffectPrefabBlue.isPlaying)
+                {
+                    hitEffectPrefabBlue.Stop();
+                    hitEffectPrefabBlue.Clear(); // Clear old particles
+                }
+                hitEffectPrefabBlue.Play();
+            }
+        }
+        
     }
 }
