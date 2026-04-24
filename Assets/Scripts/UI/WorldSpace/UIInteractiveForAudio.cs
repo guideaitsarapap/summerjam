@@ -4,7 +4,7 @@ public class UIInteractiveForAudio : UIInteractiveWorldSpace, IHittable
 {
     public VolumeSetting volumeSetting;
 
-    protected void Start()
+    public void Start()
     {
         base.Start();
     }
