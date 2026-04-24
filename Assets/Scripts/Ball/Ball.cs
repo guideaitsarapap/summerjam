@@ -37,7 +37,7 @@ public class Ball : MonoBehaviour, IHittable
 
     [Header("Force Settings")]
     [SerializeField] private Vector2 forceSetUp = new Vector2(0, 8f);
-    [SerializeField] private float overdriveSpeed = 40f;
+    [SerializeField] private float overdriveSpeed = 45f;
 
     [Header("Mercy Rule Settings")]
     [SerializeField] private Vector3 redFollowOffset = new Vector3(0, 1.5f, 0);
@@ -92,7 +92,14 @@ public class Ball : MonoBehaviour, IHittable
             // ถ้าใช่คนแพ้ที่ตี (เสิร์ฟสำเร็จ) ให้ปลดล็อกสถานะทันที
             StopFollowingPlayer();
         }
-
+        if (hitter.Identity.hasRedWaterBuff)
+        {
+            // 1. เปิดโหมด Overdrive ให้บอลลูกนี้พุ่งแรง 40f
+            ActivateRedWaterStatus(overdriveSpeed); 
+            
+            // 2. สั่งให้ Player คืนค่าสีปกติ (เพราะตีโดนแล้ว)
+            hitter.ResetVisual();
+        }
 
         float directionX = hitter.facingRight ? 1f : -1f;
         Vector2 finalDirection = Vector2.zero;

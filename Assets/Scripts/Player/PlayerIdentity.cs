@@ -1,3 +1,5 @@
+using UnityEngine;
+
 [System.Serializable]
 
 public class PlayerIdentity
@@ -10,6 +12,9 @@ public class PlayerIdentity
     public float maxHealth = 100f;
     public int roundWins = 0;
     public bool isReadyInLobby = false;
+    [Header("Item Visuals")]
+    [SerializeField] public Color overdriveColor = new Color(1f, 0.3f, 0.3f);
+    public bool hasRedWaterBuff = false;
 
     public PlayerIdentity(int index, PlayerSide side, PlayerController controller)
     {
