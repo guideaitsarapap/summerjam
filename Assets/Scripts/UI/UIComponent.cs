@@ -12,8 +12,6 @@ public class UIComponent : MonoBehaviour
 
     public void SetEnable(bool isEnable)
     {
-        CanvasGroup.interactable = isEnable;
-        CanvasGroup.blocksRaycasts = isEnable;
 
         if (isEnable) OnEnabled();
         else OnDisabled();
@@ -21,7 +19,7 @@ public class UIComponent : MonoBehaviour
         gameObject.SetActive(isEnable);
     }
 
-    protected void Start()
+    public void Start()
     {
         if(OutsideMainCanvas)
         {

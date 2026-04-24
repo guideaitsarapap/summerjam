@@ -4,7 +4,7 @@ public class UIInteractiveWorldSpace : UIComponent, IHittable
 {
     [SerializeField] protected ButtonWoldSpaceType buttonType;
 
-    protected void Start()
+    public void Start()
     {
         UIManager.Instance.AddUIComponent(this);
         if(UIType == UIType.Setting) SetEnable(false);
