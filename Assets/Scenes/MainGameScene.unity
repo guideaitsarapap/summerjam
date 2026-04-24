@@ -349,68 +349,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5708735925207474623, guid: 7554961d582e3e1459f5cffee5c8ad71, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 818
-      objectReference: {fileID: 0}
-    - target: {fileID: 5708735925207474623, guid: 7554961d582e3e1459f5cffee5c8ad71, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 470
-      objectReference: {fileID: 0}
-    - target: {fileID: 7888711138326795274, guid: 7554961d582e3e1459f5cffee5c8ad71, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 818.00006
-      objectReference: {fileID: 0}
-    - target: {fileID: 7888711138326795274, guid: 7554961d582e3e1459f5cffee5c8ad71, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 470.00003
-      objectReference: {fileID: 0}
-    - target: {fileID: 8883662513667338072, guid: 7554961d582e3e1459f5cffee5c8ad71, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3144015239192356771, guid: 7554961d582e3e1459f5cffee5c8ad71, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 53764185}
-    - targetCorrespondingSourceObject: {fileID: 3144015239192356771, guid: 7554961d582e3e1459f5cffee5c8ad71, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 53764184}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7554961d582e3e1459f5cffee5c8ad71, type: 3}
---- !u!1 &53764183 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3144015239192356771, guid: 7554961d582e3e1459f5cffee5c8ad71, type: 3}
-  m_PrefabInstance: {fileID: 53764182}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &53764184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53764183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcc0d2b756ef40b6b4882c91f4f60621, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIComponent
-  uiType: 0
-  OutsideMainCanvas: 1
---- !u!225 &53764185
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53764183}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!114 &164391479 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8048766022280834906, guid: 10048f2f88bbaf64aa09e693b52024f0, type: 3}
