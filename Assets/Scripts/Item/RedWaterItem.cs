@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class RedWaterItem : MonoBehaviour, IPickable,IHittable
 {
-    [SerializeField] private float overdriveSpeed = 40f;
     private Rigidbody2D rb;
     private bool isHit = false;
     private void Awake()
@@ -45,15 +44,8 @@ public class RedWaterItem : MonoBehaviour, IPickable,IHittable
 
     public void OnPickedUp(PlayerController player)
     {
+        player.ApplyRedWaterVisual();
         SoundManager.instance.PlaySound(SoundType.Refresh);
-        foreach (GameObject obj in GameFlowManager.Instance.activeBalls)
-        {
-            Ball ball = obj.GetComponent<Ball>();
-            if (ball != null)
-            {
-                ball.ActivateRedWaterStatus(overdriveSpeed);
-            }
-        }
         Destroy(gameObject);
     }
 }

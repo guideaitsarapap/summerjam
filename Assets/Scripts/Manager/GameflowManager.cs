@@ -191,6 +191,11 @@ public class GameFlowManager : MonoBehaviour
         ClearObjectsAndUInMenuForGamePlay();
 
         ResetPosition();
+
+        foreach (var player in connectedPlayers)
+        {
+            player.controllerReference.ResetVisual();
+        }
         
         ItemManager.Instance.ClearAllItems();
 

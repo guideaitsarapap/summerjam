@@ -281,6 +281,16 @@ public class PlayerController : MonoBehaviour
            Identity.currentHealth += amount;
            HealthManager.Instance.UpdateHealthUI(Identity.side,Identity.currentHealth,Identity.maxHealth);
     }
+    public void ApplyRedWaterVisual()
+    {
+        Identity.hasRedWaterBuff = true;
+        GetComponentInChildren<SpriteRenderer>().color = Identity.overdriveColor;
+    }
+    public void ResetVisual()
+    {
+        Identity.hasRedWaterBuff = false;
+        GetComponentInChildren<SpriteRenderer>().color = Color.white;
+    }
     void FixedUpdate()
     {
 
