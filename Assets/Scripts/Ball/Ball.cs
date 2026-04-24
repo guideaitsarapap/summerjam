@@ -351,10 +351,10 @@ public class Ball : MonoBehaviour, IHittable
         return false;
     }
 
-    public void ActivateRedWaterStatus()
+    public void ActivateRedWaterStatus(float speed)
     {
         isOverdriveMode = true;
-        currentSpeed = overdriveSpeed;
+        currentSpeed = speed;
     }
 
     private void HitEffectParticle(PlayerSide hitterSide)

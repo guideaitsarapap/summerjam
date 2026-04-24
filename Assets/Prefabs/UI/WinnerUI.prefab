@@ -437,6 +437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShowWinnerUI
   uiType: 4
+  OutsideMainCanvas: 0
   redLayout: {fileID: 1535354562489380908}
   blueLayout: {fileID: 4210662718630008255}
   redSideAnimator: {fileID: 3942448735718104390}
@@ -927,8 +928,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 675f1c4e119175e459f9deb747ab5b25, type: 3}
   punchSpeed: 5
   delayBetweenPlayers: 1
-  winnerRatio: 7
-  loserRatio: 3
+  winnerRatio: 5
+  loserRatio: 4
 --- !u!225 &4971453581014232166
 CanvasGroup:
   m_ObjectHideFlags: 0

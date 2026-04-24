@@ -173,7 +173,6 @@ public class PlayerController : MonoBehaviour
 
         if (context.started)
         {
-            SoundManager.instance.PlaySound(SoundType.Crouch);
             // Do get Item Pickup logic here
             OnPlayerPickup?.Invoke(this);
 
