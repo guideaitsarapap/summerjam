@@ -32,9 +32,12 @@ public class Ball : MonoBehaviour, IHittable
     private Transform targetToFollow;
     private PlayerSide loserSide;
     private PlayerSide lastSetterSide;
+    private bool isOverdriveMode = false;
+    
 
     [Header("Force Settings")]
     [SerializeField] private Vector2 forceSetUp = new Vector2(0, 8f);
+    [SerializeField] private float overdriveSpeed = 40f;
 
     [Header("Mercy Rule Settings")]
     [SerializeField] private Vector3 redFollowOffset = new Vector3(0, 1.5f, 0);
@@ -145,12 +148,19 @@ public class Ball : MonoBehaviour, IHittable
         ballRigidbody.simulated = true;
         ballRigidbody.gravityScale = 0f;
 
-        // เพิ่มความเร็ว
-        currentSpeed *= speedIncreaseMultiplier + speedPlus;
-        currentSpeed = Mathf.Clamp(currentSpeed, baseSpeed, maximumSpeed);
+        if (isOverdriveMode)
+        {
+            currentSpeed = overdriveSpeed;
+        }
+        else
+        {
+            currentSpeed *= speedIncreaseMultiplier + speedPlus;
+            currentSpeed = Mathf.Clamp(currentSpeed, baseSpeed, maximumSpeed);
+        }
 
         ballRigidbody.linearVelocity = direction * currentSpeed;
         SwitchBallSide(hitterSide);
+        isOverdriveMode = false;
     }
 
     private void ApplySet(Vector2 force, PlayerSide setterSide)
@@ -325,5 +335,11 @@ public class Ball : MonoBehaviour, IHittable
         if (ballSide == BallSide.Red && playerSide == PlayerSide.Blue) return true;
         if (ballSide == BallSide.Blue && playerSide == PlayerSide.Red) return true;
         return false;
+    }
+
+    public void ActivateRedWaterStatus()
+    {
+        isOverdriveMode = true;
+        currentSpeed = overdriveSpeed;
     }
 }
