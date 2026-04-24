@@ -41,13 +41,17 @@ public class Ball : MonoBehaviour, IHittable
     [SerializeField] private Vector3 blueFollowOffset = new Vector3(0, 1.5f, 0);
 
     private Vector3 currentFollowOffset;
+    [SerializeField]private TrailRenderer ballTrail;
 
 
     private void Awake()
     {
         ballRigidbody = GetComponent<Rigidbody2D>();
         ballSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        //ballTrail = GetComponent<TrailRenderer>();
         currentSpeed = baseSpeed;
+
+        //if (ballTrail != null) ballTrail.enabled = false;
     }
 
     private void LateUpdate()
@@ -157,7 +161,11 @@ public class Ball : MonoBehaviour, IHittable
 
         lastSetterSide = setterSide;
         currentSide = BallSide.Neutral;
-        ballSpriteRenderer.color = Color.white;
+        if(ballTrail!= null)
+        {
+            ballTrail.startColor = Color.white;
+            ballTrail.endColor = new Color(1, 1, 1, 0);
+        }
     }
 
     private void SwitchBallSide(PlayerSide hitterSide)
@@ -165,12 +173,20 @@ public class Ball : MonoBehaviour, IHittable
         if (hitterSide == PlayerSide.Red)
         {
             currentSide = BallSide.Red;
-            ballSpriteRenderer.color = Color.red;
+            if(ballTrail!= null)
+            {
+                ballTrail.startColor = Color.red;
+                ballTrail.endColor = new Color(1, 0, 0, 0);
+            }
         }
         else
         {
             currentSide = BallSide.Blue;
-            ballSpriteRenderer.color = Color.blue;
+            if(ballTrail!= null)
+            {
+                ballTrail.startColor = Color.blue;
+                ballTrail.endColor = new Color(0, 0, 1, 0);
+            }
         }
     }
 
@@ -229,6 +245,11 @@ public class Ball : MonoBehaviour, IHittable
 
     public void ResetBallToCenter()
     {
+        if(ballTrail != null)
+        {
+            ballTrail.enabled = true;
+            ballTrail.Clear();
+        }
         StopAllCoroutines();
         isFollowingPlayer = false;
         ballRigidbody.simulated = true;
@@ -239,7 +260,6 @@ public class Ball : MonoBehaviour, IHittable
         transform.position = GameFlowManager.Instance.GameplayballSpawnPoint.position;
         currentSpeed = baseSpeed;
         currentSide = BallSide.Neutral;
-        ballSpriteRenderer.color = Color.white;
     }
 
     // ใช้สำหรับรีเซ็ตบอลในหน้าMenu เพื่อให้บอลกลับมาที่ฝั่งตัวเอง
@@ -255,7 +275,6 @@ public class Ball : MonoBehaviour, IHittable
         transform.position = positionBall;
         currentSpeed = baseSpeed;
         currentSide = BallSide.Neutral;
-        ballSpriteRenderer.color = Color.white;
     }
 
     public void SetupFollowLoser(PlayerController loser)
