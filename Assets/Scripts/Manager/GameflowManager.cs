@@ -49,6 +49,9 @@ public class GameFlowManager : MonoBehaviour
     [SerializeField] private List<GameObject> menuObjectsToClear = new List<GameObject>();
     [Header("Object References for Match Over")]
     [SerializeField] private ShowWinnerUI winnerUI;
+    [Header("Object References for Menu")]
+    [SerializeField] private GameObject ReadyRedObject;
+    [SerializeField] private GameObject ReadyBlueObject;
 
     void Awake()
     {
@@ -63,8 +66,14 @@ public class GameFlowManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        ReadyRedObject.SetActive(false);
+        ReadyBlueObject.SetActive(false);
+    }
 
- #region     --- Lobby ---
+
+    #region     --- Lobby ---
 
     public void RegisterNewPlayer(PlayerInput playerInput)
     {
@@ -100,6 +109,8 @@ public class GameFlowManager : MonoBehaviour
         if (playerFound != null && !playerFound.isReadyInLobby)
         {
             playerFound.isReadyInLobby = true;
+            if(playerFound.side == PlayerSide.Red) ReadyRedObject.SetActive(true);
+            else if(playerFound.side == PlayerSide.Blue) ReadyBlueObject.SetActive(true);
             // เปลี่ยนสีตัวละครเพื่อบอกว่า Ready แล้ว
             //characterController.GetComponentInChildren<SpriteRenderer>().color = Color.green;
             
@@ -112,6 +123,8 @@ public class GameFlowManager : MonoBehaviour
         foreach (var player in connectedPlayers)
         {
             player.isReadyInLobby = false;
+            if(player.side == PlayerSide.Red) ReadyRedObject.SetActive(false);
+            else if(player.side == PlayerSide.Blue) ReadyBlueObject.SetActive(false);
             Debug.Log($"[Flow] Reset Ready status for P{player.playerIndex + 1}");
         }
     }
@@ -128,11 +141,13 @@ public class GameFlowManager : MonoBehaviour
 
     private IEnumerator TransitionToGameplayRoutine()
     {
-        ResetReadyStatus();
+        //ResetReadyStatus();
 
         // 1. โหลด Scene (สมมติว่าชื่อ GameScene)
         // SceneManager.LoadScene("GameScene");
-        // yield return new WaitForSeconds(0.5f); // รอโหลดแป๊บนึง
+        yield return new WaitForSeconds(1f); // รอโหลดแป๊บนึง
+
+        ResetReadyStatus();
 
         // 2. เมื่อเข้าฉากใหม่ ให้เริ่มนับถอยหลัง
         StartNewRound();
@@ -406,7 +421,8 @@ public class GameFlowManager : MonoBehaviour
         currentGameState = GameState.Lobby;
         isFirstRound = true;
         WinSlotManager.Instance.ResetWins();
-
+        UIManager.Instance.SetEnableUIComponent(UIType.Lobby,true);
+        
         ClearAllBalls();
 
         if (MultiplayerManager.Instance != null)
