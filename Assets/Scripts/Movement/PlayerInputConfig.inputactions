@@ -96,6 +96,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "7be082b5-a15e-4840-a474-e89249801b68",
+                    "path": "<DualShockGamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "2D Vector",
                     "id": "60e4cee4-2849-4261-984d-4b646bacce58",
                     "path": "2DVector",
@@ -124,6 +135,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";P2_Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "867cc465-7cae-431f-83bd-66c69a592f6a",
+                    "path": "<DualShockGamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";P2_Keyboard;Gamepad",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -173,6 +195,17 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "right",
+                    "id": "e837718c-3621-47c3-8c3e-8260cd95224d",
+                    "path": "<DualShockGamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "125c6074-8aa6-4a57-b56c-bceb894e4922",
                     "path": "<Keyboard>/f",
@@ -207,6 +240,17 @@
                 },
                 {
                     "name": "",
+                    "id": "7a03c28e-1f84-4b9a-919f-a6936d8b993d",
+                    "path": "<DualShockGamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "HitAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "6099f1fd-d331-41d6-b86c-1669af1a029a",
                     "path": "<Keyboard>/g",
                     "interactions": "",
@@ -231,6 +275,17 @@
                     "name": "",
                     "id": "11afbb92-dd8c-48fb-a51e-f37268978fe8",
                     "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "SetAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "590a01af-bff8-4a95-b7a1-b6d420fe2182",
+                    "path": "<DualShockGamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -275,6 +330,17 @@
                     "name": "",
                     "id": "8b0630c1-1bcc-4807-bdf6-ecda9161730a",
                     "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4a1529a9-8c18-45b0-b736-438dc34e35c4",
+                    "path": "<DualShockGamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
