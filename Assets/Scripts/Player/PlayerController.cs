@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
 
     public event Action<PlayerController,HitType> OnPlayerHit;
     public event Action<PlayerController,HitType> OnPlayerFinishHit;
-
+    public event Action<PlayerController> OnPlayerPickup;
     public void Initialize(PlayerIdentity identity)
     {
         Identity = identity;
@@ -175,17 +175,16 @@ public class PlayerController : MonoBehaviour
         {
             SoundManager.instance.PlaySound(SoundType.Crouch);
             // Do get Item Pickup logic here
+            OnPlayerPickup?.Invoke(this);
 
         }
         if (context.performed)
         {
             anim.SetBool("isCrouch", true);
-            // ใส่โค้ดลดขนาด Collider ตรงนี้
         }
-        else if (context.canceled) // เมื่อปล่อยปุ่ม
+        else if (context.canceled)
         {
             anim.SetBool("isCrouch", false);
-            // ใส่โค้ดคืนขนาด Collider ตรงนี้
         }
     }
 
@@ -276,6 +275,12 @@ public class PlayerController : MonoBehaviour
     {
         idleTimer = 0f;
         nextCheckTime = UnityEngine.Random.Range(minIdleTime, maxIdleTime);
+    }
+
+    public void Heal(float amount)
+    {
+           Identity.currentHealth += amount;
+           HealthManager.Instance.UpdateHealthUI(Identity.side,Identity.currentHealth,Identity.maxHealth);
     }
     void FixedUpdate()
     {

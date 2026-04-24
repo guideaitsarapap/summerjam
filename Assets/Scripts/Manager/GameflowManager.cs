@@ -24,7 +24,7 @@ public class GameFlowManager : MonoBehaviour
     
     [Header("Ball Management")]
     public GameObject ballPrefab;
-    private List<GameObject> activeBalls = new List<GameObject>();
+    public List<GameObject> activeBalls = new List<GameObject>();
 
     [Header("Match Settings")]
     public GameState currentGameState = GameState.Lobby;

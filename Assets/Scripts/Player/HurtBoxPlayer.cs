@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class HurtBoxPlayer : MonoBehaviour
 {
@@ -14,6 +15,23 @@ public class HurtBoxPlayer : MonoBehaviour
 
     [Header("Stun Settings")]
     [SerializeField] private float stunDuration = 0.2f;
+    private List<IPickable> itemsInRange = new List<IPickable>();
+
+    private void OnEnable()
+    {
+        if (playerController != null)
+        {
+            playerController.OnPlayerPickup  += HandlePickUp;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (playerController != null)
+        {
+            playerController.OnPlayerPickup -= HandlePickUp;
+        }
+    }
 
     public PlayerSide playerSide
     {
@@ -84,5 +102,40 @@ public class HurtBoxPlayer : MonoBehaviour
         yield return new WaitForSecondsRealtime(stunDuration);
         
         playerController.SetMoveable(true,true);
+    }
+
+    private void HandlePickUp(PlayerController pc)
+    {
+        if (itemsInRange.Count > 0)
+        {
+            IPickable itemToPick = itemsInRange[0];
+            
+            if (itemToPick != null)
+            {
+                itemToPick.OnPickedUp(pc);
+                itemsInRange.Remove(itemToPick);
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        IPickable item = other.GetComponent<IPickable>();
+        if (item != null)
+        {
+            if (!itemsInRange.Contains(item))
+            {
+                itemsInRange.Add(item);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        IPickable item = other.GetComponent<IPickable>();
+        if (item != null)
+        {
+            itemsInRange.Remove(item);
+        }
     }
 }
