@@ -21,8 +21,8 @@ MonoBehaviour:
     musics: {fileID: 8300000, guid: 1a6c2e27509815249be13bf1d3de0aa3, type: 3}
   - name: GameMusic
     volume: 1
-    mixer: {fileID: 0}
-    musics: {fileID: 0}
+    mixer: {fileID: 6127004741179471938, guid: 33edfb51b5477a749b09730692c0b57f, type: 2}
+    musics: {fileID: 8300000, guid: 526096468882b0341b0bb9b97d4ccea3, type: 3}
   - name: EndGame
     volume: 1
     mixer: {fileID: 0}

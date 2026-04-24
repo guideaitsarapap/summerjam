@@ -15,8 +15,28 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 0feb4e977d12a104dbe8b3cdb2a172ca
   m_SerializeEntries:
+  - m_GUID: 06ca6667148d7424da7173ad38e9d2e2
+    m_Address: Assets/Sound & Audio/Sound Effect/Ball wood.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15e6b932d967cb4438298a9803cf2b4c
+    m_Address: Assets/Sound & Audio/Sound Effect/hit.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 174edf38e1129fb4692c638cb39634b4
     m_Address: Assets/Prefabs/RedPlayer.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a6c2e27509815249be13bf1d3de0aa3
+    m_Address: Assets/Sound & Audio/Music/Test/MusicFormJapaness.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e06eb9e227fad540a7d94d5087bd578
+    m_Address: Assets/Sound & Audio/Sound Effect/wood.wav
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -30,13 +50,103 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24cddf0e2ec130a4fbe2bb5630b3d88d
+    m_Address: Assets/Sound & Audio/Sound Effect/catDead.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2a62f7b0bc35caf47b7d97c5f2bf90d8
     m_Address: Assets/Art/Sprite Atlas/PlayerBlue_SpriteAtlas.spriteatlasv2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a8697e55fc0a1941a8dcf924c3a8cde
+    m_Address: Assets/Sound & Audio/Sound Effect/sand.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2eb2289a879dd0f48a026ff381366195
+    m_Address: Assets/Sound & Audio/Sound Effect/sizzler.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3093ee4ca51e56443a76849a56733001
+    m_Address: Assets/Sound & Audio/Sound Effect/gotHit.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3639fca6968344a4183c1c26b0c6e12e
+    m_Address: Assets/Sound & Audio/Sound Effect/Wind.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 391c4af64027a634fa00cfd5080ea5e9
+    m_Address: Assets/Sound & Audio/Sound Effect/fresh.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c6c38a5f03f28a46b6672c6555cc519
+    m_Address: Assets/Sound & Audio/Sound Effect/over.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4601475f2266804428d4ed96ced3be93
+    m_Address: Assets/Sound & Audio/Sound Effect/Fire...wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 526096468882b0341b0bb9b97d4ccea3
+    m_Address: Assets/Sound & Audio/Music/summerjam funk mix loop (2).wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59b884bb911507c439e7c78795c81092
+    m_Address: Assets/Sound & Audio/Sound Effect/Metal.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b36fd33592a5e848badd6e5c0666708
+    m_Address: Assets/Sound & Audio/Sound Effect/timeout.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a2e8ad671fd985489488b9ebf8f744a
+    m_Address: Assets/Sound & Audio/Sound Effect/set.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d34de3f31774194e86b279a4e187093
+    m_Address: Assets/Sound & Audio/Sound Effect/Jump vocal.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: acb46853326ddca4c954d74b5b263bd0
+    m_Address: Assets/Sound & Audio/Sound Effect/dogDead.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6e1af8955d78724b988e86506d1e722
+    m_Address: Assets/Sound & Audio/Sound Effect/landing.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d07a51480ef53564680d8c4edd0f742f
+    m_Address: Assets/Sound & Audio/Sound Effect/countDown.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db104c795a9dca84280911ec2fef1a9d
     m_Address: Assets/Art/Sprite Atlas/WinnerUISprite.spriteatlasv2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e12df5a4607b9b24b9eb72a0e4201584
+    m_Address: Assets/Sound & Audio/Sound Effect/Fire.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2511e966dfce9e4cb9149dceb35b666
+    m_Address: Assets/Sound & Audio/Sound Effect/hardHit.wav
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
