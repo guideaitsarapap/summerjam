@@ -26,7 +26,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 174edf38e1129fb4692c638cb39634b4
-    m_Address: Assets/Prefabs/RedPlayer.prefab
+    m_Address: Assets/Prefabs/Character/RedPlayer.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 24873b1cbf49e5647934c3708419d0eb
-    m_Address: Assets/Prefabs/BluePlayer.prefab
+    m_Address: Assets/Prefabs/Character/BluePlayer.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
